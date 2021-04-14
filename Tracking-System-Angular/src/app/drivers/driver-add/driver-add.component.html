@@ -1,0 +1,67 @@
+    <div class="container">
+        <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form [formGroup]="AddForm" (ngSubmit)="onSubmit()">
+                
+                <div class="formStyle">
+
+                    <h5 class="form-head">Add Driver</h5>
+                    <div class="form-group">
+                        
+                        <input type="text" formControlName="firstName" class="form-control" 
+                        placeholder="FirstName" [ngClass]="{'is-invalid' : 
+                        !AddForm.get('firstName').valid && this.AddForm.get('firstName').touched}">
+                        <span class="text-danger" *ngIf="!this.AddForm.get('firstName').valid && 
+                        this.AddForm.get('firstName').touched">
+                            {{errorMessage.firstName.required}}
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="lastName" class="form-control" 
+                        placeholder="LastName" [ngClass]="{'is-invalid' : 
+                        !AddForm.get('lastName').valid && this.AddForm.get('lastName').touched}">
+                        <span class="text-danger" *ngIf="!this.AddForm.get('lastName').valid && 
+                        this.AddForm.get('lastName').touched">
+                            {{errorMessage.lastName.required}}
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="email" class="form-control" 
+                        placeholder="Email" [ngClass]="{'is-invalid' : 
+                        !AddForm.get('email').valid && this.AddForm.get('email').touched}">
+                        <span class="text-danger" *ngIf="!this.AddForm.get('email').valid && 
+                        this.AddForm.get('email').touched">
+                            {{errorMessage.email.required}}
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" formControlName="password" 
+                        class="form-control" placeholder="Password" [ngClass]="{'is-invalid' : 
+                        AddForm.get('password').invalid && AddForm.get('password').touched}">
+                        <span class="text-danger" *ngIf="!this.AddForm.get('password').valid 
+                        && this.AddForm.get('password').touched">
+                            {{errorMessage.password.required}}
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="url" class="form-control" 
+                        placeholder="">
+                        
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="phone" class="form-control" 
+                        placeholder="Phone Number" [ngClass]="{'is-invalid' : 
+                        !AddForm.get('phone').valid && this.AddForm.get('phone').touched}">
+                        <span class="text-danger" *ngIf="!this.AddForm.get('phone').valid && 
+                        this.AddForm.get('phone').touched">
+                            {{errorMessage.PhoneNumber.required}}
+                        </span>
+                    </div>
+                
+                    <button class="btn btn-primary" type="submit">Save</button>
+            </div>
+            </form>
+        </div>
+    </div>
+   
+</div>

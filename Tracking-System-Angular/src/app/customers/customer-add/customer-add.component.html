@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row justify-content-center">
+    
+    <div class="col-md-8">
+        <form [formGroup]="AddForm" (ngSubmit)="onSubmit()">
+            <div class="formStyle">
+
+                <h5 class="form-head">{{title}}</h5>
+                <div class="form-group">
+                    <input type="text" formControlName="name" class="form-control" 
+                    placeholder="Name" [ngClass]="{'is-invalid' : 
+                    !AddForm.get('name').valid && this.AddForm.get('name').touched}">
+                    <span class="text-danger" *ngIf="!this.AddForm.get('name').valid && 
+                    this.AddForm.get('name').touched">
+                        {{errorMessage.name.required}}
+                    </span>
+                </div>
+                <div class="form-group">
+                    <input type="number" formControlName="phone" 
+                    class="form-control" placeholder="Phone" [ngClass]="{'is-invalid' : 
+                    AddForm.get('phone').invalid && AddForm.get('phone').touched}">
+                    <span class="text-danger" *ngIf="!this.AddForm.get('phone').valid 
+                    && this.AddForm.get('phone').touched">
+                        {{errorMessage.phone.required}}
+                    </span>
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="address" 
+                    class="form-control" placeholder="address" [ngClass]="{'is-invalid' : 
+                    AddForm.get('address').invalid && AddForm.get('address').touched}">
+                    <span class="text-danger" *ngIf="!this.AddForm.get('address').valid 
+                    && this.AddForm.get('address').touched">
+                        {{errorMessage.address.required}}
+                    </span>
+                </div>
+                
+            <button class="btn btn-primary" [disabled]="AddForm.invalid" 
+            type="submit">{{btnTitle}}</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>

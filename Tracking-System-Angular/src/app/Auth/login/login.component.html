@@ -1,0 +1,36 @@
+<div class="div">
+<div class="container">
+   
+    <div class="row justify-content-center">
+        
+        <div class="col-md-6 my-4">
+            <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
+                <div class="logStyle">
+                <h4>Sign In</h4>
+                <div class="form-group" style="margin-top: 30px;">
+                    <input type="text" formControlName="email" class="form-control my-3 p-4" 
+                    placeholder="Email" [ngClass]="{'is-invalid' : 
+                    !LoginForm.get('email').valid && this.LoginForm.get('email').touched}">
+                    <span class="text-danger" *ngIf="!this.LoginForm.get('email').valid && this.LoginForm.get('email').touched">
+                        {{errorMessage.email.required}}
+                    </span>
+                </div>
+                <div class="form-group">
+                    <input type="password" formControlName="password" 
+                    class="form-control my-3 p-4" placeholder="Password" [ngClass]="{'is-invalid' : 
+                    LoginForm.get('password').invalid && LoginForm.get('password').touched}">
+                    <span class="text-danger" *ngIf="!this.LoginForm.get('password').valid 
+                    && this.LoginForm.get('password').touched">
+                        {{errorMessage.password.required}}
+                    </span>
+                </div>
+                <button class="btn btn-primary" style="width: 40%; height: 40px; 
+                background-color: #263544; border: none; outline: none;" [disabled]="LoginForm.invalid" 
+                type="submit">Sign In</button>
+            </div>
+            </form>
+        </div>
+    
+</div>
+</div>
+</div>

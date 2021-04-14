@@ -1,0 +1,56 @@
+    <div class="container">
+        <div class="row justify-content-center">
+        
+        <div class="col-md-8">
+            <form [formGroup]="AddForm" (ngSubmit)="onSubmit()">
+                <div class="formStyle">
+
+                    <h5 class="form-head">{{title}}</h5>
+                    <div class="form-group">
+                        <input type="text" formControlName="name" class="form-control" 
+                        placeholder="Name" [ngClass]="{'is-invalid' : 
+                        !AddForm.get('name').valid && this.AddForm.get('name').touched}">
+                        <span class="text-danger" *ngIf="!this.AddForm.get('name').valid && 
+                        this.AddForm.get('name').touched">
+                            {{errorMessage.name.required}}
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="type" 
+                        class="form-control" placeholder="Type" [ngClass]="{'is-invalid' : 
+                        AddForm.get('type').invalid && AddForm.get('type').touched}">
+                        <span class="text-danger" *ngIf="!this.AddForm.get('type').valid 
+                        && this.AddForm.get('type').touched">
+                            {{errorMessage.type.required}}
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="subType" 
+                        class="form-control" placeholder="SubType" [ngClass]="{'is-invalid' : 
+                        AddForm.get('subType').invalid && AddForm.get('subType').touched}">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="description" 
+                        class="form-control" placeholder="Description" [ngClass]="{'is-invalid' : 
+                        AddForm.get('description').invalid && AddForm.get('description').touched}">
+                        <span class="text-danger" *ngIf="!this.AddForm.get('description').valid 
+                        && this.AddForm.get('description').touched">
+                            {{errorMessage.description.required}}
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="assetNumber" 
+                        class="form-control" placeholder="Asset Number" [ngClass]="{'is-invalid' : 
+                        AddForm.get('assetNumber').invalid && AddForm.get('assetNumber').touched}">
+                        <span class="text-danger" *ngIf="!this.AddForm.get('assetNumber').valid 
+                        && this.AddForm.get('assetNumber').touched">
+                            {{errorMessage.assetNumber.required}}
+                        </span>
+                    </div>
+                <button class="btn btn-primary" [disabled]="AddForm.invalid" 
+                type="submit">{{btnTitle}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
