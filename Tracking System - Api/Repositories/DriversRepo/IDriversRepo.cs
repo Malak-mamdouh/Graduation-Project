@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Tracking_System___Api.Dtos;
+using Tracking_System___Api.Models;
 
 namespace Tracking_System___Api.Repositories.DriversRepo
 {
    public interface IDriversRepo
     {
-        Task addDriver(Driver driver);
-        Task<IList<Driver>> showDrivers();
-        Task deleteDriver( int id);
-        Task<Driver> updateDriver(Driver driver, int id);
-        Task<Driver> showDriver(int id);
+        Task<User> addDriver(Driver driver);
+        
+        Task<IEnumerable<Driver>> showDrivers();
+       /* Task<bool> deleteDriver( int id);
+        Task<Driver> updateDriver(Driver driver);*/
+       /* Task<User> showDriver(string id);*/
     } 
 }

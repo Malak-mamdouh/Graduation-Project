@@ -1,11 +1,12 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Driver } from '../Models/Driver';
+import { Observable } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class DriverService {
 
-    baseUrl = '';
+    baseUrl = 'https://localhost:44370/drivers/';
     headers = {
         headers: new HttpHeaders({
             'content-type': 'application/json'
@@ -13,19 +14,19 @@ export class DriverService {
     };
     constructor(private http: HttpClient) {}
 
-    AllDrivers(){
-        return this.http.get(this.baseUrl);
+    AllDrivers(): Observable<Driver[]>{
+        return this.http.get<Driver[]>(this.baseUrl + 'GetAllDrivers');
     }
     GetDriver(id: number){
-        return this.http.get(this.baseUrl + 'getAsset/' + id);
+        return this.http.get(this.baseUrl + 'GetDriver/' + id);
     }
     AddDriver(driver: Driver){
-        return this.http.post(this.baseUrl + 'addAsset' , driver);
+        return this.http.post(this.baseUrl + 'AddDriver' , driver);
     }
     EditDriver(driver: Driver){
-        return this.http.put(this.baseUrl + 'editAsset' , driver);
+        return this.http.put(this.baseUrl + 'EditDriver' , driver);
     }
     DeleteDriver(id: number){
-        return this.http.get(this.baseUrl + 'deleteAsset/' + id);
+        return this.http.get(this.baseUrl + 'DeleteDriver/' + id);
     }
 }

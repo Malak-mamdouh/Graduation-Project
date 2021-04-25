@@ -9,7 +9,7 @@ using Tracking_System___Api.Models;
 
 namespace Tracking_System___Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]/[action]")]
     [ApiController]
     public class CustomersController : ControllerBase
     {
@@ -22,7 +22,7 @@ namespace Tracking_System___Api.Controllers
 
         // GET: api/Customers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Customer>>> Getcustomers()
+        public async Task<ActionResult<IEnumerable<Customer>>> GetAllCustomers()
         {
             return await _context.customers.ToListAsync();
         }
@@ -44,7 +44,7 @@ namespace Tracking_System___Api.Controllers
         // PUT: api/Customers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCustomer(int id, Customer customer)
+        public async Task<IActionResult> EditCustomer(int id,Customer customer)
         {
             if (id != customer.Id)
             {
@@ -75,12 +75,16 @@ namespace Tracking_System___Api.Controllers
         // POST: api/Customers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Customer>> PostCustomer(Customer customer)
+        public async Task<ActionResult<Customer>> AddCustomer(Customer customer)
         {
-            _context.customers.Add(customer);
-            await _context.SaveChangesAsync();
+            if (ModelState.IsValid)
+            {
+                _context.customers.Add(customer);
+                await _context.SaveChangesAsync();
+                return Ok();
+            }
 
-            return CreatedAtAction("GetCustomer", new { id = customer.Id }, customer);
+            return BadRequest();
         }
 
         // DELETE: api/Customers/5

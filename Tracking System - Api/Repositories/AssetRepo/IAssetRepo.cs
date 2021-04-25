@@ -8,10 +8,10 @@ namespace Tracking_System___Api.Repositories.AssetRepo
 {
     public interface IAssetRepo
     {
-        Task addAsset(Asset asset);
-        Task deleteAsset(int id);
-       Task<IList<Asset>> showAssets();
+        Task<Asset> addAsset(Asset asset);
+        Task<bool> deleteAsset(int id);
+        Task<IList<Asset>> showAllAssets();
         Task<Asset> showAsset(int id);
-        Task<Asset> updateAsset(Asset asset,int id);
+        Task<Asset> updateAsset(Asset asset);
     }
 }

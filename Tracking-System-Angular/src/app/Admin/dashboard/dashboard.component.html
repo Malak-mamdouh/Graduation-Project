@@ -9,42 +9,52 @@
             <p>Dummy Heading</p>
             <li class="active">
                 
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" 
-                class="dropdown-toggle"><i class="fa fa-home mr-2"></i> Home</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
+                <a href="#driverMenu" data-toggle="collapse" aria-expanded="false" 
+                class="dropdown-toggle"> Drivers</a>
+                <ul class="collapse list-unstyled" id="driverMenu">
                     <li>
                         <a routerLink="/add-driver">Add Driver</a>
                     </li>
                     <li>
-                        <a [routerLink]="['/add-asset']">Add Asset</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 3</a>
+                        <a [routerLink]="['/driver-list']">Driver List</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
+                <a href="#AssetMenu" data-toggle="collapse" aria-expanded="false" 
+                class="dropdown-toggle">Assets</a>
+                <ul class="collapse list-unstyled" id="AssetMenu">
                     <li>
-                        <a href="#">Page 1</a>
+                        <a routerLink="/add-asset">Add Asset</a>
                     </li>
                     <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 3</a>
+                        <a [routerLink]="['/asset-list']">Asset List</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#">Portfolio</a>
+                <a href="#customerMenu" data-toggle="collapse" aria-expanded="false" 
+                class="dropdown-toggle">Customers</a>
+                <ul class="collapse list-unstyled" id="customerMenu">
+                    <li>
+                        <a routerLink="/add-customer">Add Customer</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/customer-list']">Customer List</a>
+                    </li>
+                </ul>
             </li>
             <li>
-                <a href="#">Contact</a>
+                <a href="#IssueMenu" data-toggle="collapse" aria-expanded="false" 
+                class="dropdown-toggle">Issues</a>
+                <ul class="collapse list-unstyled" id="IssueMenu">
+                    <li>
+                        <a routerLink="/add-issue">Add Issue</a>
+                    </li>
+                    <li>
+                        <a >Issue List</a>
+                    </li>
+                </ul>
             </li>
         </ul>
 

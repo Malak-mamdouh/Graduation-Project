@@ -5,5 +5,5 @@ export class Asset {
     subType: string;
     description: string;
     url: string;
-    asset_Number: string;
+    assetNumber: string;
 }

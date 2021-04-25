@@ -16,6 +16,7 @@ export class IssueAddComponent implements OnInit {
   isEditMode: boolean;
   btnTitle: string;
   title: string;
+  statusList = [{id:1 , name:'Open'} , {id:2 , name:'Resolved'} , {id:3 , name:'Closed'}];
   errorMessage = {
     asset_number: {
       required: 'Number is required'
@@ -38,12 +39,14 @@ export class IssueAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.isEditMode = false;
-    this.btnTitle = 'Add';
     this.title = 'Add Issue';
+    this.btnTitle = 'Add';
     this.AddForm = new FormGroup({
       asset_number: new FormControl('' , Validators.required),
-      phone: new FormControl('' , Validators.required),
-      address: new FormControl('' , Validators.required)
+      status: new FormControl('' , Validators.required),
+      date: new FormControl(new Date() , Validators.required),
+      description: new FormControl('' , Validators.required),
+      reportedBy: new FormControl('' , Validators.required)
     });
     this.issueModel = {
       id: 0,
@@ -56,12 +59,12 @@ export class IssueAddComponent implements OnInit {
     this.activeRoute.paramMap.subscribe(param => {
       const id = +param.get('id');
       if(id){
-        this.btnTitle = 'Edit';
+          this.btnTitle = 'Edit';
           this.title = 'Edit Issue';
         this.issueService.ShowIssue(id).subscribe(result => {
           this.issueModel = result;
           this.isEditMode = true;
-          this.btnTitle = 'Edit';
+          
           this.title = 'Edit Issue';
           this.addIssueData();
         } , err => console.log(err));

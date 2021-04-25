@@ -16,8 +16,6 @@ namespace Tracking_System___Api.Models
         public bool IsDone { get; set; }
         public int CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
-        public int DriverId { get; set; }
-        public virtual Driver Driver { get; set; }
         public int AssetId { get; set; }
         public virtual Asset Asset { get; set;}
         [NotMapped]

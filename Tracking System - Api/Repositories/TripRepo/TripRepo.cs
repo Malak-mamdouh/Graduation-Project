@@ -24,8 +24,6 @@ namespace Tracking_System___Api.Repositories.TripRepo
                 Asset = context.assets.FirstOrDefault(x => x.Id == tripdto.AssetId),
                 CustomerId = tripdto.CustomerId,
                 Customer = context.customers.FirstOrDefault(x => x.Id == tripdto.CustomerId),
-                DriverId = tripdto.DriverId,
-                Driver = context.drivers.FirstOrDefault(x => x.Id == tripdto.DriverId),
                 Date = tripdto.Date,
                 Destination = tripdto.Destination,
                 IsDone = tripdto.IsDone,
@@ -45,13 +43,13 @@ namespace Tracking_System___Api.Repositories.TripRepo
 
         public async Task<Trip> showTrip(int id)
         {
-            var trip = await context.Trips.Include(x => x.Asset).Include(x => x.Customer).Include(x => x.Driver).Include(x => x.current).FirstOrDefaultAsync(x => x.Id == id);
+            var trip = await context.Trips.Include(x => x.Asset).Include(x => x.Customer).Include(x => x.current).FirstOrDefaultAsync(x => x.Id == id);
             return trip;
         }
 
         public async Task<IList<Trip>> showTrips()
         {
-            var trips = await context.Trips.Include(x => x.Asset).Include(x => x.Customer).Include(x => x.current).Include(x => x.Driver).ToListAsync();
+            var trips = await context.Trips.Include(x => x.Asset).Include(x => x.Customer).Include(x => x.current).ToListAsync();
             return trips;
         }
 

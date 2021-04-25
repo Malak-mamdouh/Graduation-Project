@@ -51,23 +51,6 @@ namespace Tracking_System___Api.Migrations
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "drivers",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Phone = table.Column<long>(type: "bigint", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_drivers", x => x.Id);
-                });
 
             migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
@@ -231,9 +214,6 @@ namespace Tracking_System___Api.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
-
-            migrationBuilder.DropTable(
-                name: "drivers");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

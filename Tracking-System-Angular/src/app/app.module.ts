@@ -11,6 +11,8 @@ import { DashboardComponent } from './Admin/dashboard/dashboard.component';
 import { LoginComponent } from './Auth/login/login.component';
 import { CustomerAddComponent } from './customers/customer-add/customer-add.component';
 import { IssueAddComponent } from './issues/issue-add/issue-add.component';
+import { SharedModule } from './shared/shared.module';
+import { CustomerListComponent } from './customers/customer-list/customer-list.component';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { IssueAddComponent } from './issues/issue-add/issue-add.component';
     DashboardComponent,
     LoginComponent,
     CustomerAddComponent,
-    IssueAddComponent
+    IssueAddComponent,
+    CustomerListComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { IssueAddComponent } from './issues/issue-add/issue-add.component';
     ReactiveFormsModule,
     DriversModule,
     AssetsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -27,16 +27,19 @@ export class CustomerAddComponent implements OnInit {
       required: 'Address is required'
     }
   }
+  message: string;
   constructor(private activeRoute: ActivatedRoute, 
               private customerService: CustomerService) { }
 
   ngOnInit(): void {
     this.isEditMode = false;
     this.btnTitle = 'Add';
+    this.message = '';
     this.title = 'Add Customer';
     this.AddForm = new FormGroup({
       name: new FormControl('' , Validators.required),
-      phone: new FormControl('' , Validators.required),
+      phone: new FormControl('' , [Validators.required , Validators.maxLength(11) 
+        , Validators.minLength(11)]),
       address: new FormControl('' , Validators.required)
     });
     this.customerModel = {
@@ -48,13 +51,12 @@ export class CustomerAddComponent implements OnInit {
     this.activeRoute.paramMap.subscribe(param => {
       const id = +param.get('id');
       if(id){
-        this.btnTitle = 'Edit';
-          this.title = 'Edit Asset';
+        
         this.customerService.ShowCustomer(id).subscribe(result => {
           this.customerModel = result;
           this.isEditMode = true;
           this.btnTitle = 'Edit';
-          this.title = 'Edit Asset';
+          this.title = 'Edit Customer';
           this.addCustomerData();
         } , err => console.log(err));
       }
@@ -62,6 +64,18 @@ export class CustomerAddComponent implements OnInit {
   }
 
   onSubmit(){
+    this.ValidateModel();
+    if(!this.isEditMode){
+      this.customerService.AddCustomer(this.customerModel).subscribe(x => {
+        this.message = 'Customer has Added Successfully'
+      }, err => console.log(err));
+    }
+    else{
+      this.customerService.EditCustomer(this.customerModel , this.customerModel.id).subscribe(x => {
+        this.message = 'Customer has updated Successfully'
+      } , err => console.log(err));
+    }
+    this.AddForm.reset();
   }
   addCustomerData(){
     if(this.customerModel !== null){

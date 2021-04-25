@@ -1,4 +1,11 @@
 <div class="container">
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="message !== ''">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        {{message}}
+      </div>
     <div class="row justify-content-center">
     
     <div class="col-md-8">
@@ -34,7 +41,7 @@
                     </span>
                 </div>
                 
-            <button class="btn btn-primary" [disabled]="AddForm.invalid" 
+            <button class="btn btn-custom" [disabled]="AddForm.invalid" 
             type="submit">{{btnTitle}}</button>
             </div>
         </form>

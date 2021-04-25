@@ -12,10 +12,13 @@ import { AssetService } from '../asset.service';
 export class AssetAddComponent implements OnInit {
 
   AddForm: FormGroup;
+  response: {url : ''};
   assetModel: Asset;
   isEditMode: boolean;
   btnTitle: string;
   title: string;
+  editUrl: string;
+  message: string;
   errorMessage = {
     name: {
       required: 'name is required'
@@ -34,7 +37,12 @@ export class AssetAddComponent implements OnInit {
               private assetService: AssetService) { }
 
   ngOnInit(): void {
+    this.response = {
+      url : ''
+    };
+    this.message = '';
     this.isEditMode = false;
+    this.editUrl = ''
     this.btnTitle = 'Add';
     this.title = 'Add Asset';
     this.AddForm = new FormGroup({
@@ -50,28 +58,49 @@ export class AssetAddComponent implements OnInit {
       type:'',
       subType:'',
       description:'',
-      asset_Number:'',
+      assetNumber:'',
       url:''
     }
     this.activeRoute.paramMap.subscribe(param => {
       const id = +param.get('id');
       if(id){
-        this.btnTitle = 'Edit';
-          this.title = 'Edit Asset';
+    
         this.assetService.ShowAsset(id).subscribe(result => {
           this.assetModel = result;
           this.isEditMode = true;
           this.btnTitle = 'Edit';
           this.title = 'Edit Asset';
+          this.editUrl = this.assetModel.url;
           this.addAssetData();
         } , err => console.log(err));
       }
     });
   }
 
+  public uploadFinished = (event) =>{
+    this.response = event;
+  }
   onSubmit(){
     this.ValidateModel();
-    console.log(this.assetModel);
+    if(!this.isEditMode){
+      this.assetModel.url = this.response.url;
+      this.assetService.AddAsset(this.assetModel).subscribe(result => {
+        this.message = 'Asset has added successfuly'
+      } , err => console.log(err));
+    }
+    else{
+      if (this.editUrl !== null && this.response.url == ''){
+        this.assetModel.url = this.editUrl;
+        console.log(this.assetModel.url);
+      }
+      else{
+        this.assetModel.url = this.response.url;
+      }
+      this.assetService.EditAsset(this.assetModel).subscribe(x => {
+        this.message = 'Asset has updated successfuly'
+      } , err => console.log(err));
+    }
+    
     this.AddForm.reset();
   }
   addAssetData(){
@@ -81,7 +110,7 @@ export class AssetAddComponent implements OnInit {
         type: this.assetModel.type,
         subType: this.assetModel.subType,
         description: this.assetModel.description,
-        assetNumber: this.assetModel.asset_Number,
+        assetNumber: this.assetModel.assetNumber,
       });
     }
   }
@@ -90,6 +119,6 @@ export class AssetAddComponent implements OnInit {
     this.assetModel.type = this.AddForm.get('type').value;
     this.assetModel.subType = this.AddForm.get('subType').value;
     this.assetModel.description = this.AddForm.get('description').value;
-    this.assetModel.asset_Number = this.AddForm.get('assetNumber').value;
+    this.assetModel.assetNumber = this.AddForm.get('assetNumber').value;
   }
 }

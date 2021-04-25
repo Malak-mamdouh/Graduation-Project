@@ -12,7 +12,7 @@ using Tracking_System___Api.Repositories.EmailRepo;
 
 namespace Tracking_System___Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]/[action]")]
     [ApiController]
     public class DriversController : ControllerBase
     {
@@ -24,61 +24,77 @@ namespace Tracking_System___Api.Controllers
             this.idriverrepo = idriverrepo;
             this.emailSender = emailSender;
         }
+       
         // GET: api/<DriversController>
         [HttpGet]
-        public async Task<ActionResult<IList<Driver>>> GetDrivers()
+        public async Task<ActionResult<IList<Driver>>> GetAllDrivers()
         {
             var drivers = await idriverrepo.showDrivers();
-            return Ok(drivers);
-        }
-
-        // GET api/<DriversController>/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Driver>> GetDriver(int id)
-        {
-            if (id != 0)
+            if (drivers != null)
             {
-                var driver = await idriverrepo.showDriver(id);
-                return Ok(driver);
+                return Ok(drivers);
             }
             return BadRequest();
         }
-
+       /* 
+       // GET api/<DriversController>/5
+       [HttpGet("{id}")]
+       public async Task<ActionResult<Driver>> GetDriver(string id)
+       {
+           if (id != "")
+           {
+               var driver = await idriverrepo.showDriver(id);
+               return Ok(driver);
+           }
+           return BadRequest();
+       }
+       */
         // POST api/<DriversController>
         [HttpPost]
         public async Task<IActionResult> AddDriver (Driver driver)
         {
-            if (driver != null)
+            if (ModelState.IsValid)
             {
                 await idriverrepo.addDriver(driver);
-                return StatusCode(202);
+                return Ok(driver);
             }
-            else return BadRequest();
+            else
+            {
+                return BadRequest();
+            }
         }
-
+        /*
         // PUT api/<DriversController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateDriver(int id, Driver driver)
+        public async Task<IActionResult> EditDriver(Driver driver)
         {
-            if (id != 0 && driver != null)
+
+            if (!ModelState.IsValid)
             {
-               await idriverrepo.updateDriver(driver, id);
-                return StatusCode(202);
+                return BadRequest();
             }
-            return BadRequest();
+            var driverModel = await idriverrepo.updateDriver(driver);
+            if (driverModel == null)
+            {
+                return NotFound();
+            }
+            return StatusCode(202);
+
         }
 
         // DELETE api/<DriversController>/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDriver(int id)
         {
-            if (id != 0)
+            if (id == 0)
+                return BadRequest();
+            var driver = await idriverrepo.deleteDriver(id);
+            if (driver)
             {
-               await idriverrepo.deleteDriver(id);
-                return StatusCode(202);
+                return Ok();
             }
             return BadRequest();
 
-        }
+        }*/
     }
 }

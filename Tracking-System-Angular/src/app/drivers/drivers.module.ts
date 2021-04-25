@@ -3,6 +3,7 @@ import { DriverAddComponent } from './driver-add/driver-add.component';
 import { DriverListComponent } from './driver-list/driver-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -11,7 +12,8 @@ import { CommonModule } from '@angular/common';
     ],
     imports: [
         ReactiveFormsModule,
-        CommonModule
+        CommonModule,
+        SharedModule
     ],
     exports:[
         DriverAddComponent,

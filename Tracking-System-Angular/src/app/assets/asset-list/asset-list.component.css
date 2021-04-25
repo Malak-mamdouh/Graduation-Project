@@ -1,0 +1,9 @@
+.tbl{
+        border: 1px solid rgba(0,0,0,.125);
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 0 5px 0 rgb(43 43 43 / 10%), 0 11px 6px -7px rgb(43 43 43 / 10%);
+}
+.table tbody+tbody {
+    border-top: 0px solid #dee2e6;
+}

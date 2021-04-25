@@ -13,7 +13,7 @@ namespace Tracking_System___Api.Models
         public Context( DbContextOptions options ) : base(options)
         {
         }
-      public  DbSet<Driver> drivers { get; set; }
+      
         public DbSet<Asset> assets { get; set; }
         public DbSet<Issues> issues { get; set; }
         public DbSet<Customer> customers { get; set; }

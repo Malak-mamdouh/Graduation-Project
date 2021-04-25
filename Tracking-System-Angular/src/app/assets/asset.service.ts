@@ -6,7 +6,7 @@ import { Asset } from '../Models/Asset';
 @Injectable({providedIn: 'root'})
 export class AssetService {
 
-    baseUrl = '';
+    baseUrl = 'https://localhost:44370/assets/';
     headers = {
         headers: new HttpHeaders({
             'content-type': 'application/json'
@@ -14,19 +14,19 @@ export class AssetService {
     };
     constructor(private http: HttpClient) {}
 
-    AllAssets(){
-        return this.http.get(this.baseUrl);
+    AllAssets(): Observable<Asset[]>{
+        return this.http.get<Asset[]>(this.baseUrl + 'GetAllAssets');
     }
     ShowAsset(id: number): Observable<Asset>{
-        return this.http.get<Asset>(this.baseUrl + 'getAsset/' + id);
+        return this.http.get<Asset>(this.baseUrl + 'GetAsset/' + id);
     }
     AddAsset(asset: Asset){
-        return this.http.post(this.baseUrl + 'addAsset' , asset);
+        return this.http.post(this.baseUrl + 'PostAsset' , asset);
     }
     EditAsset(asset: Asset){
-        return this.http.put(this.baseUrl + 'editAsset' , asset);
+        return this.http.put(this.baseUrl + 'EditAsset' , asset);
     }
     DeleteAsset(id: number){
-        return this.http.get(this.baseUrl + 'deleteAsset/' + id);
+        return this.http.delete(this.baseUrl + 'DeleteAsset/' + id);
     }
 }

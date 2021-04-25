@@ -16,7 +16,7 @@ namespace Tracking_System___Api.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.4")
+                .HasAnnotation("ProductVersion", "5.0.5")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -120,36 +120,6 @@ namespace Tracking_System___Api.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Tracking_System___Api.Dtos.Driver", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Image")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("LastName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long>("Phone")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("drivers");
-                });
-
             modelBuilder.Entity("Tracking_System___Api.Models.Asset", b =>
                 {
                     b.Property<int>("Id")
@@ -157,19 +127,24 @@ namespace Tracking_System___Api.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AssetNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("AssetNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SubType")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Type")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Url")
@@ -188,10 +163,16 @@ namespace Tracking_System___Api.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Address")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("PhoneNumber")
-                        .HasColumnType("bigint");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -212,12 +193,15 @@ namespace Tracking_System___Api.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ReportedBy")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Status")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -274,9 +258,6 @@ namespace Tracking_System___Api.Migrations
                     b.Property<string>("Destination")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DriverId")
-                        .HasColumnType("int");
-
                     b.Property<bool>("IsDone")
                         .HasColumnType("bit");
 
@@ -288,8 +269,6 @@ namespace Tracking_System___Api.Migrations
                     b.HasIndex("AssetId");
 
                     b.HasIndex("CustomerId");
-
-                    b.HasIndex("DriverId");
 
                     b.ToTable("Trips");
                 });
@@ -314,6 +293,12 @@ namespace Tracking_System___Api.Migrations
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
 
@@ -327,9 +312,6 @@ namespace Tracking_System___Api.Migrations
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
@@ -345,6 +327,9 @@ namespace Tracking_System___Api.Migrations
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Url")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
@@ -465,17 +450,9 @@ namespace Tracking_System___Api.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Tracking_System___Api.Dtos.Driver", "Driver")
-                        .WithMany()
-                        .HasForeignKey("DriverId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Asset");
 
                     b.Navigation("Customer");
-
-                    b.Navigation("Driver");
                 });
 
             modelBuilder.Entity("Tracking_System___Api.Models.location", b =>

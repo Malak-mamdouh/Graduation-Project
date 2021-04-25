@@ -1,0 +1,15 @@
+<form [formGroup] = "uploadForm" (ngSubmit)="onSubmit()">      
+    <div>
+        <input type="file" name="profile" (change)="onFileSelect($event)" />
+        <button type="submit" class="btn btn-success">Upload</button>
+        <span class="upload" *ngIf="progress > 0">
+            {{progress}}%
+        </span>
+    </div>
+       <div>
+        <span class="upload" *ngIf="message">
+         {{message}}
+        </span> 
+      </div>
+</form>
+  

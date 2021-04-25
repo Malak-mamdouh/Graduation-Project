@@ -16,6 +16,11 @@
                     </span>
                 </div>
                 <div class="form-group">
+                    <select class="form-control" >
+                        <option *ngFor="let status of statusList" [value]="status.id">{{status.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <input type="date" formControlName="date" 
                     class="form-control" placeholder="Date" [ngClass]="{'is-invalid' : 
                     AddForm.get('date').invalid && AddForm.get('date').touched}">
@@ -42,7 +47,7 @@
                         {{errorMessage.reportedBy.required}}
                     </span>
                 </div>
-            <button class="btn btn-primary" [disabled]="AddForm.invalid" 
+            <button class="btn btn-custom" [disabled]="AddForm.invalid" 
             type="submit">{{btnTitle}}</button>
             </div>
         </form>

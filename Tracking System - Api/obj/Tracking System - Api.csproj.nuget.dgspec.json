@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\web developer\\Gp\\Tracking System - Api\\Tracking System - Api.csproj": {}
+    "C:\\Users\\rt\\Tracking-System-Github\\Graduation-Project\\Tracking System - Api\\Tracking System - Api.csproj": {}
   },
   "projects": {
-    "F:\\web developer\\Gp\\Tracking System - Api\\Tracking System - Api.csproj": {
+    "C:\\Users\\rt\\Tracking-System-Github\\Graduation-Project\\Tracking System - Api\\Tracking System - Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\web developer\\Gp\\Tracking System - Api\\Tracking System - Api.csproj",
+        "projectUniqueName": "C:\\Users\\rt\\Tracking-System-Github\\Graduation-Project\\Tracking System - Api\\Tracking System - Api.csproj",
         "projectName": "Tracking System - Api",
-        "projectPath": "F:\\web developer\\Gp\\Tracking System - Api\\Tracking System - Api.csproj",
-        "packagesPath": "C:\\Users\\nourmaher\\.nuget\\packages\\",
-        "outputPath": "F:\\web developer\\Gp\\Tracking System - Api\\obj\\",
+        "projectPath": "C:\\Users\\rt\\Tracking-System-Github\\Graduation-Project\\Tracking System - Api\\Tracking System - Api.csproj",
+        "packagesPath": "C:\\Users\\rt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rt\\Tracking-System-Github\\Graduation-Project\\Tracking System - Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\nourmaher\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rt\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -50,11 +50,15 @@
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[5.0.4, )"
+              "version": "[5.0.5, )"
             },
             "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
               "target": "Package",
-              "version": "[5.0.4, )"
+              "version": "[5.0.5, )"
+            },
+            "Microsoft.AspNetCore.Cors": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",
@@ -62,37 +66,33 @@
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.4, )"
+              "version": "[5.0.5, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[5.0.4, )"
+              "version": "[5.0.5, )"
             },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[5.0.5, )"
             },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[5.0.4, )"
-            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.4, )"
+              "version": "[5.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.4, )"
+              "version": "[5.0.5, )"
             },
             "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",
-              "version": "[5.0.4, )"
+              "version": "[5.0.5, )"
             },
             "Microsoft.Identity.Web": {
               "target": "Package",
-              "version": "[1.1.0, )"
+              "version": "[1.9.1, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -116,11 +116,11 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[5.6.3, )"
+              "version": "[6.1.2, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[6.10.0, )"
+              "version": "[6.10.2, )"
             },
             "System.Runtime": {
               "target": "Package",
@@ -145,7 +145,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

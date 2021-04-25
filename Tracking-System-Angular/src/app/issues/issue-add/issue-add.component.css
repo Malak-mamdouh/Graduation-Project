@@ -1,0 +1,27 @@
+.formStyle{
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 50px 100px;
+    box-shadow: 0 0 5px 0 rgb(43 43 43 / 10%), 0 11px 6px -7px rgb(43 43 43 / 10%);
+}
+.form-head{
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.form-head::after{
+    content: "";
+    background-color: #d2d2d2;
+    width: 50px;
+    height: 1px;
+    position: absolute;
+    margin-left: -82px;
+    margin-top: 30px;
+}
+.btn-custom{
+    background: #263544;
+    color: white;
+}

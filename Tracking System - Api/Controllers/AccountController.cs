@@ -48,19 +48,22 @@ namespace Tracking_System___Api.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<User>> Login(UserDto userDto)
         {
-            await createrole();
+            await CreateRoles();
             await createadmin();
           
             var account = await userManager.FindByEmailAsync(userDto.Email);
-            
+            if (account == null)
+            {
+                return NotFound();
+            }
 
             var result = await signInManager.CheckPasswordSignInAsync(account,userDto.Password , false);
             if (result.Succeeded)
             {
                 return  Ok(new
                 {
-                    token = GenerateJwtToken(account).Result,
-                    account
+                    token = GenerateJwtToken(account).Result
+                    /*account*/
                 });
             }
             else
@@ -69,32 +72,30 @@ namespace Tracking_System___Api.Controllers
             }
         }
         [HttpPost("Register")]
-        public async Task<ActionResult> AddDriver( Driver driverdto)
+        public async Task<ActionResult> AddDriver( Driver driver)
         {
-            var driver = new User
+
+            if (ModelState.IsValid)
             {
-                UserName = driverdto.FirstName,
-                Email = driverdto.Email,
-                PhoneNumber = driverdto.Phone.ToString(),
-                Password = driverdto.Password
-            };
-           await driversRepo.addDriver(driverdto);
-            var resuilt = await userManager.CreateAsync(driver, driverdto.Password);
-           
-            if (resuilt.Succeeded)
-            {
-                if (await roleManager.RoleExistsAsync("Driver"))
+                var driverModel = await driversRepo.addDriver(driver);
+
+                if (driverModel != null)
                 {
-                   await userManager.AddToRoleAsync(driver, "Driver");
+                    if (await roleManager.RoleExistsAsync("Driver"))
+                    {
+                        await userManager.AddToRoleAsync(driverModel, "Driver");
+                    }
+                    
+                    var message = new Message(new string[] { driver.Email }, "Welcome to tracker application",
+                        $" Dear {driverModel.FirstName} welcome \n   This is your password : {driver.Password}");
+                    emailSender.SendEmail(message);
+                    return Ok(driver);
                 }
-                 await driversRepo.addDriver(driverdto);
-                var message = new Message(new string[] { driver.Email }, "Welcome to tracker application", $" Dear {driverdto.FirstName} welcome \n   This is your password : {driver.Password}");
-                emailSender.SendEmail(message);
-                return Ok(driver);
-            } 
+                return BadRequest();
+            }
             else
             {
-                return BadRequest( resuilt);
+                return BadRequest();
             }
         }
         [ApiExplorerSettings(IgnoreApi = true)]
@@ -122,18 +123,21 @@ namespace Tracking_System___Api.Controllers
         [ApiExplorerSettings(IgnoreApi = true)]
         [NonAction]
 
-        public async Task createrole()
+        private async Task CreateRoles()
         {
-            var Admin = new Role
+            if (roleManager.Roles.Count() < 1)
             {
-                Name = "Admin"
-            };
-            await roleManager.CreateAsync(Admin);
-            var Driver = new Role
-            {
-                Name = "Driver"
-            };
-            await roleManager.CreateAsync(Driver);
+                var role = new Role
+                {
+                    Name = "Admin"
+                };
+                await roleManager.CreateAsync(role);
+                role = new Role
+                {
+                    Name = "Driver"
+                };
+                await roleManager.CreateAsync(role);
+            }
         }
         [ApiExplorerSettings(IgnoreApi = true)]
         [NonAction]

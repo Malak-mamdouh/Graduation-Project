@@ -1,4 +1,11 @@
     <div class="container">
+        <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="message !== ''">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              <span class="sr-only">Close</span>
+            </button>
+            {{message}}
+          </div>
         <div class="row justify-content-center">
         
         <div class="col-md-8">
@@ -47,7 +54,10 @@
                             {{errorMessage.assetNumber.required}}
                         </span>
                     </div>
-                <button class="btn btn-primary" [disabled]="AddForm.invalid" 
+                    <div class="form-group">
+                        <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+                     </div>
+                <button class="btn custom-btn" [disabled]="AddForm.invalid" 
                 type="submit">{{btnTitle}}</button>
                 </div>
             </form>
