@@ -23,6 +23,12 @@ export class DriverService {
     AddDriver(driver: Driver){
         return this.http.post(this.baseUrl + 'AddDriver' , driver);
     }
+    IsDriverNameExists(name: string){
+        return this.http.get(this.baseUrl + 'IsDriverExists/' + name);
+    }
+    IsEmailExists(email: string){
+        return this.http.get(this.baseUrl + 'IsEmailExists/' + email);
+    }
     EditDriver(driver: Driver){
         return this.http.put(this.baseUrl + 'EditDriver' , driver);
     }

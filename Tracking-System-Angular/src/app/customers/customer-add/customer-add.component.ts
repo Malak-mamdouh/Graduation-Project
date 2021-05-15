@@ -21,7 +21,8 @@ export class CustomerAddComponent implements OnInit {
       required: 'name is required'
     },
     phone: {
-      required: 'Phone is required'
+      required: 'Phone is required',
+      notValid: 'This field must be 11 digits'
     },
     address: {
       required: 'Address is required'
@@ -38,8 +39,8 @@ export class CustomerAddComponent implements OnInit {
     this.title = 'Add Customer';
     this.AddForm = new FormGroup({
       name: new FormControl('' , Validators.required),
-      phone: new FormControl('' , [Validators.required , Validators.maxLength(11) 
-        , Validators.minLength(11)]),
+      phone: new FormControl('' , [Validators.required , Validators.minLength(11) , 
+        Validators.maxLength(11) , Validators.pattern("^((\\+91-?)|0)?[0-9]{11}$")]),
       address: new FormControl('' , Validators.required)
     });
     this.customerModel = {

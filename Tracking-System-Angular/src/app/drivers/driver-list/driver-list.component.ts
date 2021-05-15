@@ -11,13 +11,22 @@ import { Router } from '@angular/router';
 export class DriverListComponent implements OnInit {
 
   drivers: Driver[];
+  IsEmpty: boolean;
+  isLoading = true;
   constructor(private driverService: DriverService,
               private route: Router) { }
 
   ngOnInit(): void {
+    this.IsEmpty = true;
     this.driverService.AllDrivers().subscribe(list => {
       this.drivers = list;
+      this.isLoading = false;
+      if(this.drivers.length >= 1){
+        this.IsEmpty = false;
+      }
+      console.log(this.drivers);
     } , err => console.log(err));
+    
   }
   onDelete(id: number){
     const alert = confirm('Do you delete this Product?');
@@ -35,4 +44,7 @@ export class DriverListComponent implements OnInit {
     this.route.navigate(['edit-asset/', id]);
   }
 
+  onAdd(){
+    this.route.navigate(['add-driver']);
+  }
 }

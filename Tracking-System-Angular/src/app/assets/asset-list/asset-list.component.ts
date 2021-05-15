@@ -11,14 +11,18 @@ import { Route } from '@angular/compiler/src/core';
 })
 export class AssetListComponent implements OnInit {
 
-  assets: Asset[];
+  assets: Asset[] = [];
+  isLoading = true;
   constructor(private assetService: AssetService , 
               private route: Router) { }
 
   ngOnInit(): void {
+    
     this.assetService.AllAssets().subscribe(list => {
       this.assets = list
+      this.isLoading = false;
     }, err => console.log(err));
+    
   }
 
   public createImgPath(serverpath: string){
@@ -35,5 +39,8 @@ export class AssetListComponent implements OnInit {
   }
   onEdit(id: number){
     this.route.navigate(['edit-asset/', id]);
+  }
+  onAdd(){
+    this.route.navigate(['add-asset']);
   }
 }

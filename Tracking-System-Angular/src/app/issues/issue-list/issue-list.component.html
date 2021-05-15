@@ -1,0 +1,36 @@
+<div *ngIf="isLoading" style="text-align: center; margin-top: 25vh;">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div class="tbl table-responsive" *ngIf="issues.length >= 1 && !isLoading">
+
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Status</th>
+            <th scope="col">Description</th>
+            <th scope="col">ReportedBy</th>
+            <th scope="col">Date</th>
+            <th></th>
+          </tr>
+        </thead>
+     
+          <tbody *ngFor="let issue of issues">
+            <tr>
+              <td>{{issue.status}}</td>
+              <td>{{issue.description}}</td>
+              <td>{{issue.reportedBy}}</td>
+              <td>{{issue.Date}}</td>
+              <td>
+                <a class="btn btn-danger mr-2" (click)="onDelete(issue.id)">Delete</a>
+                <a class="btn btn-primary" (click)="onEdit(issue.id)">Edit</a>
+            </td>
+            </tr>
+          </tbody>          
+
+    </table>
+</div>
+<div *ngIf="issues.length == 0 && !isLoading" class="text-center mt-3">
+  <h4><em>No Issues Here</em></h4>
+  <a (click)="onAdd()" class="btn btn-primary mt-2">Add Issue</a>
+  
+</div>

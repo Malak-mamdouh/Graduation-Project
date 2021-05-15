@@ -68,7 +68,7 @@ namespace Tracking_System___Api.Migrations
                 column: "TripId",
                 principalTable: "Trips",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.Restrict);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

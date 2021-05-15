@@ -7,3 +7,7 @@ export class Asset {
     url: string;
     assetNumber: string;
 }
+export class TypeItem{
+    id: number;
+    name: string;
+}

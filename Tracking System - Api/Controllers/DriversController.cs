@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,46 +18,76 @@ namespace Tracking_System___Api.Controllers
     [ApiController]
     public class DriversController : ControllerBase
     {
-        private readonly IDriversRepo idriverrepo;
-        private readonly IEmailSender emailSender;
+        private readonly IDriversRepo _idriverrepo;
+        private readonly IEmailSender _emailSender;
+        private readonly Context _context;
 
-        public DriversController( IDriversRepo idriverrepo , IEmailSender emailSender)
+        public DriversController( IDriversRepo idriverrepo , 
+            IEmailSender emailSender , 
+            Context context)
         {
-            this.idriverrepo = idriverrepo;
-            this.emailSender = emailSender;
+            _idriverrepo = idriverrepo;
+            _emailSender = emailSender;
+            _context = context;
         }
        
         // GET: api/<DriversController>
         [HttpGet]
         public async Task<ActionResult<IList<Driver>>> GetAllDrivers()
         {
-            var drivers = await idriverrepo.showDrivers();
+            var drivers = await _idriverrepo.showDrivers();
             if (drivers != null)
             {
                 return Ok(drivers);
             }
             return BadRequest();
         }
-       /* 
-       // GET api/<DriversController>/5
-       [HttpGet("{id}")]
-       public async Task<ActionResult<Driver>> GetDriver(string id)
-       {
-           if (id != "")
-           {
-               var driver = await idriverrepo.showDriver(id);
-               return Ok(driver);
-           }
-           return BadRequest();
-       }
-       */
+        [HttpGet]
+        [Route("{name}")]
+        public async Task<IActionResult> IsDriverExists(string name)
+        {
+            var result = await _context.Users.AnyAsync(n => n.UserName == name);
+            if (result)
+            {
+                return StatusCode(StatusCodes.Status200OK);
+
+            }
+            return null;
+
+        }
+        [HttpGet]
+        [Route("{email}")]
+        public async Task<IActionResult> IsEmailExists(string email)
+        {
+            var result = await _context.Users.AnyAsync(n => n.Email == email);
+            if (result)
+            {
+                return StatusCode(StatusCodes.Status200OK);
+
+            }
+            return null;
+
+        }
+        /* 
+        // GET api/<DriversController>/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Driver>> GetDriver(string id)
+        {
+            if (id != "")
+            {
+                var driver = await idriverrepo.showDriver(id);
+                return Ok(driver);
+            }
+            return BadRequest();
+        }
+        */
         // POST api/<DriversController>
         [HttpPost]
         public async Task<IActionResult> AddDriver (Driver driver)
         {
             if (ModelState.IsValid)
             {
-                await idriverrepo.addDriver(driver);
+                await _idriverrepo.addDriver(driver);
                 return Ok(driver);
             }
             else

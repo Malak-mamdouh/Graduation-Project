@@ -11,16 +11,19 @@ import { Router } from '@angular/router';
 export class CustomerListComponent implements OnInit {
 
   customers: Customer[];
+  isLoading = true;
   constructor(private customerService: CustomerService , 
               private route: Router) { }
 
   ngOnInit(): void {
+    this.customers = [];
     this.customerService.AllCustomers().subscribe(list => {
       this.customers = list;
+      this.isLoading = false;
     } , err => console.log(err));
   }
   onDelete(id: number){
-    const alert = confirm('Do you delete this Asset?');
+    const alert = confirm('Do you delete this customer?');
     if (alert === true){
       this.customerService.DeleteCustomer(id).subscribe(s => {
         this.route.navigate(['customer-list']).then(x => {window.location.reload(); });
@@ -28,7 +31,9 @@ export class CustomerListComponent implements OnInit {
       } , err => console.log(err));
     }
   }
-  
+  onAdd(){
+    this.route.navigate(['add-customer']);
+  }
   onEdit(id: number){
     this.route.navigate(['edit-customer/', id]);
   }

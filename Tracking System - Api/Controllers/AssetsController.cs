@@ -16,11 +16,13 @@ namespace Tracking_System___Api.Controllers
     [ApiController]
     public class AssetsController : ControllerBase
     {
-        private readonly IAssetRepo assetRepo;
+        private readonly IAssetRepo _assetRepo;
+        private readonly Context _context;
 
-        public AssetsController( IAssetRepo assetRepo)
+        public AssetsController( IAssetRepo assetRepo , Context context)
         {
-            this.assetRepo = assetRepo;
+            _assetRepo = assetRepo;
+            _context = context;
         }
 
         // GET: api/Assets
@@ -28,7 +30,7 @@ namespace Tracking_System___Api.Controllers
        
         public async Task<ActionResult<IEnumerable<Asset>>> GetAllAssets()
         {
-            var assets = await assetRepo.showAllAssets();
+            var assets = await _assetRepo.showAllAssets();
             if (assets != null)
             {
                 return Ok(assets);
@@ -41,7 +43,7 @@ namespace Tracking_System___Api.Controllers
         
         public async Task<ActionResult<Asset>> GetAsset(int id)
         {
-            var asset = await assetRepo.showAsset(id);
+            var asset = await _assetRepo.showAsset(id);
 
             if (asset == null)
             {
@@ -60,7 +62,7 @@ namespace Tracking_System___Api.Controllers
             {
                 return BadRequest();
             }
-            var assetModel = await assetRepo.updateAsset(asset);
+            var assetModel = await _assetRepo.updateAsset(asset);
             if (assetModel == null)
             {
                 return NotFound();
@@ -76,7 +78,7 @@ namespace Tracking_System___Api.Controllers
         {
             if (ModelState.IsValid)
             {
-                await assetRepo.addAsset(asset);
+                await _assetRepo.addAsset(asset);
                 return Ok(asset);
             }
             else
@@ -92,13 +94,47 @@ namespace Tracking_System___Api.Controllers
         {
             if (id == 0)
                 return BadRequest();
-            var asset = await assetRepo.deleteAsset(id);
+            var asset = await _assetRepo.deleteAsset(id);
             if (asset)
             {
                 return Ok();
             }
             return BadRequest();
            
+        }
+        [HttpGet]
+        [Route("{name}")]
+        public async Task<IActionResult> IsNameExists(string name)
+        {
+            var result = await _context.assets.AnyAsync(n => n.Name == name);
+            if (result)
+            {
+                return StatusCode(StatusCodes.Status200OK);
+
+            }
+            return null;
+
+        }
+        [HttpGet]
+        [Route("{number}")]
+        public async Task<IActionResult> IsNumberExists(string number)
+        {
+            var result = await _context.assets.AnyAsync(n => n.AssetNumber == number);
+            if (result)
+            {
+                return StatusCode(StatusCodes.Status200OK);
+
+            }
+            return null;
+
+        }
+        [HttpGet]
+        public async Task<IEnumerable<string>> SelectAllAssetNumber()
+        {
+            var numbers = await _assetRepo.SelectAssetNumberAsync();
+            if (numbers == null)
+                return null;
+            return numbers;
         }
         [HttpPost , DisableRequestSizeLimit]
         public IActionResult Upload()

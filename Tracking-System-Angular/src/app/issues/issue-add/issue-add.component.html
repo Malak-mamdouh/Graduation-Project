@@ -1,54 +1,97 @@
 <div class="container">
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="message !== ''">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        {{message}}
+      </div>
     <div class="row justify-content-center">
     
-    <div class="col-md-8">
+    <div class="col-md-10">
         <form [formGroup]="AddForm" (ngSubmit)="onSubmit()">
             <div class="formStyle">
 
                 <h5 class="form-head">{{title}}</h5>
-                <div class="form-group">
-                    <input type="text" formControlName="asset_number" class="form-control" 
-                    placeholder="Name" [ngClass]="{'is-invalid' : 
-                    !AddForm.get('asset_number').valid && this.AddForm.get('asset_number').touched}">
-                    <span class="text-danger" *ngIf="!this.AddForm.get('asset_number').valid && 
-                    this.AddForm.get('asset_number').touched">
-                        {{errorMessage.asset_number.required}}
-                    </span>
+               
+                <div class="form-group row">
+                    <div class="col-md-2">
+                        <label for="assetId">Asset</label>
+                    </div>
+                    <div class="col-md-10">
+                        <select formControlName="assetId" class="form-control"
+                        [ngClass]="{'is-invalid' : AddForm.get('assetId').invalid && 
+                       AddForm.get('assetId').touched}">
+                           <option selected disabled value="0">Select Asset</option>
+                           <option *ngFor="let asset of assets" [value]="asset.id">
+                               {{asset.assetNumber}}
+                           </option>
+                       </select>
+                       <div class="text-danger" *ngIf="this.AddForm.get('assetId').value < 1 
+                           && this.AddForm.get('assetId').touched">
+                               This Field is required
+                       </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <select class="form-control" >
-                        <option *ngFor="let status of statusList" [value]="status.id">{{status.name}}</option>
-                    </select>
+             
+                <div class="form-group row">
+                    <div class="col-md-2">
+                        <label for="status">Status</label>
+                    </div>
+                    <div class="col-md-10">
+                        <select class="form-control" formControlName="status">
+                            <option *ngFor="let key of keys;"  [value]="statuslist[key]"
+                            [label]="statuslist[key]"></option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="date" formControlName="date" 
-                    class="form-control" placeholder="Date" [ngClass]="{'is-invalid' : 
-                    AddForm.get('date').invalid && AddForm.get('date').touched}">
-                    <span class="text-danger" *ngIf="!this.AddForm.get('date').valid 
-                    && this.AddForm.get('date').touched">
-                        {{errorMessage.date.required}}
-                    </span>
+
+                <div class="form-group row">
+                    <div class="col-md-2">
+                        <label for="date">Date</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="date" formControlName="date" 
+                        class="form-control" placeholder="Date" [ngClass]="{'is-invalid' : 
+                        AddForm.get('date').invalid && AddForm.get('date').touched}">
+                        <span class="text-danger" *ngIf="!this.AddForm.get('date').valid 
+                        && this.AddForm.get('date').touched">
+                            {{errorMessage.date.required}}
+                        </span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <textarea type="text" formControlName="description" 
-                    class="form-control" placeholder="Description" [ngClass]="{'is-invalid' : 
-                    AddForm.get('description').invalid && AddForm.get('description').touched}"></textarea>
-                    <span class="text-danger" *ngIf="!this.AddForm.get('description').valid 
-                    && this.AddForm.get('description').touched">
-                        {{errorMessage.description.required}}
-                    </span>
+
+                <div class="form-group row">
+                    <div class="col-md-2">Reported By</div>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="reportedBy" 
+                        class="form-control" placeholder="ReportedBy" [ngClass]="{'is-invalid' : 
+                        AddForm.get('reportedBy').invalid && AddForm.get('reportedBy').touched}">
+                        <span class="text-danger" *ngIf="!this.AddForm.get('reportedBy').valid 
+                        && this.AddForm.get('reportedBy').touched">
+                            {{errorMessage.reportedBy.required}}
+                        </span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="text" formControlName="reportedBy" 
-                    class="form-control" placeholder="ReportedBy" [ngClass]="{'is-invalid' : 
-                    AddForm.get('reportedBy').invalid && AddForm.get('reportedBy').touched}">
-                    <span class="text-danger" *ngIf="!this.AddForm.get('reportedBy').valid 
-                    && this.AddForm.get('reportedBy').touched">
-                        {{errorMessage.reportedBy.required}}
-                    </span>
+
+                <div class="form-group row">
+                    <div class="col-md-2">Description</div>
+                    <div class="col-md-10">
+                        <textarea type="text" formControlName="description" rows="4"
+                        class="form-control" placeholder="Description" [ngClass]="{'is-invalid' : 
+                        AddForm.get('description').invalid && AddForm.get('description').touched}"></textarea>
+                        <span class="text-danger" *ngIf="!this.AddForm.get('description').valid 
+                        && this.AddForm.get('description').touched">
+                            {{errorMessage.description.required}}
+                        </span>
+                    </div>
                 </div>
-            <button class="btn btn-custom" [disabled]="AddForm.invalid" 
-            type="submit">{{btnTitle}}</button>
+
+                <div class="text-center">
+                    <button class="btn btn-custom mt-3" [disabled]="AddForm.invalid" 
+                    type="submit">{{btnTitle}}</button>
+                </div>
+            
             </div>
         </form>
     </div>

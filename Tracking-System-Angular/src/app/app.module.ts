@@ -13,6 +13,7 @@ import { CustomerAddComponent } from './customers/customer-add/customer-add.comp
 import { IssueAddComponent } from './issues/issue-add/issue-add.component';
 import { SharedModule } from './shared/shared.module';
 import { CustomerListComponent } from './customers/customer-list/customer-list.component';
+import { IssueListComponent } from './issues/issue-list/issue-list.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CustomerListComponent } from './customers/customer-list/customer-list.c
     LoginComponent,
     CustomerAddComponent,
     IssueAddComponent,
-    CustomerListComponent
+    CustomerListComponent,
+    IssueListComponent
   ],
   imports: [
     BrowserModule,

@@ -24,7 +24,8 @@ namespace Tracking_System___Api.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Customer>>> GetAllCustomers()
         {
-            return await _context.customers.ToListAsync();
+            var list =  await _context.customers.ToListAsync();
+            return list;
         }
 
         // GET: api/Customers/5

@@ -7,64 +7,122 @@
             {{message}}
           </div>
         <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <form [formGroup]="AddForm" (ngSubmit)="onSubmit()">
                 
                 <div class="formStyle">
 
                     <h5 class="form-head">Add Driver</h5>
-                    <div class="form-group">
+                    <div class="form-group row">
                         
-                        <input type="text" formControlName="firstName" class="form-control" 
-                        placeholder="FirstName" [ngClass]="{'is-invalid' : 
-                        !AddForm.get('firstName').valid && this.AddForm.get('firstName').touched}">
-                        <span class="text-danger" *ngIf="!this.AddForm.get('firstName').valid && 
-                        this.AddForm.get('firstName').touched">
-                            {{errorMessage.firstName.required}}
+                            <div class="col-md-2">
+                                <label for="firstName">First Name</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" formControlName="firstName" class="form-control" 
+                                placeholder="FirstName" [ngClass]="{'is-invalid' : 
+                                !AddForm.get('firstName').valid && this.AddForm.get('firstName').touched}"
+                                (blur)="isDriverNameExist()">
+                                <span class="text-danger" *ngIf="!this.AddForm.get('firstName').valid && 
+                                this.AddForm.get('firstName').touched">
+                                    {{errorMessage.firstName.required}}
+                                </span>
+                        <span class="text-danger">
+                            {{errorMessage.firstName.nameExist}}
                         </span>
+                            </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" formControlName="lastName" class="form-control" 
-                        placeholder="LastName" [ngClass]="{'is-invalid' : 
-                        !AddForm.get('lastName').valid && this.AddForm.get('lastName').touched}">
-                        <span class="text-danger" *ngIf="!this.AddForm.get('lastName').valid && 
-                        this.AddForm.get('lastName').touched">
-                            {{errorMessage.lastName.required}}
-                        </span>
+
+
+                    <div class="form-group row">
+                            <div class="col-md-2">
+                                <label for="lastName">Last Name</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" formControlName="lastName" class="form-control" 
+                                placeholder="LastName" [ngClass]="{'is-invalid' : 
+                                !AddForm.get('lastName').valid && this.AddForm.get('lastName').touched}">
+                                <span class="text-danger" *ngIf="!this.AddForm.get('lastName').valid && 
+                                this.AddForm.get('lastName').touched">
+                                    {{errorMessage.lastName.required}}
+                                </span>
+                            </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" formControlName="email" class="form-control" 
-                        placeholder="Email" [ngClass]="{'is-invalid' : 
-                        !AddForm.get('email').valid && this.AddForm.get('email').touched}">
-                        <span class="text-danger" *ngIf="!this.AddForm.get('email').valid && 
-                        this.AddForm.get('email').touched">
-                            {{errorMessage.email.required}}
-                        </span>
+
+                    <div class="form-group row">
+
+                            <div class="col-md-2">
+                                <label for="Email">Email</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="text" formControlName="email" class="form-control" 
+                                placeholder="Email" [ngClass]="{'is-invalid' : 
+                                !AddForm.get('email').valid && this.AddForm.get('email').touched}" 
+                                (blur)="isEmailExist()">
+                                <span class="text-danger" *ngIf="!this.AddForm.get('email').valid && 
+                                this.AddForm.get('email').touched">
+                                <span *ngIf="AddForm.get('email').errors['required']">
+                                    {{errorMessage.email.required}}
+                                </span>
+                                <span class="text-danger" *ngIf="AddForm.get('email').errors['pattern']">
+                                    {{errorMessage.email.notValid}}
+                                </span>
+                            
+                               </span>
+                               <span class="text-danger">
+                                {{errorMessage.email.emailExist}}
+                               </span>
+                            </div>
                     </div>
-                    <div class="form-group">
-                        <input type="password" formControlName="password" 
-                        class="form-control" placeholder="Password" [ngClass]="{'is-invalid' : 
-                        AddForm.get('password').invalid && AddForm.get('password').touched}">
-                        <span class="text-danger" *ngIf="!this.AddForm.get('password').valid 
-                        && this.AddForm.get('password').touched">
-                            {{errorMessage.password.required}}
-                        </span>
+
+                    <div class="form-group row">
+                       
+                            <div class="col-md-2">
+                                <label for="password">Password</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input type="password" formControlName="password" 
+                                class="form-control" placeholder="Password" [ngClass]="{'is-invalid' : 
+                                AddForm.get('password').invalid && AddForm.get('password').touched}">
+                                <span class="text-danger" *ngIf="!this.AddForm.get('password').valid 
+                                && this.AddForm.get('password').touched">
+                                    {{errorMessage.password.required}}
+                                </span>
+                                <div *ngIf="!isPasswordValid()" class="text-danger">
+                                    {{errorMessage.password.notValid}}
+                                </div>
+                            </div>                        
+                    </div>                  
+
+                     <div class="form-group row">
+                         <div class="col-md-2">
+                             <label for="phone">Phone</label>
+                         </div>
+                         <div class="col-md-10">
+                            <input type="text" formControlName="phone" class="form-control" 
+                            placeholder="Phone Number" [ngClass]="{'is-invalid' : 
+                            !AddForm.get('phone').valid && this.AddForm.get('phone').touched}">
+                            <div class="text-danger" *ngIf="!this.AddForm.get('phone').valid && 
+                            this.AddForm.get('phone').touched">
+                                <div class="text-danger" *ngIf="AddForm.get('phone').errors['required']">
+                                    {{errorMessage.PhoneNumber.required}}
+                                </div>
+                                    {{errorMessage.PhoneNumber.notValid}}                            
+                            </div>
+                        </div>    
                     </div>
-                    <div class="form-group">
-                        <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
-                     </div>                   
-                     <div class="form-group">
-                        <input type="text" formControlName="phone" class="form-control" 
-                        placeholder="Phone Number" [ngClass]="{'is-invalid' : 
-                        !AddForm.get('phone').valid && this.AddForm.get('phone').touched}">
-                        <span class="text-danger" *ngIf="!this.AddForm.get('phone').valid && 
-                        this.AddForm.get('phone').touched">
-                            {{errorMessage.PhoneNumber.required}}
-                        </span>
-                    </div>
-                
-                    <button class="btn btn-custom" type="submit" 
-                    [disabled]="AddForm.invalid">Save</button>
+
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <label>Image</label>
+                        </div>
+                        <div class="col-md-10">
+                            <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+                        </div>
+                     </div> 
+
+                    <button class="btn btn-custom mt-3" [disabled]="AddForm.invalid || NameExist || EmailExist"
+                     type="submit">Save</button>
             </div>
             </form>
         </div>

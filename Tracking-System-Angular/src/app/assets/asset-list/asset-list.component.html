@@ -1,21 +1,31 @@
-<div class="tbl table-responsive">
+<div *ngIf="isLoading" style="text-align: center; margin-top: 25vh;">
+  <app-loading-spinner></app-loading-spinner>
+</div>
 
-<table class="table table-hover" *ngIf="assets">
+<div class="tbl table-responsive" *ngIf="assets.length >= 1 && !isLoading">
+
+<table class="table table-hover" >
     <thead>
       <tr>
-        <th scope="col">Id</th>
-        <th scope="col">Image</th>
-        <th scope="col">Name</th>
-        <th scope="col">Type</th>
-        <th scope="col">SubType</th>
-        <th scope="col">Description</th>
-        <th scope="col">Asset Number</th>
+        <th>Id</th>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>SubType</th>
+        <th>Description</th>
+        <th>Asset Number</th>
+        <th>SubType</th>
+        <th>Description</th>
+        <th>Asset Number</th>
+        <th>SubType</th>
+        <th>Description</th>
+        <th>Asset Number</th>
         <th></th>
       </tr>
     </thead>
     <tbody *ngFor="let asset of assets">
       <tr>
-        <th scope="row">{{asset.id}}</th>
+        <th>{{asset.id}}</th>
         <td><img [src]="createImgPath(asset.url)" style="max-height: 50px;" 
             class="img-fluid"></td>
         <td>{{asset.name}}</td>
@@ -23,12 +33,26 @@
         <td>{{asset.subType}}</td>
         <td>{{asset.description}}</td>
         <td>{{asset.assetNumber}}</td>
+        <td>{{asset.subType}}</td>
+        <td>{{asset.description}}</td>
+        <td>{{asset.assetNumber}}</td>
+        <td>{{asset.subType}}</td>
+        <td>{{asset.description}}</td>
+        <td>{{asset.assetNumber}}</td>
         <td>
-            <a class="btn btn-danger mr-2" (click)="onDelete(asset.id)">Delete</a>
-            <a class="btn btn-primary" (click)="onEdit(asset.id)">Edit</a>
+            <a class="btn btn-danger btn-sm mr-2" (click)="onDelete(asset.id)">Delete</a>
+          <a class="btn btn-sm btn-primary" (click)="onEdit(asset.id)">Edit</a>
         </td>
       </tr>
 
     </tbody>
   </table>
+</div>
+
+
+
+<div *ngIf="assets.length == 0 && !isLoading" class="text-center mt-3">
+  <h4><em>No Assets Here</em></h4>
+  <a (click)="onAdd()" class="btn btn-primary mt-2">Add Asset</a>
+  
 </div>

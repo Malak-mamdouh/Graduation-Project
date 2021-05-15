@@ -6,7 +6,7 @@ import { Issue } from '../Models/Issue';
 @Injectable({providedIn: 'root'})
 export class IssueService {
 
-    baseUrl = '';
+    baseUrl = 'https://localhost:44370/issues/';
     headers = {
         headers: new HttpHeaders({
             'content-type': 'application/json'
@@ -14,16 +14,19 @@ export class IssueService {
     };
     constructor(private http: HttpClient) {}
 
-    AllIssues(){
-        return this.http.get(this.baseUrl);
+    AllIssues(): Observable<Issue[]>{
+        return this.http.get<Issue[]>(this.baseUrl + 'GetIssues');
     }
     ShowIssue(id: number): Observable<Issue>{
         return this.http.get<Issue>(this.baseUrl + 'getAsset/' + id);
     }
     AddIssue(issue: Issue){
-        return this.http.post(this.baseUrl + 'addAsset' , issue);
+        return this.http.post(this.baseUrl + 'AddIssue' , issue);
     }
     EditIssue(issue: Issue){
-        return this.http.put(this.baseUrl + 'editAsset' , issue);
+        return this.http.put(this.baseUrl + 'updateIssue' , issue);
     }   
+    DeleteIssue(id: number){
+        return this.http.delete(this.baseUrl + 'Delete/' + id);
+    }
 }

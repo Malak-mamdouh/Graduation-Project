@@ -26,15 +26,22 @@ namespace Tracking_System___Api.Repositories.AssetRepo
             }
             return null;
         }
-
+        public async Task<IEnumerable<string>> SelectAssetNumberAsync()
+        {
+            return await context.assets.Select(i => i.AssetNumber).ToListAsync();
+        }
         public async Task<bool> deleteAsset(int id)
         {
             var asset = await context.assets.FirstOrDefaultAsync(x => x.Id == id);
             if (asset == null)
                 return false;
-            FileInfo file = new FileInfo(asset.Url);
-            if (file.Exists)
-                file.Delete();
+            if (asset.Url != "")
+            {
+                FileInfo file = new FileInfo(asset.Url);
+                if (file.Exists)
+                    file.Delete();
+            }
+            
 
             context.assets.Remove(asset);
             await context.SaveChangesAsync();

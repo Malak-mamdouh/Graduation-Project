@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Asset } from '../../Models/Asset';
+import { Asset, TypeItem } from '../../Models/Asset';
 import { AssetService } from '../asset.service';
 
 @Component({
@@ -17,11 +17,23 @@ export class AssetAddComponent implements OnInit {
   isEditMode: boolean;
   btnTitle: string;
   title: string;
+  typeList = [ 'Motor Vehicles', 'Railed Vehicles' ,'WaterCraft' , 'AirCraft'];
   editUrl: string;
+  subTypeList = [];
+  allSubType = [{name: "motorCycles" , type: "Motor Vehicles"} , 
+                {name: "cars" , type: "Motor Vehicles"},
+                {name: "trucks" , type: "Motor Vehicles"} , 
+                {name: "buses" , type: "Motor Vehicles"} , 
+                {name: "trains" , type: "Railed Vehicles"} , 
+                {name: "trams" , type: "Railed Vehicles"}];
   message: string;
+  subTypeAfterEvent = [];
+  NameExist: boolean;
+  AssetNumberExist: boolean;
   errorMessage = {
     name: {
-      required: 'name is required'
+      required: 'name is required',
+      nameExist: ''
     },
     type: {
       required: 'type is required'
@@ -30,7 +42,8 @@ export class AssetAddComponent implements OnInit {
       required: 'Description is required'
     },
     assetNumber: {
-      required: 'Number is required'
+      required: 'Number is required',
+      Exist: ''
     },
   }
   constructor(private activeRoute: ActivatedRoute, 
@@ -40,11 +53,14 @@ export class AssetAddComponent implements OnInit {
     this.response = {
       url : ''
     };
+    this.NameExist = true;
     this.message = '';
     this.isEditMode = false;
     this.editUrl = ''
     this.btnTitle = 'Add';
     this.title = 'Add Asset';
+
+    
     this.AddForm = new FormGroup({
       name: new FormControl('' , Validators.required),
       type: new FormControl('' , Validators.required),
@@ -72,6 +88,7 @@ export class AssetAddComponent implements OnInit {
           this.title = 'Edit Asset';
           this.editUrl = this.assetModel.url;
           this.addAssetData();
+          console.log(this.assetModel);
         } , err => console.log(err));
       }
     });
@@ -79,6 +96,11 @@ export class AssetAddComponent implements OnInit {
 
   public uploadFinished = (event) =>{
     this.response = event;
+  }
+  onTypeChange(){
+    const selectedType = this.AddForm.get('type').value;
+    this.subTypeAfterEvent = this.allSubType.filter(t => t.type === selectedType);
+   
   }
   onSubmit(){
     this.ValidateModel();
@@ -100,8 +122,11 @@ export class AssetAddComponent implements OnInit {
         this.message = 'Asset has updated successfuly'
       } , err => console.log(err));
     }
-    
     this.AddForm.reset();
+    this.AddForm.patchValue({
+      type: '',
+      subType: ''
+    });
   }
   addAssetData(){
     if(this.assetModel !== null){
@@ -113,6 +138,34 @@ export class AssetAddComponent implements OnInit {
         assetNumber: this.assetModel.assetNumber,
       });
     }
+  }
+  isAssetNameExist(){
+    const name = this.AddForm.value.name;
+    if (name != null && name !== ''){
+      this.assetService.IsNameExists(name).subscribe(suc => {
+        this.errorMessage.name.nameExist = 'This Asset Name is used';
+        this.NameExist = true;
+      }, err => {
+        this.errorMessage.name.nameExist = '';
+        this.NameExist = false;
+        });
+      return true;
+    }
+    return false;
+  }
+  isAssetNumberExist(){
+    const number = this.AddForm.value.assetNumber;
+    if (number != null && number !== ''){
+      this.assetService.IsNumberExists(number).subscribe(suc => {
+        this.errorMessage.assetNumber.Exist = 'This Asset number is used';
+        this.AssetNumberExist = true;
+      }, err => {
+        this.errorMessage.assetNumber.Exist = '';
+        this.AssetNumberExist = false;
+        });
+      return true;
+    }
+    return false;
   }
   ValidateModel(){
     this.assetModel.name = this.AddForm.get('name').value;

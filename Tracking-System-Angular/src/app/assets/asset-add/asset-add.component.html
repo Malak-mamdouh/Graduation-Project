@@ -8,57 +8,124 @@
           </div>
         <div class="row justify-content-center">
         
-        <div class="col-md-8">
+        <div class="col-md-10">
             <form [formGroup]="AddForm" (ngSubmit)="onSubmit()">
                 <div class="formStyle">
 
                     <h5 class="form-head">{{title}}</h5>
-                    <div class="form-group">
-                        <input type="text" formControlName="name" class="form-control" 
-                        placeholder="Name" [ngClass]="{'is-invalid' : 
-                        !AddForm.get('name').valid && this.AddForm.get('name').touched}">
-                        <span class="text-danger" *ngIf="!this.AddForm.get('name').valid && 
-                        this.AddForm.get('name').touched">
-                            {{errorMessage.name.required}}
-                        </span>
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" formControlName="name" class="form-control" 
+                            placeholder="Name" [ngClass]="{'is-invalid' : 
+                            !AddForm.get('name').valid && this.AddForm.get('name').touched}" 
+                            (blur)="isAssetNameExist()">
+                            <div class="text-danger" *ngIf="!this.AddForm.get('name').valid && 
+                            this.AddForm.get('name').touched">
+                            <span *ngIf="AddForm.get('name').errors['required']">
+                                {{errorMessage.name.required}}
+                            </span>
+                            </div>
+                            <div class="text-danger">
+                                {{errorMessage.name.nameExist}}
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" formControlName="type" 
-                        class="form-control" placeholder="Type" [ngClass]="{'is-invalid' : 
-                        AddForm.get('type').invalid && AddForm.get('type').touched}">
-                        <span class="text-danger" *ngIf="!this.AddForm.get('type').valid 
-                        && this.AddForm.get('type').touched">
-                            {{errorMessage.type.required}}
-                        </span>
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <label for="type">Type</label>
+                        </div>
+                        <div class="col-md-10">
+                            <select formControlName="type" class="form-control" 
+                            [ngClass]="{'is-invalid' : AddForm.get('type').invalid && 
+                            AddForm.get('type').touched}" (change)="onTypeChange()" required>
+                                <option value="" selected>Select Type</option>
+                                <option 
+                                    *ngFor="let type of typeList">
+                                    {{type}}
+                                </option>
+                            </select>
+                            <div class="text-danger" *ngIf="this.AddForm.get('type').invalid 
+                                && this.AddForm.get('type').touched && AddForm.get('type').errors['required']">
+                                    {{errorMessage.type.required}}
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" formControlName="subType" 
-                        class="form-control" placeholder="SubType" [ngClass]="{'is-invalid' : 
-                        AddForm.get('subType').invalid && AddForm.get('subType').touched}">
+
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <label for="subType">SubType</label>
+                        </div>
+                        <div class="col-md-10">
+                            <select formControlName="subType"
+                            class="form-control" 
+                           [ngClass]="{'is-invalid' : AddForm.get('subType').invalid && 
+                           AddForm.get('subType').touched}">
+                           <option value="" selected>Pick a SubType...</option>
+                               <option 
+                                   *ngFor="let subtype of subTypeAfterEvent">
+                                   {{subtype.name}}
+                               </option>
+                           </select>
+                           <div class="text-danger" *ngIf="this.AddForm.get('subType').invalid 
+                                && this.AddForm.get('subType').touched">
+                                    SubType is required
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" formControlName="description" 
-                        class="form-control" placeholder="Description" [ngClass]="{'is-invalid' : 
-                        AddForm.get('description').invalid && AddForm.get('description').touched}">
-                        <span class="text-danger" *ngIf="!this.AddForm.get('description').valid 
-                        && this.AddForm.get('description').touched">
-                            {{errorMessage.description.required}}
-                        </span>
+                   
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <label for="assetNumber">Number</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" formControlName="assetNumber" 
+                            class="form-control" placeholder="Asset Number" [ngClass]="{'is-invalid' : 
+                            AddForm.get('assetNumber').invalid && 
+                            AddForm.get('assetNumber').touched}" (blur)="isAssetNumberExist()">
+                            <span class="text-danger" *ngIf="!this.AddForm.get('assetNumber').valid 
+                            && this.AddForm.get('assetNumber').touched">
+                            <span *ngIf="AddForm.get('assetNumber').errors['required']">
+                                {{errorMessage.assetNumber.required}}
+                            </span>
+                            </span>
+                            <span class="text-danger">
+                                {{errorMessage.assetNumber.Exist}}
+                            </span>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="text" formControlName="assetNumber" 
-                        class="form-control" placeholder="Asset Number" [ngClass]="{'is-invalid' : 
-                        AddForm.get('assetNumber').invalid && AddForm.get('assetNumber').touched}">
-                        <span class="text-danger" *ngIf="!this.AddForm.get('assetNumber').valid 
-                        && this.AddForm.get('assetNumber').touched">
-                            {{errorMessage.assetNumber.required}}
-                        </span>
+
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <label for="description">Description</label>
+                        </div>
+                        <div class="col-md-10">
+                            <textarea type="text" formControlName="description" rows="4" 
+                            class="form-control" placeholder="Description" [ngClass]="{'is-invalid' : 
+                            AddForm.get('description').invalid && AddForm.get('description').touched}">
+                            </textarea>
+                            <span class="text-danger" *ngIf="!this.AddForm.get('description').valid 
+                                && this.AddForm.get('description').touched">
+                                    {{errorMessage.description.required}}
+                            </span>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+
+                    <div class="form-group row">
+                        <div class="col-md-2">
+                            <label>Image</label>
+                        </div>
+                        <div class="col-md-10">
+                            <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+                        </div>
                      </div>
-                <button class="btn custom-btn" [disabled]="AddForm.invalid" 
-                type="submit">{{btnTitle}}</button>
+                     <div class="text-center">
+                        <button class="btn custom-btn mt-3" [disabled]="AddForm.invalid || AssetNumberExist || 
+                        NameExist" 
+                        type="submit">{{btnTitle}}</button>
+                     </div>
                 </div>
             </form>
         </div>

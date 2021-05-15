@@ -7,6 +7,8 @@ import { CustomerAddComponent } from './customers/customer-add/customer-add.comp
 import { IssueAddComponent } from './issues/issue-add/issue-add.component';
 import { DriverListComponent } from './drivers/driver-list/driver-list.component';
 import { CustomerListComponent } from './customers/customer-list/customer-list.component';
+import { IssueListComponent } from './issues/issue-list/issue-list.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 
 const routes: Routes = [
@@ -16,7 +18,9 @@ const routes: Routes = [
     {path: 'edit-customer/:id' , component: CustomerAddComponent},
     {path: 'customer-list' , component: CustomerListComponent},
     {path: 'add-issue' , component: IssueAddComponent},
-    {path: 'driver-list' , component: DriverListComponent}
+    {path: 'issue-list' , component: IssueListComponent},
+    {path: 'driver-list' , component: DriverListComponent},
+    {path: 'filter' , component: LoadingSpinnerComponent}
 ];
 
 @NgModule({

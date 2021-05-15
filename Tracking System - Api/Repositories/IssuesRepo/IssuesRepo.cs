@@ -30,6 +30,8 @@ namespace Tracking_System___Api.Repositories.IssuesRepo
 
         }
 
+        
+
         public async Task<Issues> showIssue(int id)
         {
             return await context.issues.Include(x => x.Asset).FirstOrDefaultAsync(x => x.Id == id);

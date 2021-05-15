@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using SendGrid;
@@ -98,6 +99,7 @@ namespace Tracking_System___Api.Controllers
                 return BadRequest();
             }
         }
+
         [ApiExplorerSettings(IgnoreApi = true)]
         [NonAction]
 
@@ -139,6 +141,8 @@ namespace Tracking_System___Api.Controllers
                 await roleManager.CreateAsync(role);
             }
         }
+        
+        
         [ApiExplorerSettings(IgnoreApi = true)]
         [NonAction]
         private async Task<string> GenerateJwtToken(User user)

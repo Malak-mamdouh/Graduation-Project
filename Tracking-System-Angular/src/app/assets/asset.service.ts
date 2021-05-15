@@ -29,4 +29,13 @@ export class AssetService {
     DeleteAsset(id: number){
         return this.http.delete(this.baseUrl + 'DeleteAsset/' + id);
     }
+    IsNameExists(name: string){
+        return this.http.get(this.baseUrl + 'IsNameExists/' + name);
+    }
+    IsNumberExists(assetNumber: string){
+        return this.http.get(this.baseUrl + 'IsNumberExists/' + assetNumber);
+    }
+    SelectAllAssetNumber(): Observable<string[]>{
+        return this.http.get<string[]>(this.baseUrl + 'SelectAllAssetNumber');
+    }
 }

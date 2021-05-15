@@ -88,7 +88,7 @@ namespace Tracking_System___Api.Migrations
                 column: "DriverId",
                 principalTable: "drivers",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
+                onDelete: ReferentialAction.Restrict);
         }
     }
 }

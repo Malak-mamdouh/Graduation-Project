@@ -27,7 +27,7 @@ namespace Tracking_System___Api.Migrations
                         column: x => x.AssetId,
                         principalTable: "assets",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

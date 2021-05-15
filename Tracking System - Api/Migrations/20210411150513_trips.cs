@@ -43,19 +43,19 @@ namespace Tracking_System___Api.Migrations
                         column: x => x.AssetId,
                         principalTable: "assets",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Trips_customers_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "customers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Trips_drivers_DriverId",
                         column: x => x.DriverId,
                         principalTable: "drivers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

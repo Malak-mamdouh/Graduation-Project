@@ -10,13 +10,13 @@ using Tracking_System___Api.Repositories.IssuesRepo;
 
 namespace Tracking_System___Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]/[action]")]
     [ApiController]
     public class IssuesController : ControllerBase
     {
         private readonly IIssuesRepo iissuesrepo;
 
-        public IssuesController( IIssuesRepo iissuesrepo)
+        public IssuesController(IIssuesRepo iissuesrepo)
         {
             this.iissuesrepo = iissuesrepo;
         }
@@ -36,7 +36,7 @@ namespace Tracking_System___Api.Controllers
 
         // POST api/<IssuesController>
         [HttpPost]
-        public async Task<IActionResult> PostIssue( Issues issue)
+        public async Task<IActionResult> AddIssue(Issues issue)
         {
             if (issue != null)
             {
@@ -55,7 +55,7 @@ namespace Tracking_System___Api.Controllers
         {
             if (id == issue.Id)
             {
-               await iissuesrepo.updateIssue(issue, id);
+                await iissuesrepo.updateIssue(issue, id);
                 return StatusCode(202);
             }
             return BadRequest();
@@ -65,15 +65,16 @@ namespace Tracking_System___Api.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-           if (id != 0)
+            if (id != 0)
             {
                 await iissuesrepo.deleteIssue(id);
                 return StatusCode(202);
             }
-           else
+            else
             {
                 return BadRequest();
             }
-    }
+        }
+        
     }
 }
