@@ -65,7 +65,7 @@ namespace Tracking_System___Api.Controllers
                 {
                     token = GenerateJwtToken(account).Result
                     /*account*/
-                });
+                });;
             }
             else
             {
@@ -87,9 +87,9 @@ namespace Tracking_System___Api.Controllers
                         await userManager.AddToRoleAsync(driverModel, "Driver");
                     }
                     
-                    var message = new Message(new string[] { driver.Email }, "Welcome to tracker application",
-                        $" Dear {driverModel.FirstName} welcome \n   This is your password : {driver.Password}");
-                    emailSender.SendEmail(message);
+                  //  var message = new Message(new string[] { driver.Email }, "Welcome to tracker application",
+                      //  $" Dear {driverModel.FirstName} welcome \n   This is your password : {driver.Password}");
+                  //  emailSender.SendEmail(message);
                     return Ok(driver);
                 }
                 return BadRequest();

@@ -125,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Tracking-System-Angular"
+    }
+  },
+  "defaultProject": "Tracking-System-Angular",
+  "cli": {
+    "analytics": "c3b83074-9c9b-432c-84fc-34cd0d7b5873"
+  }
 }

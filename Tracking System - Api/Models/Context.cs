@@ -8,7 +8,7 @@ using Tracking_System___Api.Dtos;
 
 namespace Tracking_System___Api.Models
 {
-    public class Context : IdentityDbContext<User,Role,Guid>
+    public class Context : IdentityDbContext<User,Role,int>
     {
         public Context( DbContextOptions options ) : base(options)
         {

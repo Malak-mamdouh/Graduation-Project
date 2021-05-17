@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tracking_System___Api.Models
 {
-    public class Role:IdentityRole<Guid>
+    public class Role:IdentityRole<int>
     {
         
 

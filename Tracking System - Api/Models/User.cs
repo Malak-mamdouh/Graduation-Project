@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Tracking_System___Api.Models
 {
-    public class User : IdentityUser<Guid>
+    public class User : IdentityUser<int>
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
