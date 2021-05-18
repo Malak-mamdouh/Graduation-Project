@@ -18,6 +18,7 @@ const routes: Routes = [
     {path: 'edit-customer/:id' , component: CustomerAddComponent},
     {path: 'customer-list' , component: CustomerListComponent},
     {path: 'add-issue' , component: IssueAddComponent},
+    {path: 'edit-issue/:id' , component: IssueAddComponent},
     {path: 'issue-list' , component: IssueListComponent},
     {path: 'driver-list' , component: DriverListComponent},
     {path: 'filter' , component: LoadingSpinnerComponent}

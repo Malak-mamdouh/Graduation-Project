@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Issue } from '../../Models/Issue';
 import { IssueService } from '../issue.service';
+import { IssueList } from '../../Models/issue-list';
 
 @Component({
   selector: 'app-issue-list',
@@ -10,7 +11,7 @@ import { IssueService } from '../issue.service';
 })
 export class IssueListComponent implements OnInit {
 
-  issues: Issue[] = [];
+  issues: IssueList[] = [];
   IsEmpty: boolean;
   isLoading = true;
   constructor(private route: Router , 
@@ -21,6 +22,7 @@ export class IssueListComponent implements OnInit {
 
     this.issueService.AllIssues().subscribe(list => {
       this.issues = list;
+      console.log(this.issues);
       this.isLoading = false;
       if(this.issues.length >= 1){
         this.IsEmpty = false;

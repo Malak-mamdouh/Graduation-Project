@@ -20,7 +20,7 @@
                     </div>
                     <div class="col-md-10">
                         <select formControlName="assetId" class="form-control"
-                        [ngClass]="{'is-invalid' : AddForm.get('assetId').invalid && 
+                        [ngClass]="{'is-invalid' : AddForm.get('assetId').value < 1 && 
                        AddForm.get('assetId').touched}">
                            <option selected disabled value="0">Select Asset</option>
                            <option *ngFor="let asset of assets" [value]="asset.id">
