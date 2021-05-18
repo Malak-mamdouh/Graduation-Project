@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Issue } from '../Models/Issue';
+import { IssueList } from '../Models/issue-list';
 
 @Injectable({providedIn: 'root'})
 export class IssueService {
@@ -14,11 +15,11 @@ export class IssueService {
     };
     constructor(private http: HttpClient) {}
 
-    AllIssues(): Observable<Issue[]>{
-        return this.http.get<Issue[]>(this.baseUrl + 'GetIssues');
+    AllIssues(): Observable<IssueList[]>{
+        return this.http.get<IssueList[]>(this.baseUrl + 'GetIssues');
     }
     ShowIssue(id: number): Observable<Issue>{
-        return this.http.get<Issue>(this.baseUrl + 'getAsset/' + id);
+        return this.http.get<Issue>(this.baseUrl + 'GetIssue/' + id);
     }
     AddIssue(issue: Issue){
         return this.http.post(this.baseUrl + 'AddIssue' , issue);

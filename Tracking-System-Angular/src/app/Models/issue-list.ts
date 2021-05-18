@@ -1,13 +1,10 @@
-export class Issue{
+import { Asset } from './Asset';
+export class IssueList{
     id: number;
     date: Date;
     status: string;
     description: string;
     reportedBy: string;
     assetId: number;
-}
-export enum Estatus{
-   "O" = "Open",
-   "R" = "Resolved",
-   "C" = "Closed"
+    asset: Asset;
 }

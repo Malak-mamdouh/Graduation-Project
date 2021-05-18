@@ -62,7 +62,7 @@ export class IssueAddComponent implements OnInit {
     });
     this.issueModel = {
       id: 0,
-      Date: new Date(),
+      date: new Date(),
       description:'',
       status: '',
       reportedBy: '',
@@ -77,7 +77,7 @@ export class IssueAddComponent implements OnInit {
         this.issueService.ShowIssue(id).subscribe(result => {
           this.issueModel = result;
           this.isEditMode = true;
-          
+          console.log(this.issueModel.date);
           this.title = 'Edit Issue';
           this.addIssueData();
         } , err => console.log(err));
@@ -87,6 +87,7 @@ export class IssueAddComponent implements OnInit {
   onSubmit(){
     this.ValidateModel();
     console.log(this.issueModel);
+    
     this.issueService.AddIssue(this.issueModel).subscribe(x => {
       this.message = 'Issue is Added Successfully';
     } , err => console.log(err));
@@ -95,7 +96,7 @@ export class IssueAddComponent implements OnInit {
   addIssueData(){
     if(this.issueModel !== null){
       this.AddForm.setValue({
-        date: this.issueModel.Date,
+        date: this.issueModel.date,
         status: this.issueModel.status,
         description: this.issueModel.description,
         reportedBy: this.issueModel.reportedBy,
@@ -106,7 +107,7 @@ export class IssueAddComponent implements OnInit {
 
   ValidateModel(){
     /*this.issueModel.asset_number = this.AddForm.get('asset_number').value;*/
-    this.issueModel.Date = this.AddForm.get('date').value;
+    this.issueModel.date = this.AddForm.get('date').value;
     this.issueModel.reportedBy = this.AddForm.get('reportedBy').value;
     this.issueModel.description = this.AddForm.get('description').value;
     this.issueModel.status = this.AddForm.get('status').value;
