@@ -174,6 +174,10 @@ namespace Tracking_System___Api.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Region")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("customers");
@@ -209,6 +213,37 @@ namespace Tracking_System___Api.Migrations
                     b.HasIndex("AssetId");
 
                     b.ToTable("issues");
+                });
+
+            modelBuilder.Entity("Tracking_System___Api.Models.Place", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Region")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("places");
+                });
+
+            modelBuilder.Entity("Tracking_System___Api.Models.PlaceUser", b =>
+                {
+                    b.Property<int>("PlaceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PlaceId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("PlaceUser");
                 });
 
             modelBuilder.Entity("Tracking_System___Api.Models.Role", b =>
@@ -247,9 +282,6 @@ namespace Tracking_System___Api.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AssetId")
-                        .HasColumnType("int");
-
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
@@ -259,17 +291,17 @@ namespace Tracking_System___Api.Migrations
                     b.Property<string>("Destination")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsDone")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("AssetId");
-
                     b.HasIndex("CustomerId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Trips");
                 });
@@ -294,9 +326,6 @@ namespace Tracking_System___Api.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
@@ -359,9 +388,6 @@ namespace Tracking_System___Api.Migrations
 
                     b.Property<int>("TripId")
                         .HasColumnType("int");
-
-                    b.Property<double>("accuracy")
-                        .HasColumnType("float");
 
                     b.Property<double>("latitude")
                         .HasColumnType("float");
@@ -438,23 +464,42 @@ namespace Tracking_System___Api.Migrations
                     b.Navigation("Asset");
                 });
 
-            modelBuilder.Entity("Tracking_System___Api.Models.Trip", b =>
+            modelBuilder.Entity("Tracking_System___Api.Models.PlaceUser", b =>
                 {
-                    b.HasOne("Tracking_System___Api.Models.Asset", "Asset")
-                        .WithMany()
-                        .HasForeignKey("AssetId")
+                    b.HasOne("Tracking_System___Api.Models.Place", "place")
+                        .WithMany("placeUsers")
+                        .HasForeignKey("PlaceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Tracking_System___Api.Models.User", "user")
+                        .WithMany("placeUsers")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("place");
+
+                    b.Navigation("user");
+                });
+
+            modelBuilder.Entity("Tracking_System___Api.Models.Trip", b =>
+                {
                     b.HasOne("Tracking_System___Api.Models.Customer", "Customer")
                         .WithMany()
                         .HasForeignKey("CustomerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Asset");
+                    b.HasOne("Tracking_System___Api.Models.User", "user")
+                        .WithMany("trips")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Customer");
+
+                    b.Navigation("user");
                 });
 
             modelBuilder.Entity("Tracking_System___Api.Models.location", b =>
@@ -468,9 +513,21 @@ namespace Tracking_System___Api.Migrations
                     b.Navigation("Trip");
                 });
 
+            modelBuilder.Entity("Tracking_System___Api.Models.Place", b =>
+                {
+                    b.Navigation("placeUsers");
+                });
+
             modelBuilder.Entity("Tracking_System___Api.Models.Trip", b =>
                 {
                     b.Navigation("current");
+                });
+
+            modelBuilder.Entity("Tracking_System___Api.Models.User", b =>
+                {
+                    b.Navigation("placeUsers");
+
+                    b.Navigation("trips");
                 });
 #pragma warning restore 612, 618
         }

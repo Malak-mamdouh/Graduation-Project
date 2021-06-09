@@ -110,7 +110,7 @@ export class DriverAddComponent implements OnInit {
   }
   isPasswordValid(){
     const pass = this.AddForm.value.password;
-    if (pass !== '' && pass.length > 7){
+    if (pass !== '' && pass.length > 6){
       this.regex = new RegExp('[a-z]');
       if (!this.regex.test(pass)){
         this.errorMessage.password.notValid = 'password should contain at least a small character';

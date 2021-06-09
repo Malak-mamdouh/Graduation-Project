@@ -10,7 +10,7 @@ using Tracking_System___Api.Repositories.TripRepo;
 
 namespace Tracking_System___Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]/[action]")]
     [ApiController]
     public class TripsController : ControllerBase
     {

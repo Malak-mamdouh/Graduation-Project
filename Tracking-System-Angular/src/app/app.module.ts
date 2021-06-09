@@ -14,6 +14,8 @@ import { IssueAddComponent } from './issues/issue-add/issue-add.component';
 import { SharedModule } from './shared/shared.module';
 import { CustomerListComponent } from './customers/customer-list/customer-list.component';
 import { IssueListComponent } from './issues/issue-list/issue-list.component';
+import { TripsComponent } from './trips/trips.component';
+import { PlacesComponent } from './places/places.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { IssueListComponent } from './issues/issue-list/issue-list.component';
     CustomerAddComponent,
     IssueAddComponent,
     CustomerListComponent,
-    IssueListComponent
+    IssueListComponent,
+    TripsComponent,
+    PlacesComponent
   ],
   imports: [
     BrowserModule,

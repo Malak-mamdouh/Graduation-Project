@@ -17,22 +17,50 @@ namespace Tracking_System___Api.Repositories.TripRepo
         }
         public async Task addTrip(Trip tripdto)
         {
-            location location = new location() { latitude=0 , longitude=0 , accuracy=0 };
+            location location = new location() { latitude=0 , longitude=0 };
             var trip = new Trip()
             {
-                AssetId = tripdto.AssetId,
-                Asset = context.assets.FirstOrDefault(x => x.Id == tripdto.AssetId),
+                /*AssetId = tripdto.AssetId,
+                Asset = context.assets.FirstOrDefault(x => x.Id == tripdto.AssetId),*/
+                
                 CustomerId = tripdto.CustomerId,
-                Customer = context.customers.FirstOrDefault(x => x.Id == tripdto.CustomerId),
+                Customer = context.customers.FirstOrDefault(t => t.Id == tripdto.CustomerId),
                 Date = tripdto.Date,
                 Destination = tripdto.Destination,
-                IsDone = tripdto.IsDone,
-                Status = tripdto.Status,
-                
-                
+                Status = tripdto.Status               
             };
-            await context.Trips.AddAsync(trip);
-            await context.SaveChangesAsync();
+            var Userplace = await context.places.FirstOrDefaultAsync(p => p.Region == trip.Customer.Region);
+            var users = await context.PlaceUser.Where(pu => pu.PlaceId == Userplace.Id).
+                Select(pu => pu.user).ToListAsync();
+            if (users != null)
+            {
+                foreach (var user in users)
+                {
+                    var trips = user.trips; //error
+                    if (trips != null)
+                    {
+                        var userTrips = trips.Where(t => t.Status == "Waiting").ToList();
+                        if (userTrips != null)
+                        {
+                            var tr = userTrips.FirstOrDefault(t => t.Date == trip.Date);
+                            if (tr == null)
+                            {
+                                trip.UserId = user.Id;
+                                break;
+                            }
+                        }
+                       
+                    }
+                    else if (trips == null)
+                    {
+                        trip.UserId = user.Id;
+                        break;
+                    }
+                }
+                await context.Trips.AddAsync(trip);
+                await context.SaveChangesAsync();
+            }
+            return;
         }
 
         public async Task deleteTrip(int id)
@@ -43,13 +71,13 @@ namespace Tracking_System___Api.Repositories.TripRepo
 
         public async Task<Trip> showTrip(int id)
         {
-            var trip = await context.Trips.Include(x => x.Asset).Include(x => x.Customer).Include(x => x.current).FirstOrDefaultAsync(x => x.Id == id);
+            var trip = await context.Trips.Include(x => x.Customer).Include(x => x.current).FirstOrDefaultAsync(x => x.Id == id);
             return trip;
         }
 
         public async Task<IList<Trip>> showTrips()
         {
-            var trips = await context.Trips.Include(x => x.Asset).Include(x => x.Customer).Include(x => x.current).ToListAsync();
+            var trips = await context.Trips.Include(x => x.Customer).Include(x => x.current).ToListAsync();
             return trips;
         }
 

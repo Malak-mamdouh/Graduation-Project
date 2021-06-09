@@ -36,32 +36,37 @@ namespace Tracking_System___Api.Repositories.DriversRepo
                 return driver;
             return null;
         }
-        /**
-        public async Task<bool> deleteDriver(string id)
+       
+        public async Task<bool> deleteDriver(int id)
         {
-            var driver = await context.Users.FirstOrDefaultAsync(x => x.Id == Id);
+            var driver = await context.Users.FirstOrDefaultAsync(x => x.Id == id);
             if (driver == null)
                 return false;
-            FileInfo file = new FileInfo(driver.Url);
-            if (file.Exists)
-                file.Delete();
+            if (driver.Url != null)
+            {
+                FileInfo file = new FileInfo(driver.Url);
+                if (file.Exists)
+                    file.Delete();
+            }
+            
 
-            context.drivers.Remove(driver);
+            context.Users.Remove(driver);
             await context.SaveChangesAsync();
             return true;
         }
-        */
-        /*
-        public async Task<User> showDriver(user id)
+        
+       
+        public async Task<User> showDriver(int id)
         {
             var driver = await context.Users.FirstOrDefaultAsync(x => x.Id == id);
+            
            if ( driver != null)
             {
                 return driver;
             }
             return null;
         }
-        */
+       
         public async Task<IEnumerable<Driver>> showDrivers()
         {
           var drivers = (await context.Users.Select(x =>new Driver{ 
@@ -72,31 +77,30 @@ namespace Tracking_System___Api.Repositories.DriversRepo
           }).ToListAsync()).Skip(1);
             return drivers;
         }
-        /**
-        public async Task<Driver> updateDriver(Driver driver)
+        
+        public async Task<User> updateDriver(Driver driver)
         {
-            if (driver.Id != 0)
+            if (driver.Email != "")
             {
-                var driverModel = await context.drivers.FirstOrDefaultAsync(a => a.Id == driver.Id);
+                var driverModel = await context.Users.FirstOrDefaultAsync(a => a.Email == driver.Email);
                 if (driverModel == null)
                     return null;
-                context.drivers.Attach(driverModel);
-                driverModel.FirstName = driver.FirstName;
+                context.Users.Attach(driverModel);
+                driverModel.UserName = driver.FirstName;
                 driverModel.LastName= driver.LastName;
-                driverModel.Phone = driver.Phone;
+                driverModel.PhoneNumber = driver.Phone;
                 driverModel.Email = driver.Email;
-                driverModel.Password = driver.Password;
+                driverModel.PasswordHash = driver.Password;
                 driverModel.Url = driver.Url;
-                context.Entry(driverModel).Property(a => a.FirstName).IsModified = true;
+                context.Entry(driverModel).Property(a => a.UserName).IsModified = true;
                 context.Entry(driverModel).Property(a => a.LastName).IsModified = true;
-                context.Entry(driverModel).Property(a => a.Phone).IsModified = true;
+                context.Entry(driverModel).Property(a => a.PhoneNumber).IsModified = true;
                 context.Entry(driverModel).Property(a => a.Email).IsModified = true;
-                context.Entry(driverModel).Property(a => a.Password).IsModified = true;
                 context.Entry(driverModel).Property(a => a.Url).IsModified = true;
                 await context.SaveChangesAsync();
                 return driverModel;
             }
             return null;
-        }*/
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace Tracking_System___Api.Controllers
 {
     [Route("[controller]/[action]")]
     [ApiController]
+    [Authorize]
     public class IssuesController : ControllerBase
     {
         private readonly IIssuesRepo iissuesrepo;
@@ -22,6 +24,7 @@ namespace Tracking_System___Api.Controllers
         }
         // GET: api/<IssuesController>
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IList<Issues>>> GetIssues()
         {
             return Ok(await iissuesrepo.showissues());
@@ -29,6 +32,8 @@ namespace Tracking_System___Api.Controllers
 
         // GET api/<IssuesController>/5
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin")]
+
         public async Task<ActionResult<Issues>> GetIssue(int id)
         {
             return Ok(await iissuesrepo.showIssue(id));
@@ -51,6 +56,8 @@ namespace Tracking_System___Api.Controllers
 
         // PUT api/<IssuesController>/5
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> updateIssue(int id, Issues issue)
         {
             if (id == issue.Id)
@@ -63,6 +70,8 @@ namespace Tracking_System___Api.Controllers
 
         // DELETE api/<IssuesController>/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
+
         public async Task<IActionResult> Delete(int id)
         {
             if (id != 0)

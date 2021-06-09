@@ -17,8 +17,13 @@ namespace Tracking_System___Api.Repositories.IssuesRepo
         }
         public async Task addissue(Issues issue)
         {
-            var issuedto = new Issues { Status = issue.Status, Date = issue.Date, Description = issue.Description, ReportedBy = issue.ReportedBy, AssetId = issue.AssetId, Asset = context.assets.FirstOrDefault(x => x.Id == issue.AssetId) };
-          await  context.issues.AddAsync(issuedto);
+            var issuedto = new Issues { Status = issue.Status, 
+                Date = issue.Date, 
+                Description = issue.Description, 
+                ReportedBy = issue.ReportedBy, 
+                AssetId = issue.AssetId, 
+                Asset = context.assets.FirstOrDefault(x => x.Id == issue.AssetId) };
+            await  context.issues.AddAsync(issuedto);
             await context.SaveChangesAsync();
         }
 

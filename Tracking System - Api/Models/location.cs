@@ -11,7 +11,6 @@ namespace Tracking_System___Api.Models
       
         public double latitude { get; set; }
         public double longitude { get; set; }
-        public double accuracy { get; set; }
         public int TripId { get; set; }
         public virtual Trip Trip { get; set; }
     }

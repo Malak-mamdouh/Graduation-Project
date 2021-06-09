@@ -7,16 +7,9 @@
 <table class="table table-hover" >
     <thead>
       <tr>
-        <th>Id</th>
         <th>Image</th>
         <th>Name</th>
         <th>Type</th>
-        <th>SubType</th>
-        <th>Description</th>
-        <th>Asset Number</th>
-        <th>SubType</th>
-        <th>Description</th>
-        <th>Asset Number</th>
         <th>SubType</th>
         <th>Description</th>
         <th>Asset Number</th>
@@ -25,17 +18,10 @@
     </thead>
     <tbody *ngFor="let asset of assets">
       <tr>
-        <th>{{asset.id}}</th>
         <td><img [src]="createImgPath(asset.url)" style="max-height: 50px;" 
             class="img-fluid"></td>
         <td>{{asset.name}}</td>
         <td>{{asset.type}}</td>
-        <td>{{asset.subType}}</td>
-        <td>{{asset.description}}</td>
-        <td>{{asset.assetNumber}}</td>
-        <td>{{asset.subType}}</td>
-        <td>{{asset.description}}</td>
-        <td>{{asset.assetNumber}}</td>
         <td>{{asset.subType}}</td>
         <td>{{asset.description}}</td>
         <td>{{asset.assetNumber}}</td>

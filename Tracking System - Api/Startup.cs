@@ -26,6 +26,7 @@ using Tracking_System___Api.Repositories.AssetRepo;
 using Tracking_System___Api.Repositories.DriversRepo;
 using Tracking_System___Api.Repositories.EmailRepo;
 using Tracking_System___Api.Repositories.IssuesRepo;
+using Tracking_System___Api.Repositories.PlaceRepo;
 using Tracking_System___Api.Repositories.TrackingRepo;
 using Tracking_System___Api.Repositories.TripRepo;
 
@@ -55,6 +56,7 @@ namespace Tracking_System___Api
                        ValidateAudience = false
                    };
                });
+            
             var emailConfig = Configuration
             .GetSection("EmailConfiguration")
             .Get<EmailConfiguration>();
@@ -62,6 +64,7 @@ namespace Tracking_System___Api
             services.AddScoped<IIssuesRepo, IssuesRepo>();
             services.AddScoped<ITripRepo , TripRepo>();
             services.AddScoped<IAssetRepo, AssetRepo>();
+            services.AddScoped<IPlaceRepo, PlaceRepo>();
             services.AddSingleton(emailConfig);
             services.AddDbContext<Context>(options => options.UseSqlServer(Configuration.GetConnectionString("conn")));
             services.AddScoped<IDriversRepo,DriversRepo>();

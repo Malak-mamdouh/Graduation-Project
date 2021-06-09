@@ -11,7 +11,6 @@ namespace Tracking_System___Api.Models
         public int Id { get; set; }
         [Required]
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime Date { get; set; }
         [Required]
         public string Status { get; set; }

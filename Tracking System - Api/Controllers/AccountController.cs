@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
@@ -23,8 +24,9 @@ using Tracking_System___Api.Repositories.EmailRepo;
 
 namespace Tracking_System___Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
+    
     public class AccountController : ControllerBase
     {
         private readonly UserManager<User> userManager;
@@ -69,9 +71,30 @@ namespace Tracking_System___Api.Controllers
             }
             else
             {
-                return Unauthorized();
+                return Unauthorized("Email or Password is not correct");
             }
         }
+        [Authorize]
+        [HttpPost("ChangePassword")]
+        public async Task<IActionResult> ChangePassword(ChangePasswordDto model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await userManager.GetUserAsync(User);
+                if (user == null) {
+                    return BadRequest("you should login first");
+                }
+                var result =await userManager.ChangePasswordAsync(user , model.CurrentPassword , 
+                    model.NewPassword);
+                if (!result.Succeeded)
+                {
+                    return BadRequest(result.Errors);
+                }
+                return Ok();
+            }
+            return BadRequest();
+        }
+        [Authorize(Roles = "Admin")]
         [HttpPost("Register")]
         public async Task<ActionResult> AddDriver( Driver driver)
         {
@@ -87,9 +110,9 @@ namespace Tracking_System___Api.Controllers
                         await userManager.AddToRoleAsync(driverModel, "Driver");
                     }
                     
-                  //  var message = new Message(new string[] { driver.Email }, "Welcome to tracker application",
-                      //  $" Dear {driverModel.FirstName} welcome \n   This is your password : {driver.Password}");
-                  //  emailSender.SendEmail(message);
+                    var message = new Message(new string[] { driver.Email }, "Welcome to tracker application",
+                        $" Dear {driverModel.UserName} welcome \n   This is your password : {driver.Password}");
+                    emailSender.SendEmail(message);
                     return Ok(driver);
                 }
                 return BadRequest();

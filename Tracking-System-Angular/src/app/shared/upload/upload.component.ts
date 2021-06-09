@@ -11,11 +11,12 @@ export class UploadComponent implements OnInit {
 
   public progress: number;
   message: string;
+  errorMessage = '';
   uploadForm: FormGroup;
   baseUrl = 'https://localhost:44370/Assets/Upload';
   // tslint:disable-next-line: no-output-on-prefix
   @Output() onUploadFinished = new EventEmitter();
- 
+  isLoad = false;
 
   constructor(private fb: FormBuilder, private http: HttpClient) { }
 
@@ -39,7 +40,7 @@ export class UploadComponent implements OnInit {
         this.message = 'Upload success.';
         this.onUploadFinished.emit(event.body);
       }
-    } , err => console.log(err)
+    } , err => this.errorMessage = err.error
     );
     this.uploadForm.reset();
   }
@@ -47,6 +48,7 @@ export class UploadComponent implements OnInit {
   onFileSelect(event) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
+      this.isLoad = true;
       this.uploadForm.get('profile').setValue(file);
     }
   }

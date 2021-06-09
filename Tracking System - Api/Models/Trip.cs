@@ -13,16 +13,14 @@ namespace Tracking_System___Api.Models
         public DateTime Date { get; set; }
         public string Destination { get; set; }
         public string Status { get; set; }
-        public bool IsDone { get; set; }
         public int CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
-        public int AssetId { get; set; }
-        public virtual Asset Asset { get; set;}
+        public int UserId { get; set; }
+        public virtual User user { get; set; }
         [NotMapped]
         public location Start { get; set; }
         public IList<location> current { get; set; }
         [NotMapped]
-
         public location End { get; set; }
 
     }

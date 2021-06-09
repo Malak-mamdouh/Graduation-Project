@@ -2,11 +2,14 @@
     <div>
         <input type="file" name="profile" (change)="onFileSelect($event)" />
         <button type="submit" class="btn btn-success">Upload</button>
-        <span class="upload" *ngIf="progress > 0">
+        <span class="upload" *ngIf="progress > 0 && isLoad">
             {{progress}}%
         </span>
     </div>
        <div>
+        <span class="text-danger" *ngIf="errorMessage && !message">
+            {{errorMessage}}
+        </span>
         <span class="upload" *ngIf="message">
          {{message}}
         </span> 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -16,6 +17,7 @@ namespace Tracking_System___Api.Controllers
 {
     [Route("[controller]/[action]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class DriversController : ControllerBase
     {
         private readonly IDriversRepo _idriverrepo;
@@ -68,19 +70,22 @@ namespace Tracking_System___Api.Controllers
             return null;
 
         }
-        /* 
+        
         // GET api/<DriversController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Driver>> GetDriver(string id)
+        public async Task<ActionResult<Driver>> GetDriver(int id)
         {
-            if (id != "")
+            if (id != 0)
             {
-                var driver = await idriverrepo.showDriver(id);
-                return Ok(driver);
+                var driver = await _idriverrepo.showDriver(id);
+
+                if(driver != null)
+                    return Ok(driver);
+                return BadRequest("Driver is not found");
             }
-            return BadRequest();
+            return BadRequest("Id is Invalid");
         }
-        */
+        
         // POST api/<DriversController>
         [HttpPost]
         public async Task<IActionResult> AddDriver (Driver driver)
@@ -95,9 +100,9 @@ namespace Tracking_System___Api.Controllers
                 return BadRequest();
             }
         }
-        /*
+        
         // PUT api/<DriversController>/5
-        [HttpPut("{id}")]
+        [HttpPut]
         public async Task<IActionResult> EditDriver(Driver driver)
         {
 
@@ -105,28 +110,28 @@ namespace Tracking_System___Api.Controllers
             {
                 return BadRequest();
             }
-            var driverModel = await idriverrepo.updateDriver(driver);
+            var driverModel = await _idriverrepo.updateDriver(driver);
             if (driverModel == null)
             {
-                return NotFound();
+                return BadRequest();
             }
             return StatusCode(202);
 
         }
-
+        
         // DELETE api/<DriversController>/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDriver(int id)
         {
             if (id == 0)
-                return BadRequest();
-            var driver = await idriverrepo.deleteDriver(id);
+                return BadRequest("Id is empty");
+            var driver = await _idriverrepo.deleteDriver(id);
             if (driver)
             {
                 return Ok();
             }
             return BadRequest();
 
-        }*/
+        }
     }
 }

@@ -10,10 +10,11 @@ namespace Tracking_System___Api.Models
 {
     public class User : IdentityUser<int>
     {
-        public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Url { get; set; }
         [NotMapped]
         public IFormFile file { get; set; }
+        public IList<PlaceUser> placeUsers { get; set; }
+        public IList<Trip> trips { get; set; }
     }
 }
