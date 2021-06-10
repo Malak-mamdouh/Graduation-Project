@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "F:\\web developer\\Gp\\Graduation-Project\\Tracking System - Api\\Tracking System - Api.csproj": {}
+    "C:\\Users\\rt\\Tracking-System-Github\\Graduation-Project\\Tracking System - Api\\Tracking System - Api.csproj": {}
   },
   "projects": {
-    "F:\\web developer\\Gp\\Graduation-Project\\Tracking System - Api\\Tracking System - Api.csproj": {
+    "C:\\Users\\rt\\Tracking-System-Github\\Graduation-Project\\Tracking System - Api\\Tracking System - Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\web developer\\Gp\\Graduation-Project\\Tracking System - Api\\Tracking System - Api.csproj",
+        "projectUniqueName": "C:\\Users\\rt\\Tracking-System-Github\\Graduation-Project\\Tracking System - Api\\Tracking System - Api.csproj",
         "projectName": "Tracking System - Api",
-        "projectPath": "F:\\web developer\\Gp\\Graduation-Project\\Tracking System - Api\\Tracking System - Api.csproj",
-        "packagesPath": "C:\\Users\\nourmaher\\.nuget\\packages\\",
-        "outputPath": "F:\\web developer\\Gp\\Graduation-Project\\Tracking System - Api\\obj\\",
+        "projectPath": "C:\\Users\\rt\\Tracking-System-Github\\Graduation-Project\\Tracking System - Api\\Tracking System - Api.csproj",
+        "packagesPath": "C:\\Users\\rt\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rt\\Tracking-System-Github\\Graduation-Project\\Tracking System - Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\nourmaher\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rt\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -145,7 +145,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }
