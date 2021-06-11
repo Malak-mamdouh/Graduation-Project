@@ -56,10 +56,16 @@ namespace Tracking_System___Api.Repositories.DriversRepo
         }
         
        
-        public async Task<User> showDriver(int id)
+        public async Task<Driver> showDriver(int id)
         {
-            var driver = await context.Users.FirstOrDefaultAsync(x => x.Id == id);
-            
+            var user = await context.Users.FirstOrDefaultAsync(x => x.Id == id);
+            var driver = new Driver { 
+                DriverId = user.Id,
+                FirstName = user.UserName,
+                LastName = user.LastName,
+                Phone = user.PhoneNumber,
+                Email = user.Email
+            };
            if ( driver != null)
             {
                 return driver;

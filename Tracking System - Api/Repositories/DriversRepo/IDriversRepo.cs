@@ -14,6 +14,6 @@ namespace Tracking_System___Api.Repositories.DriversRepo
         Task<IEnumerable<Driver>> showDrivers();
         Task<bool> deleteDriver(int id);
         Task<User> updateDriver(Driver driver);
-        Task<User> showDriver(int id);
+        Task<Driver> showDriver(int id);
     } 
 }

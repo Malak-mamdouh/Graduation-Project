@@ -79,7 +79,7 @@ namespace Tracking_System___Api
                 option.Password.RequireDigit = false;
                 option.Password.RequireUppercase = false;
                 option.Password.RequireNonAlphanumeric = false;
-            });
+            }).AddDefaultTokenProviders();
 
             builder = new IdentityBuilder(builder.UserType, typeof(Role), builder.Services);
             builder.AddEntityFrameworkStores<Context>();

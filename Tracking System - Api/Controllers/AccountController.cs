@@ -36,7 +36,6 @@ namespace Tracking_System___Api.Controllers
         private readonly IDriversRepo driversRepo;
         private readonly IConfiguration config;
         private readonly IEmailSender emailSender;
-
         public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, Context context, RoleManager<Role> roleManager,
             IDriversRepo driversRepo, IConfiguration config , IEmailSender emailSender)
         {
@@ -92,6 +91,45 @@ namespace Tracking_System___Api.Controllers
                 }
                 return Ok();
             }
+            return BadRequest();
+        }
+        [HttpPost("ForgetPassword")]
+        public async Task<ActionResult> ForgetPassword(ForgetPasswordDto model)
+        {
+            var user = await userManager.FindByEmailAsync(model.Email);
+            if (user != null)
+            {
+                var token = userManager.GeneratePasswordResetTokenAsync(user);
+                Random random = new Random();
+                int code = random.Next(1000,2000);
+                var message = new Message(new string[] { model.Email }, 
+                    "Reset Password",
+                        $" Dear {user.UserName} welcome \n   This is your code to add new password : " +
+                        $"{code}");
+                emailSender.SendEmail(message);
+                return Ok(new { email = model.Email , token = token.Result , code = code});
+            }
+            return BadRequest("Something is wrong..Try again");
+        }
+        [HttpPost("ResetPassword")]
+        public async Task<ActionResult> ResetPassword(ResetPasswordDto resetPasswordModel)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await userManager.FindByEmailAsync(resetPasswordModel.Email);
+                if (user != null)
+                {
+                    var result = await userManager.ResetPasswordAsync(user, resetPasswordModel.Token,
+                        resetPasswordModel.NewPassword);
+                    if (result.Succeeded)
+                    {
+                        return Ok("Succeeded");
+                    }
+                    return BadRequest("Failed");
+                }
+                return BadRequest("This user is not found");
+            }
+            
             return BadRequest();
         }
         [Authorize(Roles = "Admin")]
