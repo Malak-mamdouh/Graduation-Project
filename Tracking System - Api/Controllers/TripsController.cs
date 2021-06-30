@@ -7,8 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Tracking_System___Api.Models;
 using Tracking_System___Api.Repositories.TripRepo;
-using Windows.Devices.Geolocation;
-using Windows.Services.Maps;
 using GoogleMaps.LocationServices;
 
 
