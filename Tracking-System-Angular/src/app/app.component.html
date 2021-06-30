@@ -1,7 +1,7 @@
-<app-dashboard>
+<app-dashboard *ngIf="istoken">
     <router-outlet></router-outlet>
 </app-dashboard>
 
-<!--<app-login *ngIf="!value">
+<app-login *ngIf="!istoken">
 
-</app-login>-->
+</app-login>

@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DriversModule } from './drivers/drivers.module';
 import { AssetsModule } from './assets/assets.module';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './Admin/dashboard/dashboard.component';
@@ -14,8 +13,10 @@ import { IssueAddComponent } from './issues/issue-add/issue-add.component';
 import { SharedModule } from './shared/shared.module';
 import { CustomerListComponent } from './customers/customer-list/customer-list.component';
 import { IssueListComponent } from './issues/issue-list/issue-list.component';
-import { TripsComponent } from './trips/trips.component';
 import { PlacesComponent } from './places/places.component';
+import { TripListComponent } from './Trips/trip-list/trip-list.component';
+import { TripAddComponent } from './Trips/trip-add/trip-add.component';
+import { TrackingComponent } from './tracking/tracking.component';
 
 
 @NgModule({
@@ -27,8 +28,10 @@ import { PlacesComponent } from './places/places.component';
     IssueAddComponent,
     CustomerListComponent,
     IssueListComponent,
-    TripsComponent,
-    PlacesComponent
+    PlacesComponent,
+    TripListComponent,
+    TripAddComponent,
+    TrackingComponent
   ],
   imports: [
     BrowserModule,

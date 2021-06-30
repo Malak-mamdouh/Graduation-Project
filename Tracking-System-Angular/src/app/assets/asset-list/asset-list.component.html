@@ -14,6 +14,8 @@
         <th>Description</th>
         <th>Asset Number</th>
         <th></th>
+        <th></th>
+
       </tr>
     </thead>
     <tbody *ngFor="let asset of assets">
@@ -26,8 +28,10 @@
         <td>{{asset.description}}</td>
         <td>{{asset.assetNumber}}</td>
         <td>
-            <a class="btn btn-danger btn-sm mr-2" (click)="onDelete(asset.id)">Delete</a>
-          <a class="btn btn-sm btn-primary" (click)="onEdit(asset.id)">Edit</a>
+            <a class="btn btn-danger mr-2" (click)="onDelete(asset.id)">Delete</a>
+        </td>
+        <td>
+          <a class="btn btn-primary" (click)="onEdit(asset.id)">Edit</a>
         </td>
       </tr>
 

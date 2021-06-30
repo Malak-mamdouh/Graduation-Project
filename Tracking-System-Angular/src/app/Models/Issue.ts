@@ -7,7 +7,7 @@ export class Issue{
     assetId: number;
 }
 export enum Estatus{
-   "O" = "Open",
-   "R" = "Resolved",
-   "C" = "Closed"
+   'O' = 'Open',
+   'R' = 'Resolved',
+   'C' = 'Closed'
 }

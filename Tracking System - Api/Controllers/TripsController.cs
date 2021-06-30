@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Tracking_System___Api.Models;
 using Tracking_System___Api.Repositories.TripRepo;
+using Windows.Devices.Geolocation;
+using Windows.Services.Maps;
+using GoogleMaps.LocationServices;
+
 
 namespace Tracking_System___Api.Controllers
 {
@@ -25,8 +29,19 @@ namespace Tracking_System___Api.Controllers
         [HttpGet]
         public async Task<ActionResult<IList<Trip>>> GetTrips()
         {
+            
             var trips = await itrprepo.showTrips();
-            return Ok(trips);
+            /*
+            foreach (var trip in trips)
+            {
+                var locationService = new GoogleLocationService("api-key");
+                var point = locationService.GetLatLongFromAddress(trip.Destination);
+                trip.DestinationInMap.latitude = point.Latitude;
+                trip.DestinationInMap.longitude = point.Longitude;
+            };
+            */
+                
+              return Ok(trips);
         }
 
         // GET: api/Trips/5

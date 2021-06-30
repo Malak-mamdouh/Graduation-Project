@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="message !== ''">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        {{message}}
+      </div>
+    <div class="row justify-content-center">
+    
+    <div class="col-md-10">
+        <form [formGroup]="AddForm" (ngSubmit)="onSubmit()">
+            <div class="formStyle">
+
+                <h5 class="form-head">{{title}}</h5>
+               
+                <div class="form-group row">
+                    <div class="col-md-2">
+                        <label for="customerId">Customer</label>
+                    </div>
+                    <div class="col-md-10">
+                        <select formControlName="customerId" class="form-control"
+                        [ngClass]="{'is-invalid' : AddForm.get('customerId').value < 1 && 
+                       AddForm.get('customerId').touched}">
+                           <option selected disabled value="0">Select Customer</option>
+                           <option *ngFor="let customer of customers" [value]="customer.id">
+                               {{customer.name}}
+                           </option>
+                       </select>
+                       <div class="text-danger" *ngIf="this.AddForm.get('customerId').value < 1 
+                           && this.AddForm.get('customerId').touched">
+                               This Field is required
+                       </div>
+                    </div>
+                </div>
+             
+                <div class="form-group row">
+                    <div class="col-md-2">
+                        <label for="status">Status</label>
+                    </div>
+                    <div class="col-md-10">
+                        <select class="form-control" formControlName="status">
+                            <option *ngFor="let key of keys;"  [value]="statuslist[key]"
+                            [label]="statuslist[key]"></option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-2">
+                        <label for="date">Date</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="date" formControlName="date" 
+                        class="form-control" placeholder="Date" [ngClass]="{'is-invalid' : 
+                        AddForm.get('date').invalid && AddForm.get('date').touched}">
+                        <span class="text-danger" *ngIf="!this.AddForm.get('date').valid 
+                        && this.AddForm.get('date').touched">
+                            {{errorMessage.date.required}}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-2">Destination</div>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="destination" 
+                        class="form-control" placeholder="destination" [ngClass]="{'is-invalid' : 
+                        AddForm.get('destination').invalid && AddForm.get('destination').touched}">
+                        <span class="text-danger" *ngIf="!this.AddForm.get('destination').valid 
+                        && this.AddForm.get('destination').touched">
+                            {{errorMessage.destination.required}}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-custom mt-3" [disabled]="AddForm.invalid" 
+                    type="submit">{{btnTitle}}</button>
+                </div>
+            
+            </div>
+        </form>
+    </div>
+</div>
+</div>

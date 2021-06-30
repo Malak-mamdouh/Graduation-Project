@@ -6,8 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  ngOnInit(): void {
-     
-  }
+  // tslint:disable-next-line:no-inferrable-types
+  istoken: boolean = false;
   title = 'Tracking-System-Angular';
+  ngOnInit(): void {
+     // tslint:disable-next-line:prefer-const
+     let token = localStorage.getItem('token');
+     if (token){
+       this.istoken = true;
+     }
+  }
 }

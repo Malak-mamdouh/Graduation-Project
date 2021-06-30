@@ -6,7 +6,20 @@
         </div>
 
         <ul class="list-unstyled components">
-            <p>Dummy Heading</p>
+            <p>Tracking Assets</p>
+            <li>
+                
+                <a href="#TripsMenu" data-toggle="collapse" aria-expanded="false" 
+                class="dropdown-toggle"> Trips</a>
+                <ul class="collapse list-unstyled" id="TripsMenu">
+                    <li>
+                        <a routerLink="/add-trip">Add Trip</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/trip-list']">Trip List</a>
+                    </li>
+                </ul>
+            </li>
             <li>
                 
                 <a href="#driverMenu" data-toggle="collapse" aria-expanded="false" 
@@ -56,13 +69,14 @@
                     </li>
                 </ul>
             </li>
+            <button class="btn btn-primary" (click)="logout()"> Log Out </button>
+
         </ul>
 
         <ul class="list-unstyled CTAs">
             
         </ul>
     </nav>
-
     <!-- Page Content  -->
     <div id="content">
 
