@@ -104,7 +104,7 @@ namespace Tracking_System___Api.Controllers
                 int code = random.Next(1000,2000);
                 var message = new Message(new string[] { model.Email }, 
                     "Reset Password",
-                        $" Dear {user.UserName} welcome \n   This is your code to add new password : " +
+                        $" Dear {user.UserName} welcome \n This is your code to add new password : " +
                         $"{code}");
                 emailSender.SendEmail(message);
                 return Ok(new { email = model.Email , token = token.Result , code = code});

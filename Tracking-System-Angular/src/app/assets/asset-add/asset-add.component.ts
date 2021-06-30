@@ -17,14 +17,14 @@ export class AssetAddComponent implements OnInit {
   isEditMode: boolean;
   btnTitle: string;
   title: string;
-  typeList = [ 'Motor Vehicles', 'Railed Vehicles' ,'WaterCraft' , 'AirCraft'];
+  typeList = [ 'Motor Vehicles', 'Railed Vehicles'];
   editUrl: string;
   subTypeList = [];
   allSubType = [{name: "motorCycles" , type: "Motor Vehicles"} , 
                 {name: "cars" , type: "Motor Vehicles"},
                 {name: "trucks" , type: "Motor Vehicles"} , 
                 {name: "buses" , type: "Motor Vehicles"} , 
-                {name: "trains" , type: "Railed Vehicles"} , 
+                {name: "trains" , type: "Railed Vehicles"}, 
                 {name: "trams" , type: "Railed Vehicles"}];
   message: string;
   subTypeAfterEvent = [];
