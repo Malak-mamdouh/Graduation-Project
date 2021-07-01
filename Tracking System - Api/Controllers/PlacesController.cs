@@ -14,7 +14,7 @@ namespace Tracking_System___Api.Controllers
 {
     [Route("[controller]/[action]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
+   // [Authorize(Roles = "Admin")]
     public class PlacesController : ControllerBase
     {
         private readonly IPlaceRepo _placeRepo;

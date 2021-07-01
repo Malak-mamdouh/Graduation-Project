@@ -12,6 +12,8 @@ namespace Tracking_System___Api.Models
         public int Id { get; set; }
         public DateTime Date { get; set; }
         public string Destination { get; set; }
+        [NotMapped]
+        public location DestinationInMap { get; set; }
         public string Status { get; set; }
         public int CustomerId { get; set; }
         public virtual Customer Customer { get; set; }

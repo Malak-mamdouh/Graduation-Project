@@ -40,13 +40,13 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "FluentEmail.Razor": {
-              "target": "Package",
-              "version": "[3.0.0, )"
-            },
             "FluentEmail.Smtp": {
               "target": "Package",
               "version": "[3.0.0, )"
+            },
+            "GoogleMaps.LocationServices": {
+              "target": "Package",
+              "version": "[1.2.0.5, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",

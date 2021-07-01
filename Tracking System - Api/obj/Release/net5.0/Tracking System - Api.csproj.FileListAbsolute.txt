@@ -1,0 +1,167 @@
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\appsettings.Development.json
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\appsettings.json
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Tracking System - Api.StaticWebAssets.xml
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Tracking System - Api.exe
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Tracking System - Api.deps.json
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Tracking System - Api.runtimeconfig.json
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Tracking System - Api.runtimeconfig.dev.json
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Tracking System - Api.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\ref\Tracking System - Api.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Tracking System - Api.pdb
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Azure.Core.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Azure.Identity.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Azure.Security.KeyVault.Certificates.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Azure.Security.KeyVault.Secrets.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\FluentEmail.Core.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\FluentEmail.Razor.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\FluentEmail.Smtp.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Humanizer.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\MailKit.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.AspNetCore.Identity.UI.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.AspNetCore.JsonPatch.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.AspNetCore.Razor.Language.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.CodeAnalysis.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.CodeAnalysis.CSharp.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.CodeAnalysis.Razor.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.CodeAnalysis.Workspaces.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.Data.SqlClient.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.EntityFrameworkCore.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.Extensions.DependencyInjection.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.Extensions.DependencyModel.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.Extensions.FileProviders.Embedded.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.Extensions.Identity.Core.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.Extensions.Identity.Stores.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.Identity.Client.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.Identity.Client.Extensions.Msal.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.Identity.Web.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.IdentityModel.Logging.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.IdentityModel.Protocols.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.IdentityModel.Tokens.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.OpenApi.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\dotnet-aspnet-codegenerator-design.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\MimeKit.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\NETCore.MailKit.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Newtonsoft.Json.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Newtonsoft.Json.Bson.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\BouncyCastle.Crypto.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\RazorLight.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\SendGrid.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\StarkbankEcdsa.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\System.Composition.AttributedModel.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\System.Composition.Convention.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\System.Composition.Hosting.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\System.Composition.Runtime.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\System.Composition.TypedParts.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\System.Configuration.ConfigurationManager.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\System.Diagnostics.DiagnosticSource.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\System.IdentityModel.Tokens.Jwt.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\System.Runtime.Caching.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\System.Security.Cryptography.ProtectedData.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\cs\Microsoft.CodeAnalysis.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\de\Microsoft.CodeAnalysis.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\es\Microsoft.CodeAnalysis.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\fr\Microsoft.CodeAnalysis.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\it\Microsoft.CodeAnalysis.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\ja\Microsoft.CodeAnalysis.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\ko\Microsoft.CodeAnalysis.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\pl\Microsoft.CodeAnalysis.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\ru\Microsoft.CodeAnalysis.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\tr\Microsoft.CodeAnalysis.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Release\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\Tracking System - Api.csproj.AssemblyReference.cache
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\Tracking System - Api.GeneratedMSBuildEditorConfig.editorconfig
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\Tracking System - Api.AssemblyInfoInputs.cache
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\Tracking System - Api.AssemblyInfo.cs
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\Tracking System - Api.csproj.CoreCompileInputs.cache
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\Tracking System - Api.MvcApplicationPartsAssemblyInfo.cs
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\Tracking System - Api.MvcApplicationPartsAssemblyInfo.cache
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\staticwebassets\Tracking System - Api.StaticWebAssets.Manifest.cache
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\staticwebassets\Tracking System - Api.StaticWebAssets.xml
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\scopedcss\bundle\Tracking System - Api.styles.css
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\Tracking System - Api.RazorTargetAssemblyInfo.cache
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\Tracking System - Api.csproj.CopyComplete
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\Tracking System - Api.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\ref\Tracking System - Api.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\Tracking System - Api.pdb
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\Tracking System - Api.genruntimeconfig.cache

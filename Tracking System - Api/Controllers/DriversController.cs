@@ -17,7 +17,7 @@ namespace Tracking_System___Api.Controllers
 {
     [Route("[controller]/[action]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
+   // [Authorize(Roles = "Admin")]
     public class DriversController : ControllerBase
     {
         private readonly IDriversRepo _idriverrepo;

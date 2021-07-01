@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Login } from '../../Models/Login';
 import { AccountService } from './account.service';
 
@@ -20,7 +21,7 @@ export class LoginComponent implements OnInit {
       required: 'Password is required'
     }
   }
-  constructor(private accountService: AccountService) { }
+  constructor(private accountService: AccountService ,private router: Router) { }
 
   ngOnInit(): void {
     this.LoginForm = new FormGroup({
@@ -39,6 +40,8 @@ export class LoginComponent implements OnInit {
     this.accountService.login(this.loginModel).subscribe(response => {
       console.log(response);
       localStorage.setItem('token' , response.token);
+      this.router.navigate(['trip-list']);
+      window.location.reload();
     } , err => console.log(err));
     this.LoginForm.reset();
   }

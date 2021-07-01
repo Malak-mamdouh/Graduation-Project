@@ -32,6 +32,7 @@ namespace Tracking_System___Api.Repositories.TripRepo
             var Userplace = await context.places.FirstOrDefaultAsync(p => p.Region == trip.Customer.Region);
             var users = await context.PlaceUser.Where(pu => pu.PlaceId == Userplace.Id).
                 Select(pu => pu.user).ToListAsync();
+            
             if (users != null)
             {
                 foreach (var user in users)
@@ -75,9 +76,14 @@ namespace Tracking_System___Api.Repositories.TripRepo
             return trip;
         }
 
-        public async Task<IList<Trip>> showTrips()
+        public async Task<IList<Trip>> showTrips(string status)
         {
-            var trips = await context.Trips.Include(x => x.Customer).Include(x => x.current).ToListAsync();
+            if (status != null)
+            {
+                var filteredByStatus = await context.Trips.Where(t => t.Status == status).ToListAsync();
+                return filteredByStatus;
+            }
+            var trips = await context.Trips.Include(x => x.Customer).Include(x => x.current).Include(x => x.user).ToListAsync();
             return trips;
         }
 

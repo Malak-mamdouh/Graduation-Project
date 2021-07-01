@@ -62,11 +62,13 @@ namespace Tracking_System___Api.Controllers
             var result = await signInManager.CheckPasswordSignInAsync(account,userDto.Password , false);
             if (result.Succeeded)
             {
-                return  Ok(new
+                return Ok(new
                 {
-                    token = GenerateJwtToken(account).Result
+                    token = GenerateJwtToken(account).Result,
+                    account.Id
                     /*account*/
-                });;
+
+                }); ;;
             }
             else
             {

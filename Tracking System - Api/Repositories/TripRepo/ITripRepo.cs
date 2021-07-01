@@ -9,7 +9,7 @@ namespace Tracking_System___Api.Repositories.TripRepo
    public interface ITripRepo
     {
         Task addTrip(Trip trip);
-        Task<IList<Trip>> showTrips();
+        Task<IList<Trip>> showTrips(string status);
         Task deleteTrip(int id);
         Task<Trip> updateTrip(Trip trip , int id);
         Task<Trip> showTrip(int id);

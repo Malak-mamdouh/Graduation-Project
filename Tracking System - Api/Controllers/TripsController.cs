@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Tracking_System___Api.Models;
 using Tracking_System___Api.Repositories.TripRepo;
+using GoogleMaps.LocationServices;
+
 
 namespace Tracking_System___Api.Controllers
 {
@@ -22,11 +24,22 @@ namespace Tracking_System___Api.Controllers
         }
 
         // GET: api/Trips
-        [HttpGet]
-        public async Task<ActionResult<IList<Trip>>> GetTrips()
+        [HttpGet("{status?}")]
+        public async Task<ActionResult<IList<Trip>>> GetTrips(string status)
         {
-            var trips = await itrprepo.showTrips();
-            return Ok(trips);
+         
+            var trips = await itrprepo.showTrips(status);
+            /*
+            foreach (var trip in trips)
+            {
+                var locationService = new GoogleLocationService("api-key");
+                var point = locationService.GetLatLongFromAddress(trip.Destination);
+                trip.DestinationInMap.latitude = point.Latitude;
+                trip.DestinationInMap.longitude = point.Longitude;
+            };
+            */
+                
+              return Ok(trips);
         }
 
         // GET: api/Trips/5

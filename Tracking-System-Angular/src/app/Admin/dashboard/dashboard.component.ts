@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
   
+    // tslint:disable-next-line:only-arrow-functions
     $(document).ready( function() {
       // tslint:disable-next-line: only-arrow-functions
       $('#sidebarCollapse').on('click', function() {
@@ -19,5 +20,8 @@ export class DashboardComponent implements OnInit {
       });
   });
   }
-  
+  logout(){
+    localStorage.removeItem('token');
+    window.location.reload();
+  }
 }

@@ -19,10 +19,6 @@ namespace Tracking_System___Api.Models
         public string SubType { get; set; }
         [Required]
         public string Description { get; set; }
-        public string Url { get; set; }
-        [Required]
         public string AssetNumber { get; set; }
-        [NotMapped]
-        public IFormFile file { get; set; }
     }
 }
