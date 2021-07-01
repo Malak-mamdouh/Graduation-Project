@@ -28,7 +28,9 @@ namespace Tracking_System___Api.Repositories.DriversRepo
                 LastName = model.LastName,
                 Email = model.Email,
                 PhoneNumber = model.Phone,
-                Url = model.Url
+                Url = model.Url,
+                Adress = model.Adress,
+                City = model.City
             };
             
             var result = await _userManager.CreateAsync(driver, model.Password);
@@ -64,7 +66,9 @@ namespace Tracking_System___Api.Repositories.DriversRepo
                 FirstName = user.UserName,
                 LastName = user.LastName,
                 Phone = user.PhoneNumber,
-                Email = user.Email
+                Email = user.Email,
+                Adress = user.Adress,
+                City = user.City
             };
            if ( driver != null)
             {

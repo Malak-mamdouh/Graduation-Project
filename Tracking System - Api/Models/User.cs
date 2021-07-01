@@ -11,6 +11,8 @@ namespace Tracking_System___Api.Models
     public class User : IdentityUser<int>
     {
         public string LastName { get; set; }
+        public string Adress { get; set; }
+        public string City { get; set; }
         public string Url { get; set; }
         [NotMapped]
         public IFormFile file { get; set; }

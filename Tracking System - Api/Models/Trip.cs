@@ -17,6 +17,8 @@ namespace Tracking_System___Api.Models
         public string Status { get; set; }
         public int CustomerId { get; set; }
         public virtual Customer Customer { get; set; }
+        public int DepartmentId { get; set; }
+        public virtual Department Departmen { get; set; }
         public int UserId { get; set; }
         public virtual User user { get; set; }
         [NotMapped]
