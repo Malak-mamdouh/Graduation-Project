@@ -4,7 +4,6 @@ export class Asset {
     type: string;
     subType: string;
     description: string;
-    url: string;
     assetNumber: string;
 }
 export class TypeItem{

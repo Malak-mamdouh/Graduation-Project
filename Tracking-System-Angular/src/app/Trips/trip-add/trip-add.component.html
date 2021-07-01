@@ -7,7 +7,7 @@
         {{message}}
       </div>
     <div class="row justify-content-center">
-    
+        
     <div class="col-md-10">
         <form [formGroup]="AddForm" (ngSubmit)="onSubmit()">
             <div class="formStyle">
@@ -22,7 +22,7 @@
                         <select formControlName="customerId" class="form-control"
                         [ngClass]="{'is-invalid' : AddForm.get('customerId').value < 1 && 
                        AddForm.get('customerId').touched}">
-                           <option selected disabled value="0">Select Customer</option>
+                           <option selected disabled value="">Select Customer</option>
                            <option *ngFor="let customer of customers" [value]="customer.id">
                                {{customer.name}}
                            </option>

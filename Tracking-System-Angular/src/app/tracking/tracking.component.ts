@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Lock } from './lock';
 import { TrackingService } from './tracking.service';
-import * as mapboxgl from 'mapbox-gl';
+/*import * as mapboxgl from 'mapbox-gl';*/
 import { environment } from 'src/environments/environment';
 import { Position } from '@angular/compiler';
 import { ActivatedRoute , ParamMap } from '@angular/router';
@@ -14,7 +14,8 @@ import { ActivatedRoute , ParamMap } from '@angular/router';
 export class TrackingComponent implements OnInit {
   location = {longitude: 1 , latitude: 2 , tripId: 1 };
   lockas = {};
-   map!: mapboxgl.Map ;
+  /*
+   map!: mapboxgl.Map ;*/
   succs: any;
   id: number;
   croods: Position[][] = [] ;
@@ -29,11 +30,11 @@ export class TrackingComponent implements OnInit {
      this.id = params.id;
      console.log(this.id);
     });
-    mapboxgl.accessToken = 'pk.eyJ1Ijoibm91cm1haGVyIiwiYSI6ImNrbmhiajdjMDBjY3Myb3BnOTE5ZjNqMWMifQ.cIq23rv3yZ7lXz4ABWF1eg';
-    const container = document.getElementById('map');
+    /*mapboxgl.accessToken = 'pk.eyJ1Ijoibm91cm1haGVyIiwiYSI6ImNrbmhiajdjMDBjY3Myb3BnOTE5ZjNqMWMifQ.cIq23rv3yZ7lXz4ABWF1eg';
+    */const container = document.getElementById('map');
   }
 // tslint:disable-next-line:typedef
-getmap(){
+/*getmap(){
   this.map = new mapboxgl.Map({container: 'map',
   style: 'mapbox://styles/mapbox/streets-v11',
  center: this.croods[0],
@@ -65,7 +66,7 @@ getmap(){
     }
     });
     });
-}
+}*/
  // tslint:disable-next-line:typedef
 setlocation(){
    navigator.geolocation.watchPosition( succ => {
@@ -99,7 +100,7 @@ this.trackservvice.getLocation(1).subscribe( succ => {this.succs = succ;
 
                                                       console.log(this.croods);
 
-                                                      this.getmap();
+                                                      /*this.getmap();*/
 } );
  }
 }

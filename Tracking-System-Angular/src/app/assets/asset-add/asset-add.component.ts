@@ -17,7 +17,9 @@ export class AssetAddComponent implements OnInit {
   isEditMode: boolean;
   btnTitle: string;
   title: string;
-  typeList = [ 'Motor Vehicles', 'Railed Vehicles'];
+  typeList = [ {name:'Motor Vehicles' , ownership: 'private'}, 
+  {name:'Railed Vehicles', ownership:'public'}];
+
   editUrl: string;
   subTypeList = [];
   allSubType = [{name: "motorCycles" , type: "Motor Vehicles"} , 
@@ -28,6 +30,7 @@ export class AssetAddComponent implements OnInit {
                 {name: "trams" , type: "Railed Vehicles"}];
   message: string;
   subTypeAfterEvent = [];
+  TypeAfterEvent = [];
   NameExist: boolean;
   AssetNumberExist: boolean;
   errorMessage = {
@@ -36,7 +39,7 @@ export class AssetAddComponent implements OnInit {
       nameExist: ''
     },
     type: {
-      required: 'type is required'
+      required: 'Type is required'
     },
     description: {
       required: 'Description is required'
@@ -46,27 +49,23 @@ export class AssetAddComponent implements OnInit {
       Exist: ''
     },
   }
+  IsPrivate = false;
   constructor(private activeRoute: ActivatedRoute, 
               private assetService: AssetService) { }
 
   ngOnInit(): void {
-    this.response = {
-      url : ''
-    };
     this.NameExist = true;
     this.message = '';
     this.isEditMode = false;
-    this.editUrl = ''
     this.btnTitle = 'Add';
     this.title = 'Add Asset';
-
-    
     this.AddForm = new FormGroup({
       name: new FormControl('' , Validators.required),
       type: new FormControl('' , Validators.required),
       subType: new FormControl('' , Validators.required),
       description: new FormControl('' , Validators.required),
-      assetNumber: new FormControl('' , Validators.required)
+      assetNumber: new FormControl(''),
+      Publicity: new FormControl('' , Validators.required)
     });
     this.assetModel = {
       id:0,
@@ -74,19 +73,16 @@ export class AssetAddComponent implements OnInit {
       type:'',
       subType:'',
       description:'',
-      assetNumber:'',
-      url:''
+      assetNumber:''
     }
     this.activeRoute.paramMap.subscribe(param => {
       const id = +param.get('id');
       if(id){
-    
         this.assetService.ShowAsset(id).subscribe(result => {
           this.assetModel = result;
           this.isEditMode = true;
           this.btnTitle = 'Edit';
           this.title = 'Edit Asset';
-          this.editUrl = this.assetModel.url;
           this.addAssetData();
           console.log(this.assetModel);
         } , err => console.log(err));
@@ -94,39 +90,32 @@ export class AssetAddComponent implements OnInit {
     });
   }
 
-  public uploadFinished = (event) =>{
-    this.response = event;
-  }
   onTypeChange(){
     const selectedType = this.AddForm.get('type').value;
     this.subTypeAfterEvent = this.allSubType.filter(t => t.type === selectedType);
-   
   }
+
   onSubmit(){
     this.ValidateModel();
+    console.log(this.AddForm);
     if(!this.isEditMode){
-      this.assetModel.url = this.response.url;
       this.assetService.AddAsset(this.assetModel).subscribe(result => {
         this.message = 'Asset has added successfuly'
       } , err => console.log(err));
     }
     else{
-      if (this.editUrl !== null && this.response.url == ''){
-        this.assetModel.url = this.editUrl;
-        console.log(this.assetModel.url);
-      }
-      else{
-        this.assetModel.url = this.response.url;
-      }
       this.assetService.EditAsset(this.assetModel).subscribe(x => {
         this.message = 'Asset has updated successfuly'
       } , err => console.log(err));
     }
     this.AddForm.reset();
+    this.subTypeAfterEvent = [];
+    this.TypeAfterEvent = [];
     this.AddForm.patchValue({
       type: '',
       subType: ''
     });
+    this.IsPrivate = false;
   }
   addAssetData(){
     if(this.assetModel !== null){
@@ -166,6 +155,18 @@ export class AssetAddComponent implements OnInit {
       return true;
     }
     return false;
+  }
+  filter(event){
+    if(event.value == 'private' && this.IsPrivate != true){
+      this.IsPrivate = true;
+      this.TypeAfterEvent = this.typeList.filter(t => t.ownership === event.value);
+    }else if(event.value == 'public' && this.IsPrivate == false){
+      this.IsPrivate = false;
+      this.TypeAfterEvent = this.typeList.filter(t => t.ownership === event.value);
+    }else{
+      this.IsPrivate = false;
+      this.TypeAfterEvent = [];
+    }
   }
   ValidateModel(){
     this.assetModel.name = this.AddForm.get('name').value;

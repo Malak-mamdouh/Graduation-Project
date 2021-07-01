@@ -24,11 +24,11 @@ namespace Tracking_System___Api.Controllers
         }
 
         // GET: api/Trips
-        [HttpGet]
-        public async Task<ActionResult<IList<Trip>>> GetTrips()
+        [HttpGet("{status?}")]
+        public async Task<ActionResult<IList<Trip>>> GetTrips(string status)
         {
-            
-            var trips = await itrprepo.showTrips();
+         
+            var trips = await itrprepo.showTrips(status);
             /*
             foreach (var trip in trips)
             {

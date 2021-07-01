@@ -135,38 +135,6 @@ namespace Tracking_System___Api.Controllers
             if (numbers == null)
                 return null;
             return numbers;
-        }
-        [HttpPost , DisableRequestSizeLimit]
-        public IActionResult Upload()
-        {
-            try
-            {
-                var file = Request.Form.Files[0];
-                var folderName = Path.Combine("Resources", "Images");
-                var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
-
-                if (file.Length > 0)
-                {
-                    var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-                    var fullpath = Path.Combine(pathToSave, fileName);
-                    var url = Path.Combine(folderName, fileName);
-                    using (var stream = new FileStream(fullpath, FileMode.Create))
-                    {
-                        file.CopyTo(stream);
-                    }
-                    return Ok(new { url });
-                }
-                else
-                {
-                    return BadRequest();
-                }
-            }
-            catch (ArgumentOutOfRangeException)
-            {
-                return BadRequest("you should select picture first");
-            }
-           
-        }
-       
+        }       
     }
 }

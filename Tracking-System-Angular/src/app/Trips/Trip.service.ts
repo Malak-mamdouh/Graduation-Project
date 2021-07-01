@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Trip } from './Trip';
+import { Trip } from '../Models/Trip';
 
 @Injectable({providedIn: 'root'})
 export class TripService {
@@ -16,6 +16,9 @@ export class TripService {
 
     AllTrips(): Observable<Trip[]>{
         return this.http.get<Trip[]>(this.baseUrl + 'GetTrips');
+    }
+    FilteredTrips(status: string): Observable<Trip[]>{
+        return this.http.get<Trip[]>(this.baseUrl + 'GetTrips/' + status);
     }
     ShowTrip(id: number): Observable<Trip>{
         return this.http.get<Trip>(this.baseUrl + 'GetTrip/' + id);

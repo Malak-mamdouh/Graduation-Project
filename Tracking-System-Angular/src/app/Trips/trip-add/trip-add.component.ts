@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CustomerService } from 'src/app/customers/customer.service';
 import { Customer } from 'src/app/Models/Customer';
 import { Estatus } from 'src/app/Models/Issue';
-import { Trip } from '../Trip';
+import { Trip, Tripstatus } from '../../Models/Trip';
 import { TripService } from '../Trip.service';
 
 @Component({
@@ -23,7 +23,7 @@ export class TripAddComponent implements OnInit {
   customers: Customer[] = [];
   message: string;
   /*statusList = [{id:1 , name:'Open'} , {id:2 , name:'Resolved'} , {id:3 , name:'Closed'}];*/
-  statuslist = Estatus;
+  statuslist = Tripstatus;
   errorMessage = {
     date: {
       required: 'date is required'
@@ -48,23 +48,25 @@ export class TripAddComponent implements OnInit {
       this.customers = list;
       console.log(this.customers);
     } , err => console.log(err));
+    
     this.isEditMode = false;
-    this.title = 'Add Issue';
+    this.title = 'Add Trip';
     this.btnTitle = 'Add';
     this.message = '';
     this.AddForm = new FormGroup({
       date: new FormControl('' , Validators.required),
       destination: new FormControl('' , Validators.required),
-      status: new FormControl('' , Validators.required),
+      status: new FormControl('Waiting' , Validators.required),
       customerId: new FormControl('' , Validators.required),
     });
-   /* this.tripModel = {
+    this.tripModel = {
+      id:0,
       date: new Date(),
       status: '',
       destination: '',
       customerId: '',
     };
-    */
+    
     this.keys = Object.keys(this.statuslist);
     this.activeRoute.paramMap.subscribe(param => {
       const id = +param.get('id');

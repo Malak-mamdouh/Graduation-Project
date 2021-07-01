@@ -35,14 +35,6 @@ namespace Tracking_System___Api.Repositories.AssetRepo
             var asset = await context.assets.FirstOrDefaultAsync(x => x.Id == id);
             if (asset == null)
                 return false;
-            if (asset.Url != "")
-            {
-                FileInfo file = new FileInfo(asset.Url);
-                if (file.Exists)
-                    file.Delete();
-            }
-            
-
             context.assets.Remove(asset);
             await context.SaveChangesAsync();
             return true;
@@ -77,13 +69,11 @@ namespace Tracking_System___Api.Repositories.AssetRepo
                 assetModel.SubType = asset.SubType;
                 assetModel.Description = asset.Description;
                 assetModel.AssetNumber = asset.AssetNumber;
-                assetModel.Url = asset.Url;
                 context.Entry(assetModel).Property(a => a.Name).IsModified = true;
                 context.Entry(assetModel).Property(a => a.Type).IsModified = true;
                 context.Entry(assetModel).Property(a => a.SubType).IsModified = true;
                 context.Entry(assetModel).Property(a => a.AssetNumber).IsModified = true;
                 context.Entry(assetModel).Property(a => a.Description).IsModified = true;
-                context.Entry(assetModel).Property(a => a.Url).IsModified = true;
 
                 await context.SaveChangesAsync();
                 return assetModel;

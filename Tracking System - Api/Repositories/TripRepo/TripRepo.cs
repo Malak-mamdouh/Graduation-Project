@@ -76,8 +76,13 @@ namespace Tracking_System___Api.Repositories.TripRepo
             return trip;
         }
 
-        public async Task<IList<Trip>> showTrips()
+        public async Task<IList<Trip>> showTrips(string status)
         {
+            if (status != null)
+            {
+                var filteredByStatus = await context.Trips.Where(t => t.Status == status).ToListAsync();
+                return filteredByStatus;
+            }
             var trips = await context.Trips.Include(x => x.Customer).Include(x => x.current).Include(x => x.user).ToListAsync();
             return trips;
         }

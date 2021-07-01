@@ -182,7 +182,6 @@ C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Azure.Security.KeyVault.Certificates.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Azure.Security.KeyVault.Secrets.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\FluentEmail.Core.dll
-C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\FluentEmail.Razor.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\FluentEmail.Smtp.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Humanizer.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\MailKit.dll
@@ -195,7 +194,6 @@ C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
-C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
@@ -210,7 +208,6 @@ C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Embedded.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
@@ -236,7 +233,6 @@ C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\BouncyCastle.Crypto.dll
-C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\RazorLight.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\SendGrid.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\StarkbankEcdsa.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
@@ -513,3 +509,4 @@ F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Un
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Uno.Xaml.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Uno.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\GoogleMaps.LocationServices.dll
+C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\GoogleMaps.LocationServices.dll

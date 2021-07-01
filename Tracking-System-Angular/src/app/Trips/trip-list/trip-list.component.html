@@ -1,18 +1,28 @@
+<ul class="menu-list text-center mt-3">
+  <li class="list-group-item ml-3"
+  [class.active]="'A' === SelectedKey" (click)="filter('A')"
+  style="cursor: pointer;"><!--[value]="category.id"-->
+  All
+  </li>
+  <li class="list-group-item ml-3" *ngFor="let key of keys" (click)="filter(key)"
+  [class.active]="key === SelectedKey"
+  style="cursor: pointer;"><!--[value]="category.id"-->
+  {{statuslist[key]}}
+  </li>
+</ul>
 <div *ngIf="isLoading" style="text-align: center; margin-top: 25vh;">
     <app-loading-spinner></app-loading-spinner>
   </div>
-  <div class="tbl table-responsive" *ngIf="Trips.length >= 1 && !isLoading">
+        
+  <div class="tbl table-responsive mt-5" *ngIf="Trips.length >= 1 && !isLoading">
   
       <table class="table table-hover">
           <thead>
             <tr>
               <th scope="col">Date</th>
-              <th scope="col">status</th>
+              <th scope="col">Status</th>
               <th scope="col">Destination</th>
-              <th scope="col">Driver Name</th>
-              <th scope="col">Customer Name</th>
-              <th></th>
-              <th></th>
+              <th *ngIf="SelectedKey != 'A'">Actions</th>
             </tr>
           </thead>
        
@@ -21,22 +31,19 @@
                 <td>{{trip.date | date: 'short'}}</td>
                 <td>{{trip.status}}</td>
                 <td>{{trip.destination}}</td>
-                <td>{{trip.user.userName}}</td>
-                <td>{{trip.customer.name }}</td>
-                <td>
+                <td *ngIf="SelectedKey != 'A'">
+                  <a class="btn btn-primary mr-2" (click)="onEdit(trip.id)" 
+                  *ngIf="trip.status != 'Done'">Edit</a>
                   <a class="btn btn-danger mr-2" (click)="onDelete(trip.id)">Delete</a>
-                  <a class="btn btn-primary" (click)="onEdit(trip.id)">Edit</a>
-              </td>
-              <td>
-
-                <a class="btn btn-primary" routerLink="tracking/{{trip.id}}" >Tracking</a>
+                  <a class="btn btn-secondary" routerLink="tracking/{{trip.id}}" 
+                  *ngIf="NotTracking">Tracking</a>
             </td>
               </tr>
             </tbody>          
   
       </table>
   </div>
-  <div *ngIf="Trips.length == 0 && !isLoading" class="text-center mt-3">
+  <div *ngIf="Trips.length == 0 && !isLoading" class="text-center mt-5">
     <h4><em>No Trips Here</em></h4>
     <a (click)="onAdd()" class="btn btn-primary mt-2">Add Trip</a>
     

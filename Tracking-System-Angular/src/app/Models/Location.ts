@@ -1,4 +1,4 @@
-import { Trip } from '../Trips/Trip';
+import { Trip } from './Trip';
 
 export class Location {
 id: number;

@@ -10,10 +10,6 @@
       "NET",
       "NET5_0",
       "NETCOREAPP",
-      "HAS_UNO",
-      "UNO_HAS_FRAMEWORKELEMENT_MEASUREOVERRIDE",
-      "UNO_HAS_NO_IDEPENDENCYOBJECT",
-      "UNO_REFERENCE_API",
       "NET5_0_OR_GREATER",
       "NETCOREAPP1_0_OR_GREATER",
       "NETCOREAPP1_1_OR_GREATER",
@@ -37,7 +33,6 @@
     ".NETCoreApp,Version=v5.0": {
       "Tracking System - Api/1.0.0": {
         "dependencies": {
-          "FluentEmail.Razor": "3.0.0",
           "FluentEmail.Smtp": "3.0.0",
           "GoogleMaps.LocationServices": "1.2.0.5",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "5.0.5",
@@ -59,7 +54,6 @@
           "Swashbuckle.AspNetCore": "6.1.2",
           "System.IdentityModel.Tokens.Jwt": "6.10.2",
           "System.Runtime": "4.3.1",
-          "Uno.UI": "3.8.11",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions.Reference": "5.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies.Reference": "5.0.0.0",
@@ -154,8 +148,8 @@
           "Microsoft.Extensions.Diagnostics.HealthChecks": "5.0.0.0",
           "Microsoft.Extensions.FileProviders.Abstractions.Reference": "5.0.0.0",
           "Microsoft.Extensions.FileProviders.Composite": "5.0.0.0",
-          "Microsoft.Extensions.FileProviders.Physical.Reference": "5.0.0.0",
-          "Microsoft.Extensions.FileSystemGlobbing.Reference": "5.0.0.0",
+          "Microsoft.Extensions.FileProviders.Physical": "5.0.0.0",
+          "Microsoft.Extensions.FileSystemGlobbing": "5.0.0.0",
           "Microsoft.Extensions.Hosting.Abstractions.Reference": "5.0.0.0",
           "Microsoft.Extensions.Hosting": "5.0.0.0",
           "Microsoft.Extensions.Http": "5.0.0.0",
@@ -321,7 +315,7 @@
           "System.Threading.Timer": "5.0.0.0",
           "System.Transactions": "4.0.0.0",
           "System.Transactions.Local": "5.0.0.0",
-          "System.ValueTuple.Reference": "4.0.3.0",
+          "System.ValueTuple": "4.0.3.0",
           "System.Web": "4.0.0.0",
           "System.Web.HttpUtility": "5.0.0.0",
           "System.Windows": "4.0.0.0",
@@ -418,17 +412,6 @@
           "lib/netstandard2.0/Azure.Security.KeyVault.Secrets.dll": {}
         }
       },
-      "CommonServiceLocator/2.0.5": {
-        "runtime": {
-          "lib/netcoreapp3.0/CommonServiceLocator.dll": {
-            "assemblyVersion": "2.0.5.0",
-            "fileVersion": "2.0.5.0"
-          }
-        },
-        "compile": {
-          "lib/netcoreapp3.0/CommonServiceLocator.dll": {}
-        }
-      },
       "FluentEmail.Core/3.0.0": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "5.0.0"
@@ -441,21 +424,6 @@
         },
         "compile": {
           "lib/netstandard2.0/FluentEmail.Core.dll": {}
-        }
-      },
-      "FluentEmail.Razor/3.0.0": {
-        "dependencies": {
-          "FluentEmail.Core": "3.0.0",
-          "RazorLight": "2.0.0-rc.3"
-        },
-        "runtime": {
-          "lib/netstandard2.0/FluentEmail.Razor.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.0.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/FluentEmail.Razor.dll": {}
         }
       },
       "FluentEmail.Smtp/3.0.0": {
@@ -732,21 +700,6 @@
         },
         "compile": {
           "lib/net5.0/Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll": {}
-        }
-      },
-      "Microsoft.AspNetCore.Mvc.Razor.Extensions/5.0.0": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Razor.Language": "5.0.0",
-          "Microsoft.CodeAnalysis.Razor": "5.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Razor.Extensions.dll": {
-            "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.20.52605"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Razor.Extensions.dll": {}
         }
       },
       "Microsoft.AspNetCore.Razor/2.2.0": {
@@ -1234,17 +1187,6 @@
         }
       },
       "Microsoft.Extensions.DependencyInjection.Abstractions/5.0.0": {},
-      "Microsoft.Extensions.DependencyModel/5.0.0": {
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll": {
-            "assemblyVersion": "5.0.0.0",
-            "fileVersion": "5.0.20.51904"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.DependencyModel.dll": {}
-        }
-      },
       "Microsoft.Extensions.FileProviders.Abstractions/5.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "5.0.0"
@@ -1264,14 +1206,6 @@
           "lib/net5.0/Microsoft.Extensions.FileProviders.Embedded.dll": {}
         }
       },
-      "Microsoft.Extensions.FileProviders.Physical/5.0.0": {
-        "dependencies": {
-          "Microsoft.Extensions.FileProviders.Abstractions": "5.0.0",
-          "Microsoft.Extensions.FileSystemGlobbing": "5.0.0",
-          "Microsoft.Extensions.Primitives": "5.0.0"
-        }
-      },
-      "Microsoft.Extensions.FileSystemGlobbing/5.0.0": {},
       "Microsoft.Extensions.Hosting.Abstractions/2.2.0": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "5.0.0",
@@ -1694,28 +1628,6 @@
         },
         "compile": {
           "lib/netstandard2.0/BouncyCastle.Crypto.dll": {}
-        }
-      },
-      "RazorLight/2.0.0-rc.3": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Mvc.Razor.Extensions": "5.0.0",
-          "Microsoft.CodeAnalysis.Razor": "5.0.0",
-          "Microsoft.Extensions.Caching.Abstractions": "5.0.0",
-          "Microsoft.Extensions.Caching.Memory": "5.0.0",
-          "Microsoft.Extensions.DependencyInjection": "5.0.1",
-          "Microsoft.Extensions.DependencyModel": "5.0.0",
-          "Microsoft.Extensions.FileProviders.Physical": "5.0.0",
-          "Microsoft.Extensions.Primitives": "5.0.0",
-          "System.Buffers": "4.5.1"
-        },
-        "runtime": {
-          "lib/net5.0/RazorLight.dll": {
-            "assemblyVersion": "2.0.0.0",
-            "fileVersion": "2.0.0.0"
-          }
-        },
-        "compile": {
-          "lib/net5.0/RazorLight.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
@@ -2322,20 +2234,6 @@
           "System.Runtime.Handles": "4.3.0"
         }
       },
-      "System.Runtime.InteropServices.WindowsRuntime/4.3.0": {
-        "dependencies": {
-          "System.Runtime": "4.3.1"
-        },
-        "runtime": {
-          "lib/netstandard1.3/System.Runtime.InteropServices.WindowsRuntime.dll": {
-            "assemblyVersion": "4.0.2.0",
-            "fileVersion": "4.6.24705.1"
-          }
-        },
-        "compile": {
-          "ref/netstandard1.0/System.Runtime.InteropServices.WindowsRuntime.dll": {}
-        }
-      },
       "System.Runtime.Numerics/4.3.0": {
         "dependencies": {
           "System.Globalization": "4.3.0",
@@ -2555,89 +2453,9 @@
           "System.Runtime.Handles": "4.3.0"
         }
       },
-      "System.ValueTuple/4.4.0": {},
       "System.Windows.Extensions/4.7.0": {
         "dependencies": {
           "System.Drawing.Common": "4.7.0"
-        }
-      },
-      "Uno.Core/2.4.0": {
-        "dependencies": {
-          "CommonServiceLocator": "2.0.5",
-          "Microsoft.Extensions.Logging": "5.0.0",
-          "System.Collections.Immutable": "5.0.0",
-          "System.Reflection.Emit.Lightweight": "4.3.0",
-          "System.ValueTuple": "4.4.0"
-        },
-        "runtime": {
-          "lib/net5.0/Uno.Core.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          }
-        },
-        "compile": {
-          "lib/net5.0/Uno.Core.dll": {}
-        }
-      },
-      "Uno.Core.Build/2.4.0": {},
-      "Uno.Diagnostics.Eventing/1.0.4": {
-        "dependencies": {
-          "Uno.Core": "2.4.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Uno.Diagnostics.Eventing.dll": {
-            "assemblyVersion": "255.255.255.255",
-            "fileVersion": "255.255.255.255"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/Uno.Diagnostics.Eventing.dll": {}
-        }
-      },
-      "Uno.SourceGenerationTasks/3.1.0": {},
-      "Uno.UI/3.8.11": {
-        "dependencies": {
-          "System.Memory": "4.5.4",
-          "System.Numerics.Vectors": "4.5.0",
-          "System.Runtime.InteropServices.WindowsRuntime": "4.3.0",
-          "Uno.Core": "2.4.0",
-          "Uno.Core.Build": "2.4.0",
-          "Uno.Diagnostics.Eventing": "1.0.4",
-          "Uno.SourceGenerationTasks": "3.1.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Uno.Foundation.dll": {
-            "assemblyVersion": "255.255.255.255",
-            "fileVersion": "255.255.255.255"
-          },
-          "lib/netstandard2.0/Uno.UI.FluentTheme.dll": {
-            "assemblyVersion": "255.255.255.255",
-            "fileVersion": "255.255.255.255"
-          },
-          "lib/netstandard2.0/Uno.UI.Toolkit.dll": {
-            "assemblyVersion": "255.255.255.255",
-            "fileVersion": "255.255.255.255"
-          },
-          "lib/netstandard2.0/Uno.UI.dll": {
-            "assemblyVersion": "255.255.255.255",
-            "fileVersion": "255.255.255.255"
-          },
-          "lib/netstandard2.0/Uno.Xaml.dll": {
-            "assemblyVersion": "255.255.255.255",
-            "fileVersion": "255.255.255.255"
-          },
-          "lib/netstandard2.0/Uno.dll": {
-            "assemblyVersion": "255.255.255.255",
-            "fileVersion": "255.255.255.255"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/Uno.Foundation.dll": {},
-          "lib/netstandard2.0/Uno.UI.FluentTheme.dll": {},
-          "lib/netstandard2.0/Uno.UI.Toolkit.dll": {},
-          "lib/netstandard2.0/Uno.UI.dll": {},
-          "lib/netstandard2.0/Uno.Xaml.dll": {},
-          "lib/netstandard2.0/Uno.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
@@ -3204,13 +3022,13 @@
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.FileProviders.Physical.Reference/5.0.0.0": {
+      "Microsoft.Extensions.FileProviders.Physical/5.0.0.0": {
         "compile": {
           "Microsoft.Extensions.FileProviders.Physical.dll": {}
         },
         "compileOnly": true
       },
-      "Microsoft.Extensions.FileSystemGlobbing.Reference/5.0.0.0": {
+      "Microsoft.Extensions.FileSystemGlobbing/5.0.0.0": {
         "compile": {
           "Microsoft.Extensions.FileSystemGlobbing.dll": {}
         },
@@ -4206,7 +4024,7 @@
         },
         "compileOnly": true
       },
-      "System.ValueTuple.Reference/4.0.3.0": {
+      "System.ValueTuple/4.0.3.0": {
         "compile": {
           "System.ValueTuple.dll": {}
         },
@@ -4332,26 +4150,12 @@
       "path": "azure.security.keyvault.secrets/4.1.0",
       "hashPath": "azure.security.keyvault.secrets.4.1.0.nupkg.sha512"
     },
-    "CommonServiceLocator/2.0.5": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Md2q9f6hAuUAm6IWTybQbYvxhDAs2dqmsudVDghpg0Q+C0M2KkmiTDjeGx1PsYhnZPvp+hy1Cx99v0VPW9W6/g==",
-      "path": "commonservicelocator/2.0.5",
-      "hashPath": "commonservicelocator.2.0.5.nupkg.sha512"
-    },
     "FluentEmail.Core/3.0.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-aR81GYqWS5qATQh1300BmnRnUukgB89THcYXOHs7YGuSHc827qZtWqrGJlV8k9Jk60hlcmm/O/9Vmoaw2ytD3g==",
       "path": "fluentemail.core/3.0.0",
       "hashPath": "fluentemail.core.3.0.0.nupkg.sha512"
-    },
-    "FluentEmail.Razor/3.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-TEnUN2g+dYWoirDyBZhpqGpEoxw4lIh/prTzS+pR+SINvlSl49Xpw+6rlm5lLQOc7qtTWY9x7oiVIU9P5+W4fg==",
-      "path": "fluentemail.razor/3.0.0",
-      "hashPath": "fluentemail.razor.3.0.0.nupkg.sha512"
     },
     "FluentEmail.Smtp/3.0.0": {
       "type": "package",
@@ -4542,13 +4346,6 @@
       "path": "microsoft.aspnetcore.mvc.newtonsoftjson/5.0.5",
       "hashPath": "microsoft.aspnetcore.mvc.newtonsoftjson.5.0.5.nupkg.sha512"
     },
-    "Microsoft.AspNetCore.Mvc.Razor.Extensions/5.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-+vVXw0oVVu5dnwseBxZFVeYZ0qPJTI03DTdghRKrcK+QhTM3Nu8orukKqdYObsI4mWZADE8wTILuYR5CowJr+w==",
-      "path": "microsoft.aspnetcore.mvc.razor.extensions/5.0.0",
-      "hashPath": "microsoft.aspnetcore.mvc.razor.extensions.5.0.0.nupkg.sha512"
-    },
     "Microsoft.AspNetCore.Razor/2.2.0": {
       "type": "package",
       "serviceable": true,
@@ -4738,13 +4535,6 @@
       "path": "microsoft.extensions.dependencyinjection.abstractions/5.0.0",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.5.0.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.DependencyModel/5.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-umBECCoMC+sOUgm083yFr8SxTobUOcPFH4AXigdO2xJiszCHAnmeDl4qPphJt+oaJ/XIfV1wOjIts2nRnki61Q==",
-      "path": "microsoft.extensions.dependencymodel/5.0.0",
-      "hashPath": "microsoft.extensions.dependencymodel.5.0.0.nupkg.sha512"
-    },
     "Microsoft.Extensions.FileProviders.Abstractions/5.0.0": {
       "type": "package",
       "serviceable": true,
@@ -4758,20 +4548,6 @@
       "sha512": "sha512-WrFzYJ1LK8V1AzF0R8WLF3dcDherfQJswIGoB7nYYy5oMVFuIn7CJQwhylsWhpRPOUIjyLf2pav3pwMbDMWv0Q==",
       "path": "microsoft.extensions.fileproviders.embedded/5.0.5",
       "hashPath": "microsoft.extensions.fileproviders.embedded.5.0.5.nupkg.sha512"
-    },
-    "Microsoft.Extensions.FileProviders.Physical/5.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-1rkd8UO2qf21biwO7X0hL9uHP7vtfmdv/NLvKgCRHkdz1XnW8zVQJXyEYiN68WYpExgtVWn55QF0qBzgfh1mGg==",
-      "path": "microsoft.extensions.fileproviders.physical/5.0.0",
-      "hashPath": "microsoft.extensions.fileproviders.physical.5.0.0.nupkg.sha512"
-    },
-    "Microsoft.Extensions.FileSystemGlobbing/5.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ArliS8lGk8sWRtrWpqI8yUVYJpRruPjCDT+EIjrgkA/AAPRctlAkRISVZ334chAKktTLzD1+PK8F5IZpGedSqA==",
-      "path": "microsoft.extensions.filesystemglobbing/5.0.0",
-      "hashPath": "microsoft.extensions.filesystemglobbing.5.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Hosting.Abstractions/2.2.0": {
       "type": "package",
@@ -5031,13 +4807,6 @@
       "sha512": "sha512-XLhjNAwuVB9ynwn11l5K44eyozh8q6gFseTrlnLNttejimglX7+F9+vxh60LPjvA/DAt6fUdS43N3ah8K6eaWg==",
       "path": "portable.bouncycastle/1.8.10",
       "hashPath": "portable.bouncycastle.1.8.10.nupkg.sha512"
-    },
-    "RazorLight/2.0.0-rc.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-2tzNTdXCCMesPQhIdL0x5QS2BwDvaLWVQLNcAv153gnWzUzw8vYETIZBp/Hx591BHPg9itiT8lwVx94XfAnCNA==",
-      "path": "razorlight/2.0.0-rc.3",
-      "hashPath": "razorlight.2.0.0-rc.3.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
       "type": "package",
@@ -5522,13 +5291,6 @@
       "path": "system.runtime.interopservices/4.3.0",
       "hashPath": "system.runtime.interopservices.4.3.0.nupkg.sha512"
     },
-    "System.Runtime.InteropServices.WindowsRuntime/4.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-J4GUi3xZQLUBasNwZnjrffN8i5wpHrBtZoLG+OhRyGo/+YunMRWWtwoMDlUAIdmX0uRfpHIBDSV6zyr3yf00TA==",
-      "path": "system.runtime.interopservices.windowsruntime/4.3.0",
-      "hashPath": "system.runtime.interopservices.windowsruntime.4.3.0.nupkg.sha512"
-    },
     "System.Runtime.Numerics/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -5704,54 +5466,12 @@
       "path": "system.threading.threadpool/4.3.0",
       "hashPath": "system.threading.threadpool.4.3.0.nupkg.sha512"
     },
-    "System.ValueTuple/4.4.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-BahUww/+mdP4ARCAh2RQhQTg13wYLVrBb9SYVgW8ZlrwjraGCXHGjo0oIiUfZ34LUZkMMR+RAzR7dEY4S1HeQQ==",
-      "path": "system.valuetuple/4.4.0",
-      "hashPath": "system.valuetuple.4.4.0.nupkg.sha512"
-    },
     "System.Windows.Extensions/4.7.0": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
-    },
-    "Uno.Core/2.4.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-eqJx01gzQghPJyvZ5dTruGzguzbW97xFJ8KKHO3r2BXdooB33dt7sWzEj9TeFvU5AWqBb4D3VmP/GfFgXfyfuA==",
-      "path": "uno.core/2.4.0",
-      "hashPath": "uno.core.2.4.0.nupkg.sha512"
-    },
-    "Uno.Core.Build/2.4.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-mri+2g6TSVz3L1WT2pcC5M6XLIPryBnQk0zK5Uph4oPqjpKF7QGpf9lk0OONxKNxV2eznHlkuyJhTjI+0SRHzQ==",
-      "path": "uno.core.build/2.4.0",
-      "hashPath": "uno.core.build.2.4.0.nupkg.sha512"
-    },
-    "Uno.Diagnostics.Eventing/1.0.4": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-6Kw++70hznpRbADFuJRWy+kGp9w2oXzcuQpSM8eyvjMStv6d7j4m9KHosNlR++M0QjWDdyz6hsa7OFt1Dqi74A==",
-      "path": "uno.diagnostics.eventing/1.0.4",
-      "hashPath": "uno.diagnostics.eventing.1.0.4.nupkg.sha512"
-    },
-    "Uno.SourceGenerationTasks/3.1.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-6MgV41wn93izaJUQdFauK4We6h+z0aBx6a1nrB3PeG3uCT5XOSaITfp7aqbWb4ty3XKvKdmo3bfYpamF+7WpJg==",
-      "path": "uno.sourcegenerationtasks/3.1.0",
-      "hashPath": "uno.sourcegenerationtasks.3.1.0.nupkg.sha512"
-    },
-    "Uno.UI/3.8.11": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-s9NQH0FGhNPdmlrJB1gplqIjH9nMQKxgUw2o0gSt+1AV9kuKGV7amItnihf4gbf/3w34LQzh1czFRj8qZjTq0w==",
-      "path": "uno.ui/3.8.11",
-      "hashPath": "uno.ui.3.8.11.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
       "type": "referenceassembly",
@@ -6223,12 +5943,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.FileProviders.Physical.Reference/5.0.0.0": {
+    "Microsoft.Extensions.FileProviders.Physical/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.Extensions.FileSystemGlobbing.Reference/5.0.0.0": {
+    "Microsoft.Extensions.FileSystemGlobbing/5.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -7058,7 +6778,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "System.ValueTuple.Reference/4.0.3.0": {
+    "System.ValueTuple/4.0.3.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
