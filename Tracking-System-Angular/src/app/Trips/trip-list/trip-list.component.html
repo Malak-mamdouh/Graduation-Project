@@ -1,12 +1,17 @@
 <ul class="menu-list text-center mt-3">
   <li class="list-group-item ml-3"
-  [class.active]="'A' === SelectedKey" (click)="filter('A')"
-  style="cursor: pointer;"><!--[value]="category.id"-->
-  All
+    [class.active]="'A' === SelectedKey" (click)="filter('A')"
+    style="cursor: pointer;">
+    All
+  </li>
+  <li class="list-group-item ml-3"
+    [class.active]="'T' === SelectedKey" (click)="filterDate('T')"
+    style="cursor: pointer;">
+    Today
   </li>
   <li class="list-group-item ml-3" *ngFor="let key of keys" (click)="filter(key)"
   [class.active]="key === SelectedKey"
-  style="cursor: pointer;"><!--[value]="category.id"-->
+  style="cursor: pointer;">
   {{statuslist[key]}}
   </li>
 </ul>
@@ -28,16 +33,17 @@
        
             <tbody *ngFor="let trip of Trips">
               <tr>
-                <td>{{trip.date | date: 'short'}}</td>
-                <td>{{trip.status}}</td>
+                <td>{{trip.date | date: 'fullDate'}}</td>
+                <td><span class="status" 
+                  [ngClass]="{'waiting': trip.status == 'Waiting' , 'done': trip.status == 'Done'}">{{trip.status}}</span></td>
                 <td>{{trip.destination}}</td>
                 <td *ngIf="SelectedKey != 'A'">
                   <a class="btn btn-primary mr-2" (click)="onEdit(trip.id)" 
                   *ngIf="trip.status != 'Done'">Edit</a>
                   <a class="btn btn-danger mr-2" (click)="onDelete(trip.id)">Delete</a>
                   <a class="btn btn-secondary" routerLink="tracking/{{trip.id}}" 
-                  *ngIf="NotTracking">Tracking</a>
-            </td>
+                  *ngIf="IsTracking">Tracking</a>
+                </td>
               </tr>
             </tbody>          
   

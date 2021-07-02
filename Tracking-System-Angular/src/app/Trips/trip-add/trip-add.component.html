@@ -58,6 +58,9 @@
                         && this.AddForm.get('date').touched">
                             {{errorMessage.date.required}}
                         </span>
+                        <span class="text-danger" *ngIf="checkDate()">
+                            {{errorMessage.date.format}}
+                        </span>
                     </div>
                 </div>
 
@@ -75,7 +78,7 @@
                 </div>
 
                 <div class="text-center">
-                    <button class="btn btn-custom mt-3" [disabled]="AddForm.invalid" 
+                    <button class="btn custom-btn mt-3" [disabled]="AddForm.invalid" 
                     type="submit">{{btnTitle}}</button>
                 </div>
             

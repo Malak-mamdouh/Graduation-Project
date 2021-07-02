@@ -120,9 +120,11 @@
                             <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
                         </div>
                      </div> 
-
-                    <button class="btn btn-custom mt-3" [disabled]="AddForm.invalid || NameExist || EmailExist"
-                     type="submit">Save</button>
+                     <div class="text-center">
+                        <button class="btn btn-custom mt-3" [disabled]="AddForm.invalid || NameExist || EmailExist"
+                        type="submit">Save</button>
+                     </div>
+                    
             </div>
             </form>
         </div>

@@ -35,7 +35,6 @@ namespace Tracking_System___Api.Controllers
                       var location = new LocationDto();
                     location.latitude = track.latitude;
                     location.longitude = track.longitude;
-                 
                     locations.Add(location);    
                 }
                 

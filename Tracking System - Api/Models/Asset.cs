@@ -11,7 +11,6 @@ namespace Tracking_System___Api.Models
     public class Asset
     {
         public int Id { get; set; }
-        [Required]
         public string Name { get; set; }
         [Required]
         public string Type { get; set; }

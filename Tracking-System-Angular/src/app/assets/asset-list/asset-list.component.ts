@@ -19,7 +19,7 @@ export class AssetListComponent implements OnInit {
   ngOnInit(): void {
     
     this.assetService.AllAssets().subscribe(list => {
-      this.assets = list;
+      this.assets = list.data;
       this.isLoading = false;
       console.log(this.assets);
     }, err => console.log(err));

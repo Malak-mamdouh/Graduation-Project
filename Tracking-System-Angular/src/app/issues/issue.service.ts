@@ -24,8 +24,8 @@ export class IssueService {
     AddIssue(issue: Issue){
         return this.http.post(this.baseUrl + 'AddIssue' , issue);
     }
-    EditIssue(issue: Issue){
-        return this.http.put(this.baseUrl + 'updateIssue' , issue);
+    EditIssue(id: number, issue: Issue){
+        return this.http.put(this.baseUrl + 'updateIssue/' + id , issue);
     }   
     DeleteIssue(id: number){
         return this.http.delete(this.baseUrl + 'Delete/' + id);

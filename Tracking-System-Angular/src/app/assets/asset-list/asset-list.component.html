@@ -7,39 +7,30 @@
 <table class="table table-hover" >
     <thead>
       <tr>
-        <th>Image</th>
         <th>Name</th>
         <th>Type</th>
         <th>SubType</th>
         <th>Description</th>
         <th>Asset Number</th>
         <th></th>
-        <th></th>
-
       </tr>
     </thead>
     <tbody *ngFor="let asset of assets">
       <tr>
-        <td><img [src]="createImgPath(asset.url)" style="max-height: 50px;" 
-            class="img-fluid"></td>
         <td>{{asset.name}}</td>
         <td>{{asset.type}}</td>
         <td>{{asset.subType}}</td>
         <td>{{asset.description}}</td>
         <td>{{asset.assetNumber}}</td>
         <td>
-            <a class="btn btn-danger mr-2" (click)="onDelete(asset.id)">Delete</a>
-        </td>
-        <td>
-          <a class="btn btn-primary" (click)="onEdit(asset.id)">Edit</a>
+          <a class="btn btn-primary mr-2" (click)="onEdit(asset.id)">Edit</a>
+          <a class="btn btn-danger" (click)="onDelete(asset.id)">Delete</a>
         </td>
       </tr>
 
     </tbody>
   </table>
 </div>
-
-
 
 <div *ngIf="assets.length == 0 && !isLoading" class="text-center mt-3">
   <h4><em>No Assets Here</em></h4>

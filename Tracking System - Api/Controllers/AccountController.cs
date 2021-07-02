@@ -134,7 +134,7 @@ namespace Tracking_System___Api.Controllers
             
             return BadRequest();
         }
-        [Authorize(Roles = "Admin")]
+        /*[Authorize(Roles = "Admin")]*/
         [HttpPost("Register")]
         public async Task<ActionResult> AddDriver( Driver driver)
         {

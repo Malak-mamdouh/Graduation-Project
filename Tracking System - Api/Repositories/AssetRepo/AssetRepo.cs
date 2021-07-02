@@ -28,7 +28,8 @@ namespace Tracking_System___Api.Repositories.AssetRepo
         }
         public async Task<IEnumerable<string>> SelectAssetNumberAsync()
         {
-            return await context.assets.Select(i => i.AssetNumber).ToListAsync();
+            return await context.assets.Where(i => i.Type != "Railed Vehicles").
+                Select(i => i.AssetNumber).ToListAsync();
         }
         public async Task<bool> deleteAsset(int id)
         {
@@ -55,7 +56,11 @@ namespace Tracking_System___Api.Repositories.AssetRepo
             var assets = await context.assets.ToListAsync();
             return assets;
         }
-
+        public async Task<IList<Asset>> showAllPrivateAssets()
+        {
+            var assets = await context.assets.Where(a => a.Type != "Railed Vehicles").ToListAsync();
+            return assets;
+        }
         public async Task<Asset> updateAsset(Asset asset)
         {
             if (asset.Id != 0)

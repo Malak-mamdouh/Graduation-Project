@@ -13,7 +13,6 @@ driver: Driver;
 */
 }
 export enum Tripstatus{
-    "T" = 'Today',
     'W' = 'Waiting',
     'D' = 'Done'
  }

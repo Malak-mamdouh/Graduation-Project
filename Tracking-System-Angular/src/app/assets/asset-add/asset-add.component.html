@@ -14,23 +14,23 @@
 
                     <h5 class="form-head">{{title}}</h5>
 
-                    <div class="form-group row">
+                    <div class="form-group row" *ngIf="!isEditMode">
                         <div class="col-md-2">
                             <label for="description">Ownership</label>
                         </div>
                         <div class="col-md-10">
                             <div class="form-control">
-                                <label class="checkbox-inline mr-5">
-                                    <input type="checkbox" (click)="filter(public)" #public value="public" formControlName="Publicity"> Public
+                                <label class="radio-inline mr-5">
+                                    <input type="radio" (change)="filter(public)" #public value="public" formControlName="Publicity"> Public
                                 </label>
-                                <label class="checkbox-inline">
-                                    <input type="checkbox" (click)="filter(private)" #private value="private" formControlName="Publicity"> Private
+                                <label class="radio-inline">
+                                    <input type="radio" (click)="filter(private)" #private value="private" formControlName="Publicity"> Private
                                 </label>
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row" *ngIf="IsPrivate">
                         <div class="col-md-2">
                             <label for="name">Name</label>
                         </div>
@@ -51,7 +51,38 @@
                         </div>
                     </div>
                     
-                    <div class="form-group row">
+
+                    <div class="form-group row" *ngIf="isEditMode">
+                        <div class="col-md-2">
+                            <label for="name">Type</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" formControlName="type" class="form-control" 
+                            placeholder="type" [ngClass]="{'is-invalid' : 
+                            !AddForm.get('type').valid && this.AddForm.get('type').touched}" 
+                            (blur)="isAssetNameExist()">
+                            <div class="text-danger" *ngIf="!this.AddForm.get('type').valid && 
+                            this.AddForm.get('type').touched">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row" *ngIf="isEditMode">
+                        <div class="col-md-2">
+                            <label for="name">SubType</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" formControlName="subType" class="form-control" 
+                            placeholder="type" [ngClass]="{'is-invalid' : 
+                            !AddForm.get('subType').valid && this.AddForm.get('subType').touched}" 
+                            (blur)="isAssetNameExist()">
+                            <div class="text-danger" *ngIf="!this.AddForm.get('subType').valid && 
+                            this.AddForm.get('subType').touched">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row" *ngIf="!isEditMode">
                         <div class="col-md-2">
                             <label for="type">Type</label>
                         </div>
@@ -72,7 +103,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="form-group row" *ngIf="!isEditMode">
                         <div class="col-md-2">
                             <label for="subType">SubType</label>
                         </div>
@@ -124,18 +155,21 @@
                             class="form-control" placeholder="Description" [ngClass]="{'is-invalid' : 
                             AddForm.get('description').invalid && AddForm.get('description').touched}">
                             </textarea>
-                            <span class="text-danger" *ngIf="!this.AddForm.get('description').valid 
-                                && this.AddForm.get('description').touched">
-                                    {{errorMessage.description.required}}
-                            </span>
                         </div>
                     </div>
 
                     
 
-                     <div class="text-center">
-                        <button class="btn custom-btn mt-3" [disabled]="AddForm.invalid || AssetNumberExist || 
+                     <div class="text-center" *ngIf="IsPrivate">
+                        <button class="btn custom-btn mt-3" [disabled]="AddForm.invalid || 
+                        AssetNumberExist || 
                         NameExist" 
+                        type="submit">{{btnTitle}}</button>
+                     </div>
+
+                     <div class="text-center" *ngIf="!IsPrivate">
+                        <button class="btn custom-btn mt-3" [disabled]="!AddForm.get('type').valid || 
+                        !AddForm.get('subType').valid || !AddForm.get('Publicity').valid" 
                         type="submit">{{btnTitle}}</button>
                      </div>
                 </div>

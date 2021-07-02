@@ -76,6 +76,7 @@ namespace Tracking_System___Api.Repositories.DriversRepo
         public async Task<IEnumerable<Driver>> showDrivers()
         {
           var drivers = (await context.Users.Select(x =>new Driver{ 
+              DriverId = x.Id,
            Email = x.Email,
            FirstName = x.UserName,
            LastName = x.LastName,

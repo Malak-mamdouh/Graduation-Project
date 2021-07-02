@@ -17,8 +17,10 @@ import { TrackingComponent } from './tracking/tracking.component';
 const routes: Routes = [
   {path: 'login' , component: LoginComponent},
     {path: 'add-driver', component: DriverAddComponent},
+    {path: 'edit-driver/:id', component: DriverAddComponent},
     {path: 'add-customer' , component: CustomerAddComponent},
     {path: 'add-trip' , component: TripAddComponent},
+    {path: 'edit-trip/:id' , component: TripAddComponent},
     {path: 'edit-customer/:id' , component: CustomerAddComponent},
     {path: 'customer-list' , component: CustomerListComponent},
     {path: 'add-issue' , component: IssueAddComponent},

@@ -26,10 +26,11 @@ export class TripAddComponent implements OnInit {
   statuslist = Tripstatus;
   errorMessage = {
     date: {
-      required: 'date is required'
+      required: 'date is required',
+      format: ''
     },
     destination: {
-      required: 'Date is required'
+      required: 'Destination is required'
     },
     status: {
       required: 'Status is required'
@@ -88,7 +89,7 @@ export class TripAddComponent implements OnInit {
     console.log(this.tripModel);
 
     this.tripservice.AddTrip(this.tripModel).subscribe(x => {
-      this.message = 'Issue is Added Successfully';
+      this.message = 'Trip is Added Successfully';
     } , err => console.log(err));
     this.AddForm.reset();
   }
@@ -112,6 +113,18 @@ export class TripAddComponent implements OnInit {
     this.tripModel.destination = this.AddForm.get('destination').value;
     this.tripModel.status = this.AddForm.get('status').value;
     this.tripModel.customerId = this.AddForm.get('customerId').value;
+  }
+
+  checkDate(){
+    const date = this.AddForm.get('date').value;
+    const todayDate = new Date();
+    if(date){    
+      if(new Date(date) < todayDate){
+        this.errorMessage.date.format = 'This Date in the past';
+        return true;
+      }
+    }
+    return false;
   }
 
 }

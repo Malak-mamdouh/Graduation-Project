@@ -40,6 +40,7 @@ export class IssueListComponent implements OnInit {
     }
   }
   onEdit(id: number){
+    console.log(id);
     this.route.navigate(['edit-issue/', id]);
   }
 
