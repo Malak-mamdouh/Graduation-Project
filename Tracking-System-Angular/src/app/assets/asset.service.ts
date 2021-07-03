@@ -17,6 +17,12 @@ export class AssetService {
     AllAssets(): Observable<Asset[]>{
         return this.http.get<Asset[]>(this.baseUrl + 'GetAllAssets');
     }
+    GetAllPrivateAssets(): Observable<Asset[]>{
+        return this.http.get<Asset[]>(this.baseUrl + 'GetAllPrivateAssets');
+    }
+    SelectAllNumbers(): Observable<string[]>{
+        return this.http.get<string[]>(this.baseUrl + 'SelectAllAssetNumber')
+    }
     ShowAsset(id: number): Observable<Asset>{
         return this.http.get<Asset>(this.baseUrl + 'GetAsset/' + id);
     }
@@ -34,8 +40,5 @@ export class AssetService {
     }
     IsNumberExists(assetNumber: string){
         return this.http.get(this.baseUrl + 'IsNumberExists/' + assetNumber);
-    }
-    SelectAllAssetNumber(): Observable<string[]>{
-        return this.http.get<string[]>(this.baseUrl + 'SelectAllAssetNumber');
     }
 }

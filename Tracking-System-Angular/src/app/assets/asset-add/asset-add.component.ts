@@ -41,9 +41,6 @@ export class AssetAddComponent implements OnInit {
     type: {
       required: 'Type is required'
     },
-    description: {
-      required: 'Description is required'
-    },
     assetNumber: {
       required: 'Number is required',
       Exist: ''
@@ -63,7 +60,7 @@ export class AssetAddComponent implements OnInit {
       name: new FormControl('' , Validators.required),
       type: new FormControl('' , Validators.required),
       subType: new FormControl('' , Validators.required),
-      description: new FormControl('' , Validators.required),
+      description: new FormControl(''),
       assetNumber: new FormControl(''),
       Publicity: new FormControl('' , Validators.required)
     });
@@ -79,6 +76,11 @@ export class AssetAddComponent implements OnInit {
       const id = +param.get('id');
       if(id){
         this.assetService.ShowAsset(id).subscribe(result => {
+          if(result.assetNumber === ''){
+            this.IsPrivate = false;
+          }else{
+            this.IsPrivate = true;
+          }
           this.assetModel = result;
           this.isEditMode = true;
           this.btnTitle = 'Edit';
@@ -119,7 +121,7 @@ export class AssetAddComponent implements OnInit {
   }
   addAssetData(){
     if(this.assetModel !== null){
-      this.AddForm.setValue({
+      this.AddForm.patchValue({
         name: this.assetModel.name,
         type: this.assetModel.type,
         subType: this.assetModel.subType,
@@ -127,6 +129,7 @@ export class AssetAddComponent implements OnInit {
         assetNumber: this.assetModel.assetNumber,
       });
     }
+    console.log(this.assetModel.type);
   }
   isAssetNameExist(){
     const name = this.AddForm.value.name;
@@ -160,10 +163,15 @@ export class AssetAddComponent implements OnInit {
     if(event.value == 'private' && this.IsPrivate != true){
       this.IsPrivate = true;
       this.TypeAfterEvent = this.typeList.filter(t => t.ownership === event.value);
-    }else if(event.value == 'public' && this.IsPrivate == false){
+    }
+    if(event.value== 'private'){
+      this.TypeAfterEvent = this.typeList.filter(t => t.ownership === event.value);
+    }
+    else if(event.value == 'public' && this.IsPrivate == false || event.value == 'public'){
       this.IsPrivate = false;
       this.TypeAfterEvent = this.typeList.filter(t => t.ownership === event.value);
-    }else{
+    }
+    else if(event.value != 'public' && event.value != 'private'){
       this.IsPrivate = false;
       this.TypeAfterEvent = [];
     }

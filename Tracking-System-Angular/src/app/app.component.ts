@@ -10,7 +10,8 @@ export class AppComponent implements OnInit{
   IsToken: boolean = false;
   title = 'Tracking-System-Angular';
   ngOnInit(): void {
-     const token = localStorage.getItem('token');
+     // tslint:disable-next-line:prefer-const
+     let token = localStorage.getItem('token');
      if (token){
        this.IsToken = true;
      }

@@ -24,8 +24,8 @@
                 <td>{{driver.phone}}</td>
                 <td>{{driver.email}}</td>
                 <td>
-                    <a class="btn btn-danger mr-2">Delete</a>
-                    <a class="btn btn-primary">Edit</a>
+                    <a class="btn btn-danger mr-2" (click)="onDelete(driver.driverId)">Delete</a>
+                    <a class="btn btn-primary" (click)="onEdit(driver.driverId)">Edit</a>
                 </td>
               </tr>
             </tbody>          

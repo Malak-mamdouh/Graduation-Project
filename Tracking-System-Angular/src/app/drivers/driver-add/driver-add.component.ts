@@ -54,6 +54,7 @@ export class DriverAddComponent implements OnInit {
     });
     this.message = '';
     this.driverModel = {
+      driverId:0,
       email: '',
       firstName: '',
       lastName: '',
@@ -116,16 +117,11 @@ export class DriverAddComponent implements OnInit {
         this.errorMessage.password.notValid = 'password should contain at least a small character';
         return false;
       }
-      this.regex = new RegExp('[A-Z]');
-      if (!this.regex.test(pass)){
-        this.errorMessage.password.notValid = 'password should contain at least a capital character';
-        return false;
-      }
-      this.regex = new RegExp('[!@#$%^&*()_+= {}]');
+      /*this.regex = new RegExp('[!@#$%^&*()_+= {}]');
       if (!this.regex.test(pass)){
         this.errorMessage.password.notValid = 'password should contain at least a special character';
         return false;
-      }
+      }*/
       this.regex = new RegExp('[0-9]');
       if (!this.regex.test(pass)){
         this.errorMessage.password.notValid = 'password should contain at least one digit';

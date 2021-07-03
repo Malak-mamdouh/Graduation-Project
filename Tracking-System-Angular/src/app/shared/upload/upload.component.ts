@@ -13,7 +13,7 @@ export class UploadComponent implements OnInit {
   message: string;
   errorMessage = '';
   uploadForm: FormGroup;
-  baseUrl = 'https://localhost:44370/Assets/Upload';
+  baseUrl = 'https://localhost:44370/Account/Upload';
   // tslint:disable-next-line: no-output-on-prefix
   @Output() onUploadFinished = new EventEmitter();
   isLoad = false;

@@ -23,7 +23,7 @@ export class CustomerListComponent implements OnInit {
     } , err => console.log(err));
   }
   onDelete(id: number){
-    const alert = confirm('Do you delete this customer?');
+    const alert = confirm('Do you want to delete this customer?');
     if (alert === true){
       this.customerService.DeleteCustomer(id).subscribe(s => {
         this.route.navigate(['customer-list']).then(x => {window.location.reload(); });

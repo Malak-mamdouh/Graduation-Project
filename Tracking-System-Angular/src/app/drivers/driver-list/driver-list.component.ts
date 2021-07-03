@@ -41,7 +41,7 @@ export class DriverListComponent implements OnInit {
     return `https://localhost:44370/${serverpath}`;
   }
   onEdit(id: number){
-    this.route.navigate(['edit-asset/', id]);
+    this.route.navigate(['edit-driver/', id]);
   }
 
   onAdd(){

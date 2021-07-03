@@ -6,29 +6,19 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqtCZF74vDUajC8fLn1YVewAAAAACAAAAAAAQZgAAAAEAACAAAAC88P7AtW0hUdHf65xfC+uRvCfsN+0Q7tEhq+rRGq4khgAAAAAOgAAAAAIAACAAAABlQMNE2DXdSTFmlwB9lxwIgFJj9xtmXmxgH2VZirdTiiAAAABstoF3wcKOY0FyYBjVthmeAqWxSuuQUbKTORRGVO8mv0AAAACYGKAZTvtIEfwnDC28IbacvNmMB/rvYDPaS4r2n5bLS4qsqn0Ah7kCsWHK/qxi1lK2nOyfnBJ89XvMbZD92DpI</EncryptedPassword>
-    <_PublishTargetUrl>ftp://trackingV1.somee.com/www.trackingV1.somee.com</_PublishTargetUrl>
-    <History>True|2021-06-12T10:18:04.0173995Z;</History>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAqtCZF74vDUajC8fLn1YVewAAAAACAAAAAAAQZgAAAAEAACAAAACh1/aN9NiZi9d7i3WQ9/c5cGpF00hlUiW6VUaOf9fz8gAAAAAOgAAAAAIAACAAAABWcsPEKXlU/EUdNVLNnyXGXx/JRFPpH6uDHjln8adjiiAAAACi4dKRH4paoRC8pwOI4svJlt5J7bt1KHAlT6j2jEKymEAAAAAnHzTeRGTCNAtx1KM9R/3fbCemhX9y2l9uEgsd155AoPb0A9klAVEmHdVoeevdUqtHZl1so+Sai6ui8vDdmX1t</EncryptedPassword>
+    <_PublishTargetUrl>ftp://gradproject.somee.com/www.gradproject.somee.com</_PublishTargetUrl>
+    <History>True|2021-07-02T22:23:09.5643568Z;True|2021-07-02T22:45:34.3970767+02:00;True|2021-07-02T15:34:22.6305455+02:00;</History>
   </PropertyGroup>
-  <ItemGroup>
-    <DestinationConnectionStrings Include="conn">
-      <Value>workstation id=TrackingDb.mssql.somee.com%3bpacket size=4096%3buser id=nourmaher12_SQLLogin_1%3bpwd=wdu48thd9d%3bdata source=TrackingDb.mssql.somee.com%3bpersist security info=False%3binitial catalog=TrackingDb</Value>
-    </DestinationConnectionStrings>
-  </ItemGroup>
-  <ItemGroup>
-    <EFMigrations Include="Tracking_System___Api.Models.Context">
-      <Value>workstation id=TrackingDb.mssql.somee.com%3bpacket size=4096%3buser id=nourmaher12_SQLLogin_1%3bpwd=wdu48thd9d%3bdata source=TrackingDb.mssql.somee.com%3bpersist security info=False%3binitial catalog=TrackingDb</Value>
-    </EFMigrations>
-  </ItemGroup>
   <ItemGroup>
     <File Include="appsettings.Development.json">
       <publishTime>04/05/2021 15:08:40</publishTime>
     </File>
     <File Include="appsettings.json">
-      <publishTime>06/12/2021 11:57:02</publishTime>
+      <publishTime>07/02/2021 11:13:11</publishTime>
     </File>
     <File Include="appsettings.production.json">
-      <publishTime>06/12/2021 12:02:13</publishTime>
+      <publishTime>07/02/2021 22:23:56</publishTime>
     </File>
     <File Include="Azure.Core.dll">
       <publishTime>08/18/2020 17:46:38</publishTime>
@@ -87,9 +77,6 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="FluentEmail.Core.dll">
       <publishTime>01/23/2021 01:33:18</publishTime>
     </File>
-    <File Include="FluentEmail.Razor.dll">
-      <publishTime>01/23/2021 01:33:24</publishTime>
-    </File>
     <File Include="FluentEmail.Smtp.dll">
       <publishTime>01/23/2021 01:33:22</publishTime>
     </File>
@@ -104,6 +91,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="fr/Microsoft.CodeAnalysis.Workspaces.resources.dll">
       <publishTime>11/12/2020 00:16:28</publishTime>
+    </File>
+    <File Include="GoogleMaps.LocationServices.dll">
+      <publishTime>04/15/2020 01:59:16</publishTime>
     </File>
     <File Include="Humanizer.dll">
       <publishTime>06/02/2020 13:07:58</publishTime>
@@ -174,9 +164,6 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll">
       <publishTime>03/17/2021 20:37:34</publishTime>
     </File>
-    <File Include="Microsoft.AspNetCore.Mvc.Razor.Extensions.dll">
-      <publishTime>10/26/2020 22:59:12</publishTime>
-    </File>
     <File Include="Microsoft.AspNetCore.Razor.Language.dll">
       <publishTime>10/26/2020 22:58:46</publishTime>
     </File>
@@ -201,6 +188,12 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Microsoft.Data.SqlClient.dll">
       <publishTime>08/25/2020 23:24:48</publishTime>
     </File>
+    <File Include="Microsoft.Data.SqlClient.SNI.dll">
+      <publishTime>08/25/2020 20:34:56</publishTime>
+    </File>
+    <File Include="Microsoft.Data.SqlClient.SNI.pdb">
+      <publishTime>08/25/2020 20:31:56</publishTime>
+    </File>
     <File Include="Microsoft.EntityFrameworkCore.Abstractions.dll">
       <publishTime>03/11/2021 18:35:30</publishTime>
     </File>
@@ -215,9 +208,6 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="Microsoft.Extensions.DependencyInjection.dll">
       <publishTime>11/26/2020 01:59:12</publishTime>
-    </File>
-    <File Include="Microsoft.Extensions.DependencyModel.dll">
-      <publishTime>10/19/2020 18:49:02</publishTime>
     </File>
     <File Include="Microsoft.Extensions.FileProviders.Embedded.dll">
       <publishTime>03/17/2021 20:33:32</publishTime>
@@ -311,9 +301,6 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     </File>
     <File Include="pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll">
       <publishTime>11/12/2020 00:16:28</publishTime>
-    </File>
-    <File Include="RazorLight.dll">
-      <publishTime>11/18/2020 16:15:32</publishTime>
     </File>
     <File Include="ru/Microsoft.CodeAnalysis.CSharp.resources.dll">
       <publishTime>11/12/2020 00:15:14</publishTime>
@@ -427,22 +414,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/12/2020 00:16:28</publishTime>
     </File>
     <File Include="Tracking System - Api.deps.json">
-      <publishTime>06/12/2021 12:02:05</publishTime>
+      <publishTime>07/03/2021 00:01:04</publishTime>
     </File>
     <File Include="Tracking System - Api.dll">
-      <publishTime>06/12/2021 12:01:45</publishTime>
+      <publishTime>07/03/2021 00:00:53</publishTime>
     </File>
     <File Include="Tracking System - Api.exe">
-      <publishTime>06/12/2021 12:01:45</publishTime>
+      <publishTime>07/03/2021 00:00:53</publishTime>
     </File>
     <File Include="Tracking System - Api.pdb">
-      <publishTime>06/12/2021 12:01:45</publishTime>
+      <publishTime>07/03/2021 00:00:53</publishTime>
     </File>
     <File Include="Tracking System - Api.runtimeconfig.json">
-      <publishTime>06/12/2021 12:01:52</publishTime>
+      <publishTime>07/02/2021 11:15:56</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>06/12/2021 12:02:12</publishTime>
+      <publishTime>07/03/2021 00:01:07</publishTime>
     </File>
     <File Include="wwwroot/Identity/css/site.css">
       <publishTime>03/17/2021 20:16:26</publishTime>

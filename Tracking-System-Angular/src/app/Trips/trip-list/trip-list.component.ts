@@ -16,13 +16,13 @@ export class TripListComponent implements OnInit {
   statuslist = Tripstatus;
   SelectedKey = "A";
   keys = [];
-  NotTracking = false;
+  secondTips: Trip[] = [];
+  IsTracking = false;
   constructor(private route: Router,
               private tripservice: TripService) { }
 
   ngOnInit(): void {
     this.IsEmpty = true;
-
     this.keys = Object.keys(this.statuslist);
     this.GetAllTrips();
   }
@@ -35,6 +35,22 @@ export class TripListComponent implements OnInit {
       } , err => console.log(err));
     }
   }
+  filterDate(key: string){
+    const date = new Date();
+    this.SelectedKey = key;
+    const filteredTrips = []; 
+    this.secondTips.forEach(trip => {
+      const tripDate = new Date(trip.date);
+      if(tripDate.getDate() === date.getDate()){        
+        filteredTrips.push(trip);
+        if(tripDate.getHours() === date.getHours()){
+          this.IsTracking = true;
+        }
+      } 
+      
+    });
+    this.Trips = filteredTrips;
+  }
   onEdit(id: number){
     this.route.navigate(['edit-trip/', id]);
   }
@@ -45,6 +61,8 @@ export class TripListComponent implements OnInit {
   GetAllTrips(){
     this.tripservice.AllTrips().subscribe(list => {
       this.Trips = list;
+      this.IsTracking = false;
+      this.secondTips = list;
       console.log(this.Trips);
       this.isLoading = false;
       if (this.Trips.length >= 1){
@@ -55,6 +73,7 @@ export class TripListComponent implements OnInit {
   }
   filter(key: string){
     if(key != 'A'){
+      this.IsTracking = false;
       this.tripservice.FilteredTrips(this.statuslist[key]).subscribe(list => {
         this.Trips = list;
         this.SelectedKey = key;

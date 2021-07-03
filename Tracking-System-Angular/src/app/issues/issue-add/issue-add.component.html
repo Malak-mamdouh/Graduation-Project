@@ -14,7 +14,25 @@
 
                 <h5 class="form-head">{{title}}</h5>
                
-                <div class="form-group row">
+                <div class="form-group row" *ngIf="!isEditMode">
+                    <div class="col-md-2">
+                        <label for="description">Ownership</label>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="form-control">
+                            <label class="radio-inline mr-5">
+                                <input type="radio" (change)="filter(public)" #public value="public"
+                                 formControlName="ownership"> Public
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" (click)="filter(private)" #private 
+                                value="private" formControlName="ownership"> Private
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row" *ngIf="IsPrivate && isEditMode || IsPrivate">
                     <div class="col-md-2">
                         <label for="assetId">Asset</label>
                     </div>
@@ -34,7 +52,7 @@
                     </div>
                 </div>
              
-                <div class="form-group row">
+                <div class="form-group row" *ngIf="IsPrivate && isEditMode || IsPrivate">
                     <div class="col-md-2">
                         <label for="status">Status</label>
                     </div>
@@ -43,34 +61,6 @@
                             <option *ngFor="let key of keys;"  [value]="statuslist[key]"
                             [label]="statuslist[key]"></option>
                         </select>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <div class="col-md-2">
-                        <label for="date">Date</label>
-                    </div>
-                    <div class="col-md-10">
-                        <input type="date" formControlName="date" 
-                        class="form-control" placeholder="Date" [ngClass]="{'is-invalid' : 
-                        AddForm.get('date').invalid && AddForm.get('date').touched}">
-                        <span class="text-danger" *ngIf="!this.AddForm.get('date').valid 
-                        && this.AddForm.get('date').touched">
-                            {{errorMessage.date.required}}
-                        </span>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <div class="col-md-2">Reported By</div>
-                    <div class="col-md-10">
-                        <input type="text" formControlName="reportedBy" 
-                        class="form-control" placeholder="ReportedBy" [ngClass]="{'is-invalid' : 
-                        AddForm.get('reportedBy').invalid && AddForm.get('reportedBy').touched}">
-                        <span class="text-danger" *ngIf="!this.AddForm.get('reportedBy').valid 
-                        && this.AddForm.get('reportedBy').touched">
-                            {{errorMessage.reportedBy.required}}
-                        </span>
                     </div>
                 </div>
 
@@ -87,11 +77,15 @@
                     </div>
                 </div>
 
-                <div class="text-center">
+                <div class="text-center" *ngIf="IsPrivate">
                     <button class="btn btn-custom mt-3" [disabled]="AddForm.invalid" 
                     type="submit">{{btnTitle}}</button>
                 </div>
-            
+                <div class="text-center" *ngIf="!IsPrivate">
+                    <button class="btn btn-custom mt-3" [disabled]="!AddForm.get('description').valid 
+                    || !AddForm.get('ownership').valid" 
+                    type="submit">{{btnTitle}}</button>
+                </div>
             </div>
         </form>
     </div>

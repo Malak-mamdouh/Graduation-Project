@@ -22,14 +22,18 @@ namespace Tracking_System___Api.Repositories.TripRepo
             {
                 /*AssetId = tripdto.AssetId,
                 Asset = context.assets.FirstOrDefault(x => x.Id == tripdto.AssetId),*/
-                
-                CustomerId = tripdto.CustomerId,
-                Customer = context.customers.FirstOrDefault(t => t.Id == tripdto.CustomerId),
+               
+                DepartmentId = tripdto.DepartmentId,
+                Department = context.Departments.FirstOrDefault(t => t.Id == tripdto.DepartmentId),
                 Date = tripdto.Date,
                 Destination = tripdto.Destination,
-                Status = tripdto.Status               
+                Status = tripdto.Status,
+                CustomerAdress = tripdto.CustomerAdress,
+                CustomerName = tripdto.CustomerName,
+                CustomerPhone = tripdto.CustomerPhone,
+                CustomerRegion = tripdto.CustomerRegion,
             };
-            var Userplace = await context.places.FirstOrDefaultAsync(p => p.Region == trip.Customer.Region);
+            var Userplace = await context.places.FirstOrDefaultAsync(p => p.Region == trip.CustomerRegion);
             var users = await context.PlaceUser.Where(pu => pu.PlaceId == Userplace.Id).
                 Select(pu => pu.user).ToListAsync();
             
@@ -72,7 +76,7 @@ namespace Tracking_System___Api.Repositories.TripRepo
 
         public async Task<Trip> showTrip(int id)
         {
-            var trip = await context.Trips.Include(x => x.Customer).Include(x => x.current).FirstOrDefaultAsync(x => x.Id == id);
+            var trip = await context.Trips.Include(x => x.Department).Include(x => x.current).FirstOrDefaultAsync(x => x.Id == id);
             return trip;
         }
 
@@ -83,7 +87,7 @@ namespace Tracking_System___Api.Repositories.TripRepo
                 var filteredByStatus = await context.Trips.Where(t => t.Status == status).ToListAsync();
                 return filteredByStatus;
             }
-            var trips = await context.Trips.Include(x => x.Customer).Include(x => x.current).Include(x => x.user).ToListAsync();
+            var trips = await context.Trips.Include(x => x.Department).Include(x => x.current).Include(x => x.user).ToListAsync();
             return trips;
         }
 

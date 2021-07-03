@@ -15,10 +15,13 @@ namespace Tracking_System___Api.Models
         [NotMapped]
         public location DestinationInMap { get; set; }
         public string Status { get; set; }
-        public int CustomerId { get; set; }
-        public virtual Customer Customer { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerPhone { get; set; }
+        public string CustomerAdress { get; set; }
+        public string CustomerRegion { get; set; }
         public int DepartmentId { get; set; }
-        public virtual Department Departmen { get; set; }
+        [ForeignKey("DepartmentId")]
+        public virtual Department Department { get; set; }
         public int UserId { get; set; }
         public virtual User user { get; set; }
         [NotMapped]

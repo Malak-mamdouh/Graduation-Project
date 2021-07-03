@@ -26,6 +26,9 @@ export class CustomerAddComponent implements OnInit {
     },
     address: {
       required: 'Address is required'
+    },
+    region: {
+      required: 'Region is required'
     }
   }
   message: string;
@@ -41,13 +44,15 @@ export class CustomerAddComponent implements OnInit {
       name: new FormControl('' , Validators.required),
       phone: new FormControl('' , [Validators.required , Validators.minLength(11) , 
         Validators.maxLength(11) , Validators.pattern("^((\\+91-?)|0)?[0-9]{11}$")]),
-      address: new FormControl('' , Validators.required)
+      address: new FormControl('' , Validators.required),
+      region: new FormControl('' , Validators.required)
     });
     this.customerModel = {
       id:0,
       name:'',
       phone:'',
-      address:''
+      address:'',
+      region: ''
     };
     this.activeRoute.paramMap.subscribe(param => {
       const id = +param.get('id');
@@ -66,6 +71,7 @@ export class CustomerAddComponent implements OnInit {
 
   onSubmit(){
     this.ValidateModel();
+    console.log(this.customerModel.region);
     if(!this.isEditMode){
       this.customerService.AddCustomer(this.customerModel).subscribe(x => {
         this.message = 'Customer has Added Successfully'
@@ -83,7 +89,8 @@ export class CustomerAddComponent implements OnInit {
       this.AddForm.setValue({
         name: this.customerModel.name,
         phone: this.customerModel.phone,
-        address: this.customerModel.address
+        address: this.customerModel.address,
+        region: this.customerModel.region
       });
     }
   }
@@ -91,5 +98,6 @@ export class CustomerAddComponent implements OnInit {
     this.customerModel.name = this.AddForm.get('name').value;
     this.customerModel.phone = this.AddForm.get('phone').value;
     this.customerModel.address = this.AddForm.get('address').value;
+    this.customerModel.region = this.AddForm.get('region').value;
   }
 }

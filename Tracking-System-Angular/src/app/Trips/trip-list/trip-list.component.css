@@ -29,3 +29,14 @@ border-top: 0px solid #dee2e6;
     color: #fff;
     border: none;
 }
+.status{
+    padding: 6px 10px;
+    border-radius: 5px;
+    color: white;
+}
+.waiting{
+    background-color: #FF5370;
+}
+.done{
+    background-color: #2ed8b6;
+}

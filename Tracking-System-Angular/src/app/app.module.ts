@@ -17,11 +17,9 @@ import { PlacesComponent } from './places/places.component';
 import { TripListComponent } from './Trips/trip-list/trip-list.component';
 import { TripAddComponent } from './Trips/trip-add/trip-add.component';
 import { TrackingComponent } from './tracking/tracking.component';
-import { JwtModule } from '@auth0/angular-jwt';
+import { DepartmentListComponent } from './departments/department-list/department-list.component';
+import { DepartmentAddComponent } from './departments/department-add/department-add.component';
 
-export function tokenGetter() {
-  return localStorage.getItem('token');
-}
 
 @NgModule({
   declarations: [
@@ -35,7 +33,9 @@ export function tokenGetter() {
     PlacesComponent,
     TripListComponent,
     TripAddComponent,
-    TrackingComponent
+    TrackingComponent,
+    DepartmentListComponent,
+    DepartmentAddComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,16 +44,7 @@ export function tokenGetter() {
     DriversModule,
     AssetsModule,
     HttpClientModule,
-    SharedModule,
-    HttpClientModule,
-    JwtModule.forRoot({
-      config: {
-        // tslint:disable-next-line:object-literal-shorthand
-        tokenGetter: tokenGetter,
-        allowedDomains: ['localhost:44370'],
-        disallowedRoutes: ['http://example.com/examplebadroute/'],
-      },
-    }),
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

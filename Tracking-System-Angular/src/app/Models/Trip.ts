@@ -6,14 +6,19 @@ id: number;
 date: Date;
 destination: string;
 status: string;
-customerId: string;
+departmentId: number;
+customerRegion: string;
+customerPhone: string;
+customerAdress: string;
+customerName: string;
+
+
 /*
 customer: Customer;
 driver: Driver;
 */
 }
 export enum Tripstatus{
-    "T" = 'Today',
     'W' = 'Waiting',
     'D' = 'Done'
  }
