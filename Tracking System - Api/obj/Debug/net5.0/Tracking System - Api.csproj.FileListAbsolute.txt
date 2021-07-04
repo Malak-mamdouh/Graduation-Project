@@ -346,7 +346,6 @@ F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Az
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Azure.Security.KeyVault.Certificates.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Azure.Security.KeyVault.Secrets.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\FluentEmail.Core.dll
-F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\FluentEmail.Razor.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\FluentEmail.Smtp.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Humanizer.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\MailKit.dll
@@ -359,7 +358,6 @@ F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Mi
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.UI.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
-F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.AspNetCore.Razor.Language.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.CodeAnalysis.dll
@@ -374,7 +372,6 @@ F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Mi
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
-F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Embedded.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
@@ -400,7 +397,6 @@ F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\NE
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Newtonsoft.Json.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\BouncyCastle.Crypto.dll
-F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\RazorLight.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\SendGrid.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\StarkbankEcdsa.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
@@ -498,15 +494,5 @@ F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Debug\net5.0\re
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Debug\net5.0\Tracking System - Api.pdb
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Debug\net5.0\Tracking System - Api.genruntimeconfig.cache
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Debug\net5.0\Tracking System - Api.csproj.AssemblyReference.cache
-F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\CommonServiceLocator.dll
-F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\System.Runtime.InteropServices.WindowsRuntime.dll
-F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Uno.Core.dll
-F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Uno.Diagnostics.Eventing.dll
-F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Uno.Foundation.dll
-F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Uno.UI.FluentTheme.dll
-F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Uno.UI.Toolkit.dll
-F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Uno.UI.dll
-F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Uno.Xaml.dll
-F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Uno.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\GoogleMaps.LocationServices.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\GoogleMaps.LocationServices.dll

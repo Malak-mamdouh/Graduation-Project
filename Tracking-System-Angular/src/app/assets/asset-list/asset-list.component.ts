@@ -13,17 +13,15 @@ export class AssetListComponent implements OnInit {
 
   assets: Asset[] = [];
   isLoading = true;
-  constructor(private assetService: AssetService , 
+  constructor(private assetService: AssetService ,
               private route: Router) { }
 
   ngOnInit(): void {
-    
-    this.assetService.AllAssets().subscribe(list => {
+    this.assetService.AllAssets().subscribe((list: any) => {
       this.assets = list.data;
       this.isLoading = false;
       console.log(this.assets);
     }, err => console.log(err));
-    
   }
 
   public createImgPath(serverpath: string){
@@ -34,7 +32,6 @@ export class AssetListComponent implements OnInit {
     if (alert === true){
       this.assetService.DeleteAsset(id).subscribe(s => {
         this.route.navigate(['asset-list']).then(x => {window.location.reload(); });
-        
       } , err => console.log(err));
     }
   }

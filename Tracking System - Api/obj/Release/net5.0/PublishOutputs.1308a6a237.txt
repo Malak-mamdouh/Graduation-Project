@@ -9,8 +9,8 @@ F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Azure.Security.KeyVault.Certificates.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Azure.Security.KeyVault.Secrets.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\FluentEmail.Core.dll
-F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\FluentEmail.Razor.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\FluentEmail.Smtp.dll
+F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\GoogleMaps.LocationServices.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Humanizer.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\MailKit.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Microsoft.AspNetCore.Authentication.JwtBearer.dll
@@ -22,7 +22,6 @@ F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Microsoft.AspNetCore.Identity.UI.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Microsoft.AspNetCore.JsonPatch.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
-F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Microsoft.AspNetCore.Razor.Language.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Microsoft.CodeAnalysis.dll
@@ -36,7 +35,6 @@ F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Relational.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Microsoft.EntityFrameworkCore.SqlServer.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Microsoft.Extensions.DependencyInjection.dll
-F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Microsoft.Extensions.DependencyModel.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Microsoft.Extensions.FileProviders.Embedded.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Microsoft.Extensions.Identity.Core.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Microsoft.Extensions.Identity.Stores.dll
@@ -62,7 +60,6 @@ F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Newtonsoft.Json.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Newtonsoft.Json.Bson.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\BouncyCastle.Crypto.dll
-F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\RazorLight.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\SendGrid.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\StarkbankEcdsa.dll
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll

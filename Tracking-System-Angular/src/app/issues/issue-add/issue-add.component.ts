@@ -39,16 +39,16 @@ export class IssueAddComponent implements OnInit {
     reportedBy: {
       required: 'This Field is required'
     }
-  }
+  };
   IsPrivate = false;
-  constructor(private activeRoute: ActivatedRoute, 
-              private issueService: IssueService, 
-              private assetService: AssetService) { 
+  constructor(private activeRoute: ActivatedRoute,
+              private issueService: IssueService,
+              private assetService: AssetService) {
               }
 
   ngOnInit(): void {
     this.assetService.GetAllPrivateAssets().subscribe(list => {
-      this.assets = list.data;
+      this.assets = list;
       console.log(this.assets);
     } , err => console.log(err));
     this.isEditMode = false;
@@ -64,7 +64,7 @@ export class IssueAddComponent implements OnInit {
     this.issueModel = {
       id: 0,
       date: new Date(),
-      description:'',
+      description: '',
       status: '',
       reportedBy: '',
       assetId: 0
@@ -72,11 +72,11 @@ export class IssueAddComponent implements OnInit {
     this.keys = Object.keys(this.statuslist);
     this.activeRoute.paramMap.subscribe(param => {
       const id = +param.get('id');
-      if(id){
+      if (id){
           this.btnTitle = 'Edit';
           this.title = 'Edit Issue';
-        this.issueService.ShowIssue(id).subscribe(result => {
-          if(result.assetId === 4){
+          this.issueService.ShowIssue(id).subscribe(result => {
+          if (result.assetId === 4){
             this.IsPrivate = false;
           }else{
             this.IsPrivate = true;
@@ -93,45 +93,41 @@ export class IssueAddComponent implements OnInit {
   onSubmit(){
     this.ValidateModel();
     console.log(this.issueModel);
-    
-    if(!this.isEditMode){
+
+    if (!this.isEditMode){
       this.issueService.AddIssue(this.issueModel).subscribe(x => {
         this.message = 'Issue is Added Successfully';
       } , err => console.log(err));
     }
     else{
       this.issueService.EditIssue(this.issueModel.id , this.issueModel).subscribe(x => {
-        this.message = 'Issue has updated successfuly'
+        this.message = 'Issue has updated successfuly';
       } , err => console.log(err));
     }
     this.AddForm.reset();
     this.AddForm.patchValue({
-      assetId:0,
-      status:'Open'
+      assetId: 0,
+      status: 'Open'
     });
     this.IsPrivate = false;
   }
   addIssueData(){
-    if(this.issueModel !== null){
-      this.AddForm.patchValue({
-        status: this.issueModel.status,
-        description: this.issueModel.description,
-        assetId: this.issueModel.assetId
-      });
+    if (this.issueModel !== null){
+        status: this.issueModel.status;
     }
   }
 
   filter(event){
-    if(event.value == 'private' && this.IsPrivate != true){
+    if (event.value === 'private' && this.IsPrivate !== true){
       this.IsPrivate = true;
     }
-    if(event.value== 'private'){
+    if (event.value === 'private'){
     }
-    else if(event.value == 'public' && this.IsPrivate == false || event.value == 'public'){
-      
+    else if (event.value === 'public' && this.IsPrivate === false || event.value === 'public'){
+
       this.IsPrivate = false;
     }
-    else if(event.value != 'public' && event.value != 'private'){
+    else if (event.value !== 'public' && event.value !== 'private'){
       this.IsPrivate = false;
     }
   }
@@ -142,8 +138,8 @@ export class IssueAddComponent implements OnInit {
     this.issueModel.reportedBy = 'Admin';
     this.issueModel.description = this.AddForm.get('description').value;
     this.issueModel.status = this.AddForm.get('status').value;
-    if(this.IsPrivate){
-      this.issueModel.assetId =this.AddForm.get('assetId').value;
+    if (this.IsPrivate){
+      this.issueModel.assetId = this.AddForm.get('assetId').value;
     }else{
       this.issueModel.assetId = 4;
     }

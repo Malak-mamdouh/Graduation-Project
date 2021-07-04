@@ -19,6 +19,8 @@ import { TripAddComponent } from './Trips/trip-add/trip-add.component';
 import { TrackingComponent } from './tracking/tracking.component';
 import { PlaceAddComponent } from './places/place-add/place-add.component';
 import { PlaceListComponent } from './places/place-list/place-list.component';
+import { DepartmentListComponent } from './departments/department-list/department-list.component';
+import { DepartmentAddComponent } from './departments/department-add/department-add.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { PlaceListComponent } from './places/place-list/place-list.component';
     TripAddComponent,
     TrackingComponent,
     PlaceAddComponent,
-    PlaceListComponent
+    PlaceListComponent,
+    DepartmentListComponent,
+    DepartmentAddComponent,
   ],
   imports: [
     BrowserModule,

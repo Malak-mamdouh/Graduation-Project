@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="message !== ''">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        {{message}}
+      </div>
+    <div class="row justify-content-center">
+    
+    <div class="col-md-10">
+        <form [formGroup]="form" (ngSubmit)="onsubmit()">
+            <div class="formStyle">
+
+                <h5 class="form-head">{{title}}</h5>
+                <div class="form-group row">
+                    <div class="col-md-2">
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="name" class="form-control" 
+                        placeholder="Name" [ngClass]="{'is-invalid' : 
+                        !form.get('name').valid && this.form.get('name').touched}">
+                        <span class="text-danger" *ngIf="!this.form.get('name').valid && 
+                        this.form.get('name').touched">
+                            {{errorMessage.name.required}}
+                        </span>
+                    </div>    
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary mt-3"  [disabled]="!form.valid"
+                    type="submit">{{btnTitle}}</button>
+                    </div>
+                </div>
+            
+        </form>
+    </div>
+</div>
+</div>

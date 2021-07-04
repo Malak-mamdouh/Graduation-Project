@@ -23,6 +23,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Tracking_System___Api.Models;
 using Tracking_System___Api.Repositories.AssetRepo;
+using Tracking_System___Api.Repositories.DepartmentRepo;
 using Tracking_System___Api.Repositories.DriversRepo;
 using Tracking_System___Api.Repositories.EmailRepo;
 using Tracking_System___Api.Repositories.IssuesRepo;
@@ -65,6 +66,7 @@ namespace Tracking_System___Api
             services.AddScoped<ITripRepo , TripRepo>();
             services.AddScoped<IAssetRepo, AssetRepo>();
             services.AddScoped<IPlaceRepo, PlaceRepo>();
+            services.AddScoped<IDepartmentRepo, DepartmentRepo>();
             services.AddSingleton(emailConfig);
             services.AddDbContext<Context>(options => options.UseSqlServer(Configuration.GetConnectionString("conn")));
             services.AddScoped<IDriversRepo,DriversRepo>();
@@ -79,6 +81,9 @@ namespace Tracking_System___Api
                 option.Password.RequireDigit = false;
                 option.Password.RequireUppercase = false;
                 option.Password.RequireNonAlphanumeric = false;
+                option.Password.RequiredUniqueChars = 0;
+
+
             }).AddDefaultTokenProviders();
 
             builder = new IdentityBuilder(builder.UserType, typeof(Role), builder.Services);

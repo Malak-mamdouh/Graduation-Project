@@ -500,6 +500,7 @@ GO
 BEGIN TRANSACTION;
 GO
 
+<<<<<<< HEAD
 IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210701203932_AssetNameNullable')
 BEGIN
     DECLARE @var5 sysname;
@@ -516,6 +517,52 @@ IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'2021
 BEGIN
     INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
     VALUES (N'20210701203932_AssetNameNullable', N'5.0.5');
+=======
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210701214258_deparet')
+BEGIN
+    ALTER TABLE [Trips] ADD [DepartmentId] int NOT NULL DEFAULT 0;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210701214258_deparet')
+BEGIN
+    ALTER TABLE [AspNetUsers] ADD [Adress] nvarchar(max) NULL;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210701214258_deparet')
+BEGIN
+    ALTER TABLE [AspNetUsers] ADD [City] nvarchar(max) NULL;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210701214258_deparet')
+BEGIN
+    CREATE TABLE [Departments] (
+        [Id] int NOT NULL IDENTITY,
+        [Name] nvarchar(max) NULL,
+        CONSTRAINT [PK_Departments] PRIMARY KEY ([Id])
+    );
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210701214258_deparet')
+BEGIN
+    CREATE INDEX [IX_Trips_DepartmentId] ON [Trips] ([DepartmentId]);
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210701214258_deparet')
+BEGIN
+    ALTER TABLE [Trips] ADD CONSTRAINT [FK_Trips_Departments_DepartmentId] FOREIGN KEY ([DepartmentId]) REFERENCES [Departments] ([Id]) ON DELETE CASCADE;
+END;
+GO
+
+IF NOT EXISTS(SELECT * FROM [__EFMigrationsHistory] WHERE [MigrationId] = N'20210701214258_deparet')
+BEGIN
+    INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+    VALUES (N'20210701214258_deparet', N'5.0.5');
+>>>>>>> 460ed14c6ff973033a3c504b13e5eb7ea149d405
 END;
 GO
 

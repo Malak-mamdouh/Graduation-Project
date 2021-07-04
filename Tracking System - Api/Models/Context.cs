@@ -21,6 +21,7 @@ namespace Tracking_System___Api.Models
         public DbSet<location> locations { get; set; }
         public DbSet<Place> places { get; set; }
         public DbSet<PlaceUser> PlaceUser { get; set; }
+        public DbSet<Department> Departments  { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<PlaceUser>().HasKey(p => new { p.PlaceId , p.UserId});

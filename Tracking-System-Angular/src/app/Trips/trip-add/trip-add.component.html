@@ -13,27 +13,76 @@
             <div class="formStyle">
 
                 <h5 class="form-head">{{title}}</h5>
-               
                 <div class="form-group row">
                     <div class="col-md-2">
-                        <label for="customerId">Customer</label>
+                        <label for="customerId">Department</label>
                     </div>
                     <div class="col-md-10">
-                        <select formControlName="customerId" class="form-control"
-                        [ngClass]="{'is-invalid' : AddForm.get('customerId').value < 1 && 
-                       AddForm.get('customerId').touched}">
-                           <option selected disabled value="">Select Customer</option>
-                           <option *ngFor="let customer of customers" [value]="customer.id">
-                               {{customer.name}}
+                        <select formControlName="departmentId" class="form-control"
+                        [ngClass]="{'is-invalid' : AddForm.get('departmentId').value < 1 && 
+                       AddForm.get('departmentId').touched}">
+                           <option selected disabled value="">Select department</option>
+                           <option *ngFor="let department of departments" [value]="department.id">
+                               {{department.name}}
                            </option>
                        </select>
-                       <div class="text-danger" *ngIf="this.AddForm.get('customerId').value < 1 
-                           && this.AddForm.get('customerId').touched">
+                       <div class="text-danger" *ngIf="this.AddForm.get('departmentId').value < 1 
+                           && this.AddForm.get('departmentId').touched">
                                This Field is required
                        </div>
                     </div>
                 </div>
+                 <div class="form-group row">
+                    <div class="col-md-2"> <label for="customerId">Customer Name</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="customerName" 
+                        class="form-control" placeholder="customer Name" [ngClass]="{'is-invalid' : 
+                        AddForm.get('customerName').invalid && AddForm.get('customerName').touched}">
+                        <span class="text-danger" *ngIf="!this.AddForm.get('customerName').valid 
+                        && this.AddForm.get('customerName').touched">
+                            {{errorMessage.customerName.required}}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-2">Customer Phone</div>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="customerPhone" 
+                        class="form-control" placeholder="customer Phone" [ngClass]="{'is-invalid' : 
+                        AddForm.get('customerPhone').invalid && AddForm.get('customerPhone').touched}">
+                        <span class="text-danger" *ngIf="!this.AddForm.get('customerPhone').valid 
+                        && this.AddForm.get('customerPhone').touched">
+                            {{errorMessage.customerPhone.required}}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-2">Customer Adress</div>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="customerAdress" 
+                        class="form-control" placeholder="customer Adress" [ngClass]="{'is-invalid' : 
+                        AddForm.get('customerPhone').invalid && AddForm.get('customerPhone').touched}">
+                        <span class="text-danger" *ngIf="!this.AddForm.get('customerPhone').valid 
+                        && this.AddForm.get('customerPhone').touched">
+                            {{errorMessage.customerPhone.required}}
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-2">Customer Region</div>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="customerRegion" 
+                        class="form-control" placeholder="Customer Region" [ngClass]="{'is-invalid' : 
+                        AddForm.get('customerRegion').invalid && AddForm.get('customerRegion').touched}">
+                        <span class="text-danger" *ngIf="!this.AddForm.get('customerRegion').valid 
+                        && this.AddForm.get('customerRegion').touched">
+                            {{errorMessage.customerRegion.required}}
+                        </span>
+                    </div>
+                </div>
              
+              
                 <div class="form-group row">
                     <div class="col-md-2">
                         <label for="status">Status</label>
@@ -51,7 +100,7 @@
                         <label for="date">Date</label>
                     </div>
                     <div class="col-md-10">
-                        <input type="date" formControlName="date" 
+                        <input type="datetime-local" formControlName="date" 
                         class="form-control" placeholder="Date" [ngClass]="{'is-invalid' : 
                         AddForm.get('date').invalid && AddForm.get('date').touched}">
                         <span class="text-danger" *ngIf="!this.AddForm.get('date').valid 
