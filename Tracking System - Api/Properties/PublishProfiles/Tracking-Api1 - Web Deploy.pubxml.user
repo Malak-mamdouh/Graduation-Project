@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAtAda/8FVGkCTe6soHkQXDgAAAAACAAAAAAAQZgAAAAEAACAAAAB998K/LkM4akUzgpaYcmlYuQ68s5DQb5/Ma4j3ibt+wAAAAAAOgAAAAAIAACAAAADdR9KQpwnh50NSQKMtYMXgPfwj3353r8xA9PpPy+I/DIAAAAA70PZRt0a+bVarIoqAy5anZlTfvgoitIruMr2aKz8sN4j1LjcrPsS419ClTFVfdENjWPcDiZumV1Q0eP4hS+FPxNNUyIxnCfTKtX6tj7jPeMbw+62HDfUlO6QvAAJ1oMF3dE2KV61HuwuOVWLUwApnmgVOCC/H+X4aQYL6xQMPe0AAAAB2aEi+B2wiSRa4DU5dkDfJY6HCzXb38QUfZlKY/YxakOE2izC3gGf93By0z/qZ1e5IXK8AytwHx9rUyDozrXAO</EncryptedPassword>
+    <History>True|2021-07-03T19:04:04.8052170Z;True|2021-07-03T20:42:13.2102047+02:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="conn">
+      <Value>workstation id=TrackingDb.mssql.somee.com%3bpacket size=4096%3buser id=nourmaher12_SQLLogin_1%3bpwd=wdu48thd9d%3bdata source=TrackingDb.mssql.somee.com%3bpersist security info=False%3binitial catalog=TrackingDb</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

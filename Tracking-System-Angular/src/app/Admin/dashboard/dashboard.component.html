@@ -69,7 +69,20 @@
                     </li>
                 </ul>
             </li>
-            <button class="btn btn-primary" (click)="logout()"> Log Out </button>
+            <li>
+                <a href="#PlaceMenu" data-toggle="collapse" aria-expanded="false" 
+                class="dropdown-toggle">Places</a>
+                <ul class="collapse list-unstyled" id="PlaceMenu">
+                    <li>
+                        <a routerLink="/add-place">Add Place</a>
+                    </li>
+                    <li>
+                        <a routerLink="/place-list">Place List</a>
+                    </li>
+                </ul>
+            </li>
+            <button class="btn mt-5" style="color: #263544; background-color: white; font-weight: 600;" 
+            (click)="logout()"> Log Out </button>
 
         </ul>
 

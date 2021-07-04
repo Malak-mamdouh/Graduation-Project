@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Issue } from '../../Models/Issue';
 import { IssueService } from '../issue.service';
 import { IssueList } from '../../Models/issue-list';
 
@@ -19,17 +18,16 @@ export class IssueListComponent implements OnInit {
 
   ngOnInit(): void {
     this.IsEmpty = true;
-
     this.issueService.AllIssues().subscribe(list => {
       this.issues = list;
       console.log(this.issues);
       this.isLoading = false;
       if(this.issues.length >= 1){
         this.IsEmpty = false;
-      }
-      
+      }    
     } , err => console.log(err));
   }
+  
   onDelete(id: number){
     const alert = confirm('Do you delete this Issue?');
     if (alert === true){
@@ -39,6 +37,7 @@ export class IssueListComponent implements OnInit {
       } , err => console.log(err));
     }
   }
+
   onEdit(id: number){
     console.log(id);
     this.route.navigate(['edit-issue/', id]);

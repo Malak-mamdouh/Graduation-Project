@@ -35,6 +35,19 @@ namespace Tracking_System___Api.Controllers
             }
             return BadRequest();
         }
+       
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Place>> GetPlace(int id)
+        {
+            var place = await _context.places.FindAsync(id);
+
+            if (place == null)
+            {
+                return NotFound();
+            }
+
+            return place;
+        }
         [HttpPut]
         public async Task<IActionResult> EditPlace(Place place)
         {

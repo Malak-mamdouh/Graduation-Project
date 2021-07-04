@@ -12,6 +12,8 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
 import { TripListComponent } from './Trips/trip-list/trip-list.component';
 import { TripAddComponent } from './Trips/trip-add/trip-add.component';
 import { TrackingComponent } from './tracking/tracking.component';
+import { PlaceAddComponent } from './places/place-add/place-add.component';
+import { PlaceListComponent } from './places/place-list/place-list.component';
 
 
 const routes: Routes = [
@@ -29,6 +31,9 @@ const routes: Routes = [
     {path: 'trip-list' , component: TripListComponent},
     {path: 'driver-list' , component: DriverListComponent},
     {path: 'filter' , component: LoadingSpinnerComponent},
+    {path: 'add-place' , component: PlaceAddComponent},
+    {path: 'edit-place/:id' , component: PlaceAddComponent},
+    {path: 'place-list' , component: PlaceListComponent},
     {path: 'trip-list/tracking/:id' , component: TrackingComponent}
 ];
 

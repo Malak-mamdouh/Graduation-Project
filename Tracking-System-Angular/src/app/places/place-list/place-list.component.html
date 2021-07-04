@@ -1,0 +1,29 @@
+<div *ngIf="isLoading" style="text-align: center; margin-top: 25vh;">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+  <div class="tbl table-responsive" *ngIf="places.length >= 1 && !isLoading">
+  
+      <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Region</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let place of places">
+            <tr>
+              <td>{{place.region}}</td>
+              <td>
+                <a class="btn btn-primary mr-2" (click)="onEdit(place.id)">Edit</a>
+                <a class="btn btn-danger" (click)="onDelete(place.id)">Delete</a>
+              </td>
+            </tr>
+      
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="places.length == 0 && !isLoading" class="text-center mt-3">
+        <h4><em>No Places Here</em></h4>
+        <a (click)="onAdd()" class="btn btn-primary mt-2">Add Place</a>
+        
+      </div>

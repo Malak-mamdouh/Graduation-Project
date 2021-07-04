@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>aspnet-Tracking_System___Api-05CB7EF7-CC74-432C-8309-86D80D4538FD</UserSecretsId>
+    <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
     <RootNamespace>Tracking_System___Api</RootNamespace>
   </PropertyGroup>
 

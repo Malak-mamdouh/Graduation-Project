@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="message !== ''">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        {{message}}
+      </div>
+    <div class="row justify-content-center">
+    
+    <div class="col-md-10">
+        <form [formGroup]="AddForm" (ngSubmit)="onSubmit()">
+            <div class="formStyle">
+
+                <h5 class="form-head">{{title}}</h5>
+                
+                <div class="form-group row" *ngIf="!isEditMode">
+                    <div class="col-md-2">
+                        <label for="customerId">Driver</label>
+                    </div>
+                    <div class="col-md-10">
+                        <select formControlName="uId" class="form-control"
+                        [ngClass]="{'is-invalid' : AddForm.get('uId').value < 1 && 
+                       AddForm.get('uId').touched}">
+                           <option selected disabled value="">Select Driver</option>
+                           <option *ngFor="let driver of drivers" [value]="driver.driverId">
+                               {{driver.firstName}}
+                           </option>
+                       </select>
+                       <div class="text-danger" *ngIf="this.AddForm.get('uId').value < 1 
+                           && this.AddForm.get('uId').touched">
+                               This Field is required
+                       </div>
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <div class="col-md-2">
+                        <label for="address">Region</label>
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" formControlName="region" 
+                        class="form-control" placeholder="region" [ngClass]="{'is-invalid' : 
+                        AddForm.get('region').invalid && AddForm.get('region').touched}">
+                        <span class="text-danger" *ngIf="!this.AddForm.get('region').valid 
+                        && this.AddForm.get('region').touched">
+                            {{errorMessage.region.required}}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group row" *ngIf="isEditMode">
+                    <div class="col-md-12">
+                        <div class="tbl table-responsive" *ngIf="drivers.length >= 1">
+  
+                            <table class="table table-hover">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">Name</th>
+                                    <th></th>
+                                  </tr>
+                                </thead>
+                                <tbody *ngFor="let driver of drivers">
+                                  <tr>
+                                    <td>{{driver.firstName}}</td>
+                                    <td>
+                                      <!--<a class="btn btn-primary mr-2" (click)="onEdit(place.id)">Edit</a>
+                                      <a class="btn btn-danger" (click)="onDelete(place.id)">Delete</a>
+                                      --></td>
+                                  </tr>
+                            
+                                </tbody>
+                              </table>
+                            </div>
+                    </div>
+                </div>
+
+                
+                <div class="text-center">
+                    <button class="btn custom-btn mt-3" [disabled]="!AddForm.valid"
+                    type="submit">{{btnTitle}}</button>
+                    </div>
+                </div>
+            
+        </form>
+    </div>
+</div>
+</div>

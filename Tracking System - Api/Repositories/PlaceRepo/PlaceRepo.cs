@@ -18,12 +18,9 @@ namespace Tracking_System___Api.Repositories.PlaceRepo
         {
             if (place != null)
             {
-               
                     await context.places.AddAsync(place);
                     await context.SaveChangesAsync();
-                    return place;
-               
-                
+                    return place;    
             }
             return null;
         }
@@ -38,7 +35,16 @@ namespace Tracking_System___Api.Repositories.PlaceRepo
             await context.SaveChangesAsync();
             return true;
         }
-
+        /*public async Task<IList<int>> filteredDrivers(string region)
+        {
+            var driversPlaces = await context.places.Where(p => p.Region == region).ToListAsync();
+            foreach (var place in driversPlaces)
+            {
+                var userIds = await context.PlaceUser.Where(p => p.PlaceId == place.Id).
+                    Select(p => p.UserId).ToListAsync();
+                
+            }
+        }*/
         public async Task<IList<Place>> showAllPlaces()
         {
             var places = await context.places.ToListAsync();

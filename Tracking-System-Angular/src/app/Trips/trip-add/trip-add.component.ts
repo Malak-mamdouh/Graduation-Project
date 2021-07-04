@@ -92,6 +92,10 @@ export class TripAddComponent implements OnInit {
       this.message = 'Trip is Added Successfully';
     } , err => console.log(err));
     this.AddForm.reset();
+    this.AddForm.patchValue({
+      customerId: '',
+      status: 'Waiting'
+    });
   }
   /*
   addIssueData(){

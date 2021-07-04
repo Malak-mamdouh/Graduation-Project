@@ -27,7 +27,7 @@ export class TripListComponent implements OnInit {
     this.GetAllTrips();
   }
   onDelete(id: number){
-    const alert = confirm('Do you delete this Issue?');
+    const alert = confirm('Do you delete this Trip?');
     if (alert === true){
       this.tripservice.DeleteTrip(id).subscribe(s => {
         this.route.navigate(['trip-list']).then(x => {window.location.reload(); });
