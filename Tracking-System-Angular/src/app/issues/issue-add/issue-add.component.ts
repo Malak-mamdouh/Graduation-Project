@@ -113,11 +113,7 @@ export class IssueAddComponent implements OnInit {
   }
   addIssueData(){
     if (this.issueModel !== null){
-      this.AddForm.patchValue({
-        status: this.issueModel.status,
-        description: this.issueModel.description,
-        assetId: this.issueModel.assetId
-      });
+        status: this.issueModel.status;
     }
   }
 

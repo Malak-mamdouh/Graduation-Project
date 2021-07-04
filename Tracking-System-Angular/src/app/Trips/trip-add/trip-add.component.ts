@@ -157,4 +157,16 @@ export class TripAddComponent implements OnInit {
     return false;
   }
 
+  checkDate(){
+    const date = this.AddForm.get('date').value;
+    const todayDate = new Date();
+    if(date){    
+      if(new Date(date) < todayDate){
+        this.errorMessage.date.format = 'This Date in the past';
+        return true;
+      }
+    }
+    return false;
+  }
+
 }

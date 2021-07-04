@@ -14,6 +14,7 @@ namespace Tracking_System___Api.Repositories.AssetRepo
         Task<Asset> showAsset(int id);
         Task<Asset> updateAsset(Asset asset);
         Task<IEnumerable<string>> SelectAssetNumberAsync();
+        Task<IList<Asset>> showAllPrivateAssets();
 
     }
 }

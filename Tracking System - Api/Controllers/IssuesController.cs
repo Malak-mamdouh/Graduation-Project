@@ -13,7 +13,7 @@ namespace Tracking_System___Api.Controllers
 {
     [Route("[controller]/[action]")]
     [ApiController]
-    [Authorize]
+    /*[Authorize]*/
     public class IssuesController : ControllerBase
     {
         private readonly IIssuesRepo iissuesrepo;
@@ -24,7 +24,7 @@ namespace Tracking_System___Api.Controllers
         }
         // GET: api/<IssuesController>
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        /*[Authorize(Roles = "Admin")]*/
         public async Task<ActionResult<IList<Issues>>> GetIssues()
         {
             return Ok(await iissuesrepo.showissues());
@@ -32,7 +32,7 @@ namespace Tracking_System___Api.Controllers
 
         // GET api/<IssuesController>/5
         [HttpGet("{id}")]
-        [Authorize(Roles = "Admin")]
+        /*[Authorize(Roles = "Admin")]*/
 
         public async Task<ActionResult<Issues>> GetIssue(int id)
         {
@@ -56,7 +56,7 @@ namespace Tracking_System___Api.Controllers
 
         // PUT api/<IssuesController>/5
         [HttpPut("{id}")]
-        [Authorize(Roles = "Admin")]
+        /*[Authorize(Roles = "Admin")]*/
 
         public async Task<IActionResult> updateIssue(int id, Issues issue)
         {
@@ -70,8 +70,7 @@ namespace Tracking_System___Api.Controllers
 
         // DELETE api/<IssuesController>/5
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Admin")]
-
+        /*[Authorize(Roles = "Admin")]*/
         public async Task<IActionResult> Delete(int id)
         {
             if (id != 0)

@@ -37,6 +37,16 @@ namespace Tracking_System___Api.Controllers
             }
             return BadRequest();
         }
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Asset>>> GetAllPrivateAssets()
+        {
+            var assets = await _assetRepo.showAllPrivateAssets();
+            if (assets != null)
+            {
+                return Ok(new { data = assets });
+            }
+            return BadRequest();
+        }
 
         // GET: api/Assets/5
         [HttpGet("{id}")]
