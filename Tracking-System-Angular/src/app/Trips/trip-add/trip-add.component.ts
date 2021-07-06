@@ -77,7 +77,6 @@ export class TripAddComponent implements OnInit {
       status: new FormControl('Waiting' , Validators.required),
       departmentId: new FormControl('' , Validators.required),
       customerName: new FormControl('' , Validators.required),
-      customerAdress: new FormControl('' , Validators.required),
       customerRegion: new FormControl('' , Validators.required),
       customerPhone: new FormControl('' , Validators.required),
     });
@@ -87,11 +86,9 @@ export class TripAddComponent implements OnInit {
       status: '',
       destination: '',
       departmentId: 0,
-      customerAdress: '',
       customerPhone: '',
       customerName: '',
       customerRegion: '',
-
     };
     this.keys = Object.keys(this.statuslist);
     this.activeRoute.paramMap.subscribe(param => {
@@ -142,7 +139,6 @@ export class TripAddComponent implements OnInit {
     this.tripModel.destination = this.AddForm.get('destination').value;
     this.tripModel.status = this.AddForm.get('status').value;
     this.tripModel.customerName = this.AddForm.get('customerName').value;
-    this.tripModel.customerAdress = this.AddForm.get('customerAdress').value;
     this.tripModel.customerRegion = this.AddForm.get('customerRegion').value;
     this.tripModel.customerPhone = this.AddForm.get('customerPhone').value;
     this.tripModel.departmentId = this.AddForm.get('departmentId').value;

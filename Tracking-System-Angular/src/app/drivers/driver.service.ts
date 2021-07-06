@@ -17,11 +17,11 @@ export class DriverService {
     AllDrivers(): Observable<Driver[]>{
         return this.http.get<Driver[]>(this.baseUrl + 'GetAllDrivers');
     }
-    GetDriver(id: number){
-        return this.http.get(this.baseUrl + 'GetDriver/' + id);
+    GetDriver(id: number): Observable<Driver>{
+        return this.http.get<Driver>(this.baseUrl + 'GetDriver/' + id);
     }
     AddDriver(driver: Driver){
-        return this.http.post(this.baseUrl + 'AddDriver' , driver);
+        return this.http.post('https://localhost:44370/account/Register' , driver);
     }
     IsDriverNameExists(name: string){
         return this.http.get(this.baseUrl + 'IsDriverExists/' + name);
@@ -29,10 +29,10 @@ export class DriverService {
     IsEmailExists(email: string){
         return this.http.get(this.baseUrl + 'IsEmailExists/' + email);
     }
-    EditDriver(driver: Driver){
-        return this.http.put(this.baseUrl + 'EditDriver' , driver);
+    EditDriver(id: number , driver: Driver){
+        return this.http.put(this.baseUrl + 'EditDriver/' + id , driver);
     }
     DeleteDriver(id: number){
-        return this.http.get(this.baseUrl + 'DeleteDriver/' + id);
+        return this.http.delete(this.baseUrl + 'DeleteDriver/' + id);
     }
 }

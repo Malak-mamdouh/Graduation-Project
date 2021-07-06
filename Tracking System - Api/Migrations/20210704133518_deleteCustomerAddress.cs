@@ -2,20 +2,20 @@
 
 namespace Tracking_System___Api.Migrations
 {
-    public partial class deleteUrlFromAsset : Migration
+    public partial class deleteCustomerAddress : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Url",
-                table: "assets");
+                name: "CustomerAdress",
+                table: "Trips");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "Url",
-                table: "assets",
+                name: "CustomerAdress",
+                table: "Trips",
                 type: "nvarchar(max)",
                 nullable: true);
         }

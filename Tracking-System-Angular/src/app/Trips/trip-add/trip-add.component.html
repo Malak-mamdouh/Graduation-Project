@@ -57,18 +57,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <div class="col-md-2">Customer Adress</div>
-                    <div class="col-md-10">
-                        <input type="text" formControlName="customerAdress" 
-                        class="form-control" placeholder="customer Adress" [ngClass]="{'is-invalid' : 
-                        AddForm.get('customerPhone').invalid && AddForm.get('customerPhone').touched}">
-                        <span class="text-danger" *ngIf="!this.AddForm.get('customerPhone').valid 
-                        && this.AddForm.get('customerPhone').touched">
-                            {{errorMessage.customerPhone.required}}
-                        </span>
-                    </div>
-                </div>
+        
                 <div class="form-group row">
                     <div class="col-md-2">Customer Region</div>
                     <div class="col-md-10">

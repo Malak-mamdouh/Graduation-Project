@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Trip, Tripstatus } from '../../Models/Trip';
 import { TripService } from '../Trip.service';
+import { TripList } from '../../Models/TripList';
 
 @Component({
   selector: 'app-trip-list',
@@ -10,13 +11,13 @@ import { TripService } from '../Trip.service';
 })
 export class TripListComponent implements OnInit {
 
-  Trips: Trip[] = [];
+  Trips: TripList[] = [];
   IsEmpty: boolean;
   isLoading = true;
   statuslist = Tripstatus;
   SelectedKey = "A";
   keys = [];
-  secondTips: Trip[] = [];
+  secondTips: TripList[] = [];
   IsTracking = false;
   constructor(private route: Router,
               private tripservice: TripService) { }
@@ -47,7 +48,6 @@ export class TripListComponent implements OnInit {
           this.IsTracking = true;
         }
       } 
-      
     });
     this.Trips = filteredTrips;
   }

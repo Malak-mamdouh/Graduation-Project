@@ -166,8 +166,6 @@ F:\web developer\Gp\Tracking System - Api\obj\Debug\net5.0\Tracking System - Api
 F:\web developer\Gp\Tracking System - Api\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 F:\web developer\Gp\Tracking System - Api\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 F:\web developer\Gp\Tracking System - Api\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
-C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\appsettings.Development.json
-C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\appsettings.json
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Tracking System - Api.StaticWebAssets.xml
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Tracking System - Api.exe
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\Tracking System - Api.deps.json
@@ -496,3 +494,5 @@ F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Debug\net5.0\Tr
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\obj\Debug\net5.0\Tracking System - Api.csproj.AssemblyReference.cache
 F:\web developer\Gp\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\GoogleMaps.LocationServices.dll
 C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\GoogleMaps.LocationServices.dll
+C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\rt\Tracking-System-Github\Graduation-Project\Tracking System - Api\bin\Debug\net5.0\appsettings.json

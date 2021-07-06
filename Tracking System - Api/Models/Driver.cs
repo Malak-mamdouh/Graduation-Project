@@ -14,9 +14,6 @@ namespace Tracking_System___Api.Dtos
         public string FirstName { get; set; }
        
         public string LastName { get; set; }
-        public string Url { get; set; }
-        [NotMapped]
-        public IFormFile file { get; set; }
      
         public string Phone { get; set; }
  

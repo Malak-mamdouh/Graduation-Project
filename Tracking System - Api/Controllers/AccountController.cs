@@ -49,10 +49,7 @@ namespace Tracking_System___Api.Controllers
         }
         [HttpPost("login")]
         public async Task<ActionResult<User>> Login(UserDto userDto)
-        {
-            await CreateRoles();
-            await createadmin();
-          
+        {     
             var account = await userManager.FindByEmailAsync(userDto.Email);
             if (account == null)
             {
@@ -67,7 +64,6 @@ namespace Tracking_System___Api.Controllers
                     token = GenerateJwtToken(account).Result,
                     account.Id
                     /*account*/
-
                 }); ;;
             }
             else
@@ -138,7 +134,8 @@ namespace Tracking_System___Api.Controllers
         [HttpPost("Register")]
         public async Task<ActionResult> AddDriver( Driver driver)
         {
-
+            await CreateRoles();
+            await createadmin();
             if (ModelState.IsValid)
             {
                 var driverModel = await driversRepo.addDriver(driver);
@@ -241,13 +238,13 @@ namespace Tracking_System___Api.Controllers
 
             return tokenHandler.WriteToken(token);
         }
-        [HttpPost("upload"), DisableRequestSizeLimit]
+       /* [HttpPost("upload"), DisableRequestSizeLimit]
         public async Task<IActionResult> Upload()
         {
             try
             {
                 var file = Request.Form.Files[0];
-                var folderName = Path.Combine("wwwroot");
+                var folderName = Path.Combine("Resources", "Images");
                 var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
                 if (file.Length > 0)
@@ -272,7 +269,7 @@ namespace Tracking_System___Api.Controllers
             {
                 return StatusCode(500, $"Internal server error: {ex}");
             }
-        }
+        }*/
         /*
         [ApiExplorerSettings(IgnoreApi = true)]
         [NonAction]

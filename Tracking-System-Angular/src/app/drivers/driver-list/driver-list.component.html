@@ -6,7 +6,6 @@
       <table class="table table-hover">
           <thead>
             <tr>
-              <th scope="col">Image</th>
               <th scope="col">FirstName</th>
               <th scope="col">LastName</th>
               <th scope="col">phone</th>
@@ -17,15 +16,13 @@
        
             <tbody *ngFor="let driver of drivers">
               <tr>
-                <td><img [src]="createImgPath(driver.url)" style="max-height: 50px;" 
-                    class="img-fluid"></td>
                 <td>{{driver.firstName}}</td>
                 <td>{{driver.lastName}}</td>
                 <td>{{driver.phone}}</td>
                 <td>{{driver.email}}</td>
                 <td>
-                    <a class="btn btn-danger mr-2" (click)="onDelete(driver.driverId)">Delete</a>
-                    <a class="btn btn-primary" (click)="onEdit(driver.driverId)">Edit</a>
+                  <a class="btn btn-primary mr-2" (click)="onEdit(driver.driverId)">Edit</a>
+                  <a class="btn btn-danger" (click)="onDelete(driver.driverId)">Delete</a>
                 </td>
               </tr>
             </tbody>          

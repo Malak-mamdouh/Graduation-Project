@@ -9,7 +9,6 @@ status: string;
 departmentId: number;
 customerRegion: string;
 customerPhone: string;
-customerAdress: string;
 customerName: string;
 
 

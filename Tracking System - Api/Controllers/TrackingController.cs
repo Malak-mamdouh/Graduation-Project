@@ -46,8 +46,6 @@ namespace Tracking_System___Api.Controllers
                 {
                     return NoContent();
                 }
-                
-
             }
             else return BadRequest();
         }

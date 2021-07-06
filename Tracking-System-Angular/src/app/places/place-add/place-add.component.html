@@ -49,9 +49,14 @@
                     </div>
                 </div>
 
+                <div class="text-center" *ngIf="!isEditMode">
+                  <button class="btn custom-btn mt-3" [disabled]="AddForm.invalid" 
+                  type="submit">{{btnTitle}}</button>
+                </div>
+
                 <div class="form-group row" *ngIf="isEditMode">
                     <div class="col-md-12">
-                        <div class="tbl table-responsive" *ngIf="drivers.length >= 1">
+                        <div class="tbl table-responsive" *ngIf="objects.length >= 1">
   
                             <table class="table table-hover">
                                 <thead>
@@ -60,13 +65,13 @@
                                     <th></th>
                                   </tr>
                                 </thead>
-                                <tbody *ngFor="let driver of drivers">
+                                <tbody *ngFor="let driver of objects">
                                   <tr>
-                                    <td>{{driver.firstName}}</td>
+                                    <td>{{driver.userName}}</td>
                                     <td>
-                                      <!--<a class="btn btn-primary mr-2" (click)="onEdit(place.id)">Edit</a>
-                                      <a class="btn btn-danger" (click)="onDelete(place.id)">Delete</a>
-                                      --></td>
+                                      <a class="btn btn-sm btn-danger" 
+                                      (click)="onDelete(driver.id)">Delete</a>
+                                    </td>
                                   </tr>
                             
                                 </tbody>
@@ -74,14 +79,7 @@
                             </div>
                     </div>
                 </div>
-
-                
-                <div class="text-center">
-                    <button class="btn custom-btn mt-3" [disabled]="!AddForm.valid"
-                    type="submit">{{btnTitle}}</button>
-                    </div>
                 </div>
-            
         </form>
     </div>
 </div>

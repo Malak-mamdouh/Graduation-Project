@@ -29,8 +29,8 @@
               <th scope="col">Destination</th>
               <th scope="col">Customer Name</th>
               <th scope="col">Customer Phone</th>
-              <th scope="col">Customer Adress</th>
               <th scope="col">Customer Region</th>
+              <th scope="col">Driver</th>
 
               <th *ngIf="SelectedKey != 'A'">Actions</th>
             </tr>
@@ -44,13 +44,14 @@
                 <td>{{trip.destination}}</td>
                 <td>{{trip.customerName}}</td>
                 <td>{{trip.customerPhone}}</td>
-                <td>{{trip.customerAdress}}</td>
                 <td>{{trip.customerRegion}}</td>
+                <td>{{trip.user.userName}}</td>
+
                 <td *ngIf="SelectedKey != 'A'">
-                  <a class="btn btn-primary mr-2" (click)="onEdit(trip.id)" 
+                  <a class="btn btn-sm btn-primary mr-1 mb-1" (click)="onEdit(trip.id)" 
                   *ngIf="trip.status != 'Done'">Edit</a>
-                  <a class="btn btn-danger mr-2" (click)="onDelete(trip.id)">Delete</a>
-                  <a class="btn btn-secondary" routerLink="tracking/{{trip.id}}" 
+                  <a class="btn btn-sm btn-danger mr-1" (click)="onDelete(trip.id)">Delete</a>
+                  <a class="btn btn-sm btn-secondary" routerLink="tracking/{{trip.id}}" 
                   *ngIf="IsTracking">Tracking</a>
                 </td>
               </tr>

@@ -78,8 +78,12 @@ export class AssetAddComponent implements OnInit {
         this.assetService.ShowAsset(id).subscribe(result => {
           if(result.assetNumber === ''){
             this.IsPrivate = false;
+            this.TypeAfterEvent = this.typeList.filter(t => t.ownership === 'public');
+            this.subTypeAfterEvent = this.allSubType.filter(t => t.type === result.type);
           }else{
             this.IsPrivate = true;
+            this.TypeAfterEvent = this.typeList.filter(t => t.ownership === 'private');
+            this.subTypeAfterEvent = this.allSubType.filter(t => t.type === result.type);
           }
           this.assetModel = result;
           this.isEditMode = true;
@@ -133,7 +137,7 @@ export class AssetAddComponent implements OnInit {
   }
   isAssetNameExist(){
     const name = this.AddForm.value.name;
-    if (name != null && name !== ''){
+    if (name != null && name !== '' && !this.isEditMode){
       this.assetService.IsNameExists(name).subscribe(suc => {
         this.errorMessage.name.nameExist = 'This Asset Name is used';
         this.NameExist = true;
@@ -147,7 +151,7 @@ export class AssetAddComponent implements OnInit {
   }
   isAssetNumberExist(){
     const number = this.AddForm.value.assetNumber;
-    if (number != null && number !== ''){
+    if (number != null && number !== '' && !this.isEditMode){
       this.assetService.IsNumberExists(number).subscribe(suc => {
         this.errorMessage.assetNumber.Exist = 'This Asset number is used';
         this.AssetNumberExist = true;

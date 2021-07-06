@@ -20,15 +20,12 @@ namespace Tracking_System___Api.Repositories.TripRepo
             location location = new location() { latitude=0 , longitude=0 };
             var trip = new Trip()
             {
-                /*AssetId = tripdto.AssetId,
-                Asset = context.assets.FirstOrDefault(x => x.Id == tripdto.AssetId),*/
-               
+         
                 DepartmentId = tripdto.DepartmentId,
                 Department = context.Departments.FirstOrDefault(t => t.Id == tripdto.DepartmentId),
                 Date = tripdto.Date,
                 Destination = tripdto.Destination,
                 Status = tripdto.Status,
-                CustomerAdress = tripdto.CustomerAdress,
                 CustomerName = tripdto.CustomerName,
                 CustomerPhone = tripdto.CustomerPhone,
                 CustomerRegion = tripdto.CustomerRegion,
@@ -84,7 +81,7 @@ namespace Tracking_System___Api.Repositories.TripRepo
         {
             if (status != null)
             {
-                var filteredByStatus = await context.Trips.Where(t => t.Status == status).ToListAsync();
+                var filteredByStatus = await context.Trips.Where(t => t.Status == status).Include(x => x.Department).Include(x => x.user).ToListAsync();
                 return filteredByStatus;
             }
             var trips = await context.Trips.Include(x => x.Department).Include(x => x.current).Include(x => x.user).ToListAsync();

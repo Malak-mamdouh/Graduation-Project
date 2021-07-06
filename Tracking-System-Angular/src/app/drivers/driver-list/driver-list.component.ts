@@ -29,15 +29,16 @@ export class DriverListComponent implements OnInit {
     
   }
   onDelete(id: number){
-    const alert = confirm('Do you delete this Product?');
+    const alert = confirm('Do you delete this Driver?');
     if (alert === true){
       this.driverService.DeleteDriver(id).subscribe(s => {
-        this.route.navigate(['asset-list']).then(x => {window.location.reload(); });
+        this.route.navigate(['driver-list']).then(x => {window.location.reload(); });
         
       } , err => console.log(err));
     }
   }
   public createImgPath(serverpath: string){
+    console.log(serverpath);
     return `https://localhost:44370/${serverpath}`;
   }
   onEdit(id: number){

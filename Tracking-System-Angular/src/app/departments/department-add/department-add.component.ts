@@ -22,6 +22,7 @@ errorMessage = {
 department: Department;
   constructor( private fb: FormBuilder, private departmentservice: DepartmentService) { }
   ngOnInit(): void {
+    this.title = 'Add Department'
     this.createform();
   }
 createform(){

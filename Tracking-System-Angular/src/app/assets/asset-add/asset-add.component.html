@@ -52,7 +52,8 @@
                     </div>
                     
 
-                    <div class="form-group row" *ngIf="isEditMode">
+                  <!--
+<div class="form-group row" *ngIf="isEditMode">
                         <div class="col-md-2">
                             <label for="name">Type</label>
                         </div>
@@ -66,8 +67,9 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="form-group row" *ngIf="isEditMode">
+                  -->  
+<!--
+ <div class="form-group row" *ngIf="isEditMode">
                         <div class="col-md-2">
                             <label for="name">SubType</label>
                         </div>
@@ -81,8 +83,10 @@
                             </div>
                         </div>
                     </div>
+-->
+                   
 
-                    <div class="form-group row" *ngIf="!isEditMode">
+                    <div class="form-group row">
                         <div class="col-md-2">
                             <label for="type">Type</label>
                         </div>
@@ -90,7 +94,7 @@
                             <select formControlName="type" class="form-control" 
                             [ngClass]="{'is-invalid' : AddForm.get('type').invalid && 
                             AddForm.get('type').touched}" (change)="onTypeChange()" required>
-                                <option value="" selected>Select Type</option>
+                                <option value="" selected *ngIf="!isEditMode">Select Type</option>
                                 <option 
                                     *ngFor="let type of TypeAfterEvent">
                                     {{type.name}}
@@ -103,7 +107,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group row" *ngIf="!isEditMode">
+                    <div class="form-group row">
                         <div class="col-md-2">
                             <label for="subType">SubType</label>
                         </div>
@@ -112,7 +116,7 @@
                             class="form-control" 
                            [ngClass]="{'is-invalid' : AddForm.get('subType').invalid && 
                            AddForm.get('subType').touched}">
-                           <option value="" selected>Pick a SubType...</option>
+                           <option value="" selected *ngIf="!isEditMode">Pick a SubType...</option>
                                <option 
                                    *ngFor="let subtype of subTypeAfterEvent">
                                    {{subtype.name}}
@@ -158,16 +162,20 @@
                         </div>
                     </div>
 
-                    
 
-                     <div class="text-center" *ngIf="IsPrivate">
+                     <div class="text-center" *ngIf="IsPrivate && !isEditMode">
                         <button class="btn custom-btn mt-3" [disabled]="AddForm.invalid || 
                         AssetNumberExist || 
                         NameExist" 
                         type="submit">{{btnTitle}}</button>
                      </div>
 
-                     <div class="text-center" *ngIf="!IsPrivate">
+                     <div class="text-center" *ngIf="isEditMode">
+                        <button class="btn custom-btn mt-3" 
+                        type="submit">{{btnTitle}}</button>
+                     </div>
+
+                     <div class="text-center" *ngIf="!IsPrivate && !isEditMode">
                         <button class="btn custom-btn mt-3" [disabled]="!AddForm.get('type').valid || 
                         !AddForm.get('subType').valid || !AddForm.get('Publicity').valid" 
                         type="submit">{{btnTitle}}</button>

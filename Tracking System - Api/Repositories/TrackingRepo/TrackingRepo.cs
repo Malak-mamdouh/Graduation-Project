@@ -28,7 +28,9 @@ namespace Tracking_System___Api.Repositories.TrackingRepo
 
         public async Task postCurrentLocation( location location )
         {
-            var location1 = new location() { TripId = location.TripId, longitude = location.longitude, latitude = location.latitude, Trip = context.Trips.FirstOrDefault(x => x.Id == location.TripId) };
+            var location1 = new location() { TripId = location.TripId, longitude = location.longitude, 
+                latitude = location.latitude, Trip = context.Trips.
+                FirstOrDefault(x => x.Id == location.TripId) };
             await context.locations.AddAsync(location1);
             await context.SaveChangesAsync();
                      

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Tracking_System___Api.Dtos;
 using Tracking_System___Api.Models;
 
 namespace Tracking_System___Api.Repositories.PlaceRepo
@@ -18,13 +19,13 @@ namespace Tracking_System___Api.Repositories.PlaceRepo
         {
             if (place != null)
             {
-                    await context.places.AddAsync(place);
-                    await context.SaveChangesAsync();
-                    return place;    
+                await context.places.AddAsync(place);
+                await context.SaveChangesAsync();
+                return place;
             }
             return null;
         }
-        
+
         public async Task<bool> deletePlace(int id)
         {
             var place = await context.places.FirstOrDefaultAsync(x => x.Id == id);
@@ -35,16 +36,8 @@ namespace Tracking_System___Api.Repositories.PlaceRepo
             await context.SaveChangesAsync();
             return true;
         }
-        /*public async Task<IList<int>> filteredDrivers(string region)
-        {
-            var driversPlaces = await context.places.Where(p => p.Region == region).ToListAsync();
-            foreach (var place in driversPlaces)
-            {
-                var userIds = await context.PlaceUser.Where(p => p.PlaceId == place.Id).
-                    Select(p => p.UserId).ToListAsync();
-                
-            }
-        }*/
+        
+       
         public async Task<IList<Place>> showAllPlaces()
         {
             var places = await context.places.ToListAsync();

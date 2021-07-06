@@ -10,8 +10,8 @@ using Tracking_System___Api.Models;
 namespace Tracking_System___Api.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20210518163802_deleteFirstName")]
-    partial class deleteFirstName
+    [Migration("20210704133518_deleteCustomerAddress")]
+    partial class deleteCustomerAddress
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -130,7 +130,6 @@ namespace Tracking_System___Api.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("AssetNumber")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
@@ -138,7 +137,6 @@ namespace Tracking_System___Api.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SubType")
@@ -147,9 +145,6 @@ namespace Tracking_System___Api.Migrations
 
                     b.Property<string>("Type")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Url")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -176,9 +171,28 @@ namespace Tracking_System___Api.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Region")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("customers");
+                });
+
+            modelBuilder.Entity("Tracking_System___Api.Models.Department", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Departments");
                 });
 
             modelBuilder.Entity("Tracking_System___Api.Models.Issues", b =>
@@ -211,6 +225,37 @@ namespace Tracking_System___Api.Migrations
                     b.HasIndex("AssetId");
 
                     b.ToTable("issues");
+                });
+
+            modelBuilder.Entity("Tracking_System___Api.Models.Place", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Region")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("places");
+                });
+
+            modelBuilder.Entity("Tracking_System___Api.Models.PlaceUser", b =>
+                {
+                    b.Property<int>("PlaceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("PlaceId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("PlaceUser");
                 });
 
             modelBuilder.Entity("Tracking_System___Api.Models.Role", b =>
@@ -249,29 +294,35 @@ namespace Tracking_System___Api.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AssetId")
-                        .HasColumnType("int");
+                    b.Property<string>("CustomerName")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CustomerId")
-                        .HasColumnType("int");
+                    b.Property<string>("CustomerPhone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerRegion")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("DepartmentId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Destination")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDone")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Status")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("AssetId");
+                    b.HasIndex("DepartmentId");
 
-                    b.HasIndex("CustomerId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Trips");
                 });
@@ -286,6 +337,12 @@ namespace Tracking_System___Api.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<string>("Adress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -296,9 +353,6 @@ namespace Tracking_System___Api.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
@@ -361,9 +415,6 @@ namespace Tracking_System___Api.Migrations
 
                     b.Property<int>("TripId")
                         .HasColumnType("int");
-
-                    b.Property<double>("accuracy")
-                        .HasColumnType("float");
 
                     b.Property<double>("latitude")
                         .HasColumnType("float");
@@ -440,23 +491,42 @@ namespace Tracking_System___Api.Migrations
                     b.Navigation("Asset");
                 });
 
+            modelBuilder.Entity("Tracking_System___Api.Models.PlaceUser", b =>
+                {
+                    b.HasOne("Tracking_System___Api.Models.Place", "place")
+                        .WithMany("placeUsers")
+                        .HasForeignKey("PlaceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Tracking_System___Api.Models.User", "user")
+                        .WithMany("placeUsers")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("place");
+
+                    b.Navigation("user");
+                });
+
             modelBuilder.Entity("Tracking_System___Api.Models.Trip", b =>
                 {
-                    b.HasOne("Tracking_System___Api.Models.Asset", "Asset")
+                    b.HasOne("Tracking_System___Api.Models.Department", "Department")
                         .WithMany()
-                        .HasForeignKey("AssetId")
+                        .HasForeignKey("DepartmentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Tracking_System___Api.Models.Customer", "Customer")
-                        .WithMany()
-                        .HasForeignKey("CustomerId")
+                    b.HasOne("Tracking_System___Api.Models.User", "user")
+                        .WithMany("trips")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Asset");
+                    b.Navigation("Department");
 
-                    b.Navigation("Customer");
+                    b.Navigation("user");
                 });
 
             modelBuilder.Entity("Tracking_System___Api.Models.location", b =>
@@ -470,9 +540,21 @@ namespace Tracking_System___Api.Migrations
                     b.Navigation("Trip");
                 });
 
+            modelBuilder.Entity("Tracking_System___Api.Models.Place", b =>
+                {
+                    b.Navigation("placeUsers");
+                });
+
             modelBuilder.Entity("Tracking_System___Api.Models.Trip", b =>
                 {
                     b.Navigation("current");
+                });
+
+            modelBuilder.Entity("Tracking_System___Api.Models.User", b =>
+                {
+                    b.Navigation("placeUsers");
+
+                    b.Navigation("trips");
                 });
 #pragma warning restore 612, 618
         }

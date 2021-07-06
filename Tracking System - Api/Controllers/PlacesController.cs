@@ -48,6 +48,25 @@ namespace Tracking_System___Api.Controllers
 
             return place;
         }
+        [HttpGet("{Id}")]
+        public async Task<IEnumerable<object>> driversPlace(int Id)
+        {
+            var drivers = await _context.PlaceUser.Where(p => p.PlaceId == Id).Select(p =>
+            new { p.user.UserName, p.user.Id }).ToListAsync();
+            return drivers;
+        }
+        [HttpDelete("{id}/{uId}")]
+        public async Task<bool> DeleteDriverFromPlace(int id, int uId)
+        {
+            if (id != 0 && uId != 0)
+            {
+                var placeUser = await _context.PlaceUser.FirstOrDefaultAsync(x => x.PlaceId == id && x.UserId == uId);
+                _context.PlaceUser.Remove(placeUser);
+                await _context.SaveChangesAsync();
+                return true;
+            }
+            return false;
+        }
         [HttpPut]
         public async Task<IActionResult> EditPlace(Place place)
         {

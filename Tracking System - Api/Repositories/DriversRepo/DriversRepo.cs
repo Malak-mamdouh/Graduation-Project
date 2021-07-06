@@ -28,7 +28,6 @@ namespace Tracking_System___Api.Repositories.DriversRepo
                 LastName = model.LastName,
                 Email = model.Email,
                 PhoneNumber = model.Phone,
-                Url = model.Url,
                 Adress = model.Adress,
                 City = model.City
             };
@@ -44,14 +43,7 @@ namespace Tracking_System___Api.Repositories.DriversRepo
             var driver = await context.Users.FirstOrDefaultAsync(x => x.Id == id);
             if (driver == null)
                 return false;
-            if (driver.Url != null)
-            {
-                FileInfo file = new FileInfo(driver.Url);
-                if (file.Exists)
-                    file.Delete();
-            }
             
-
             context.Users.Remove(driver);
             await context.SaveChangesAsync();
             return true;
@@ -68,7 +60,8 @@ namespace Tracking_System___Api.Repositories.DriversRepo
                 Phone = user.PhoneNumber,
                 Email = user.Email,
                 Adress = user.Adress,
-                City = user.City
+                City = user.City,
+                Password = user.PasswordHash
             };
            if ( driver != null)
             {
@@ -89,27 +82,34 @@ namespace Tracking_System___Api.Repositories.DriversRepo
             return drivers;
         }
         
-        public async Task<User> updateDriver(Driver driver)
+        public async Task<User> updateDriver(int id , Driver driver)
         {
             if (driver.Email != "")
             {
-                var driverModel = await context.Users.FirstOrDefaultAsync(a => a.Email == driver.Email);
+                var driverModel = await context.Users.FirstOrDefaultAsync(a => a.Id == id);
                 if (driverModel == null)
                     return null;
+                if (driver.Password != driverModel.PasswordHash)
+                {
+                    var clearing = await _userManager.RemovePasswordAsync(driverModel);
+                    if (clearing.Succeeded)
+                    {
+                        await _userManager.AddPasswordAsync(driverModel, driver.Password);
+                    }
+                }
                 context.Users.Attach(driverModel);
                 driverModel.UserName = driver.FirstName;
                 driverModel.LastName= driver.LastName;
                 driverModel.PhoneNumber = driver.Phone;
                 driverModel.Email = driver.Email;
-                driverModel.PasswordHash = driver.Password;
-                driverModel.Url = driver.Url;
+
                 context.Entry(driverModel).Property(a => a.UserName).IsModified = true;
                 context.Entry(driverModel).Property(a => a.LastName).IsModified = true;
                 context.Entry(driverModel).Property(a => a.PhoneNumber).IsModified = true;
                 context.Entry(driverModel).Property(a => a.Email).IsModified = true;
-                context.Entry(driverModel).Property(a => a.Url).IsModified = true;
                 await context.SaveChangesAsync();
                 return driverModel;
+           
             }
             return null;
         }

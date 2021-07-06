@@ -26,7 +26,13 @@ export class PlaceService {
     EditPlace(place: Place , id: number){
         return this.http.put(this.baseUrl + 'EditPlace/' + id , place);
     } 
+    filterDrivers(id: number): Observable<{userName: string , id: number}[]>{
+        return this.http.get<{userName: string , id: number}[]>(this.baseUrl + 'driversPlace/' + id);
+    }
     DeletePlace(id: number){
         return this.http.delete(this.baseUrl + 'DeletePlace/' + id);
     }  
+    DeleteDriver(id: number , uId: number){
+        return this.http.delete(this.baseUrl + 'DeleteDriverFromPlace/' + id + '/' + uId);
+    } 
 }

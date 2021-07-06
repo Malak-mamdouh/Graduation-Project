@@ -13,9 +13,6 @@ namespace Tracking_System___Api.Models
         public string LastName { get; set; }
         public string Adress { get; set; }
         public string City { get; set; }
-        public string Url { get; set; }
-        [NotMapped]
-        public IFormFile file { get; set; }
         public IList<PlaceUser> placeUsers { get; set; }
         public IList<Trip> trips { get; set; }
     }

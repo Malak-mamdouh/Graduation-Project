@@ -17,10 +17,8 @@ namespace Tracking_System___Api.Models
         public string Status { get; set; }
         public string CustomerName { get; set; }
         public string CustomerPhone { get; set; }
-        public string CustomerAdress { get; set; }
         public string CustomerRegion { get; set; }
         public int DepartmentId { get; set; }
-        [ForeignKey("DepartmentId")]
         public virtual Department Department { get; set; }
         public int UserId { get; set; }
         public virtual User user { get; set; }

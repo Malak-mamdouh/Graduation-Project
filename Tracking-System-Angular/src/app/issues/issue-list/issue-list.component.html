@@ -23,8 +23,8 @@
               <td>{{issue.reportedBy}}</td>
               <td>{{issue.date | date: 'short'}}</td>
               <td>
-                <a class="btn btn-danger mr-2" (click)="onDelete(issue.id)">Delete</a>
-                <a class="btn btn-primary" (click)="onEdit(issue.id)">Edit</a>
+                <a class="btn btn-primary mr-2" (click)="onEdit(issue.id)">Edit</a>
+                <a class="btn btn-danger" (click)="onDelete(issue.id)">Delete</a>
             </td>
             </tr>
           </tbody>          

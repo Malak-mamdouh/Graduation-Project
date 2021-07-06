@@ -48,7 +48,7 @@ export class IssueAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.assetService.GetAllPrivateAssets().subscribe(list => {
-      this.assets = list;
+      this.assets = list.data;
       console.log(this.assets);
     } , err => console.log(err));
     this.isEditMode = false;
@@ -76,7 +76,8 @@ export class IssueAddComponent implements OnInit {
           this.btnTitle = 'Edit';
           this.title = 'Edit Issue';
           this.issueService.ShowIssue(id).subscribe(result => {
-          if (result.assetId === 4){
+          
+          if (result.assetId === 1){
             this.IsPrivate = false;
           }else{
             this.IsPrivate = true;
@@ -113,7 +114,13 @@ export class IssueAddComponent implements OnInit {
   }
   addIssueData(){
     if (this.issueModel !== null){
-        status: this.issueModel.status;
+      this.AddForm.patchValue({
+        date: this.issueModel.date,
+        status: this.issueModel.status,
+        description: this.issueModel.description,
+        reportedBy: this.issueModel.reportedBy,
+        assetId: this.issueModel.assetId
+      });
     }
   }
 
@@ -141,7 +148,7 @@ export class IssueAddComponent implements OnInit {
     if (this.IsPrivate){
       this.issueModel.assetId = this.AddForm.get('assetId').value;
     }else{
-      this.issueModel.assetId = 4;
+      this.issueModel.assetId = 1;
     }
   }
 }

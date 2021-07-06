@@ -102,15 +102,15 @@ namespace Tracking_System___Api.Controllers
         }
         
         // PUT api/<DriversController>/5
-        [HttpPut]
-        public async Task<IActionResult> EditDriver(Driver driver)
+        [HttpPut("{Id}")]
+        public async Task<IActionResult> EditDriver(Driver driver , int Id)
         {
 
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
-            var driverModel = await _idriverrepo.updateDriver(driver);
+            var driverModel = await _idriverrepo.updateDriver(Id , driver);
             if (driverModel == null)
             {
                 return BadRequest();
